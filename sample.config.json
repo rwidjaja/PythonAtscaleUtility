@@ -1,0 +1,12 @@
+{
+  "instance_type": "installer",
+  "username": "admin",
+  "password": "password",
+  "host": "hostname",
+  "organization": "default",
+  "workspace": "working_dir",
+  "git_id": "gitid",
+  "git_token": "token",
+  "client_id": "atscale-api",
+  "client_secret": "secret"
+}

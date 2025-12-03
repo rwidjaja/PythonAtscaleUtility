@@ -1,0 +1,3195 @@
+{
+  "id": "6a973ccf-b198-4b81-6885-e7a48effcba9",
+  "name": "TestDebug",
+  "version": 129,
+  "annotations": {
+    "annotation": [
+      {
+        "name": "migrationVersion",
+        "value": "2025.1.0.7282"
+      }
+    ]
+  },
+  "properties": {
+    "caption": "TestDebug",
+    "visible": true,
+    "aggressive_aggregate_promotion": false,
+    "aggregate-prediction": {
+      "speculative-aggregates": false
+    },
+    "preferred_aggregate_stores": {
+      "agg_stores_by_priority": null
+    }
+  },
+  "attributes": {
+    "attribute-key": [
+      {
+        "id": "b81b64dc-0087-4b80-8be0-d7c78af91bb4",
+        "properties": {
+          "visible": true,
+          "columns": 1
+        }
+      },
+      {
+        "id": "3beb9c52-7ded-4472-8969-484f8be85acb",
+        "properties": {
+          "visible": true,
+          "columns": 1
+        }
+      },
+      {
+        "id": "1bbcb185-00f4-43c6-9b80-d79dedb10571",
+        "properties": {
+          "visible": true,
+          "columns": 1
+        }
+      },
+      {
+        "id": "c1b5f75a-2438-4708-b6f5-cde595d9796e",
+        "properties": {
+          "visible": true,
+          "columns": 1
+        }
+      },
+      {
+        "id": "b482a170-5fcc-430d-8b6a-f083d249b564",
+        "properties": {
+          "visible": true,
+          "columns": 1
+        }
+      },
+      {
+        "id": "02e1c7d6-7262-465b-b812-d15a082ec40d",
+        "properties": {
+          "visible": true,
+          "columns": 1
+        }
+      },
+      {
+        "id": "fe38da46-9c37-420b-9ac5-e0f8051e88c8",
+        "properties": {
+          "visible": true,
+          "columns": 1
+        }
+      },
+      {
+        "id": "d4f98da8-a24e-4343-ad8c-a6ca0c3c55b8",
+        "properties": {
+          "visible": true,
+          "columns": 1
+        }
+      },
+      {
+        "id": "e46368da-b15d-4941-9d68-8a64ca6b98b0",
+        "properties": {
+          "visible": true,
+          "columns": 1
+        }
+      },
+      {
+        "id": "1d3797c2-5d13-4275-827b-ac85eaae256d",
+        "properties": {
+          "visible": true,
+          "columns": 1
+        }
+      },
+      {
+        "id": "2bac4afb-e9b4-4434-8a9f-b86a3699fcec",
+        "properties": {
+          "visible": true,
+          "columns": 1
+        }
+      },
+      {
+        "id": "134c958e-24a9-4016-bfb3-653f9d6295af",
+        "properties": {
+          "visible": true,
+          "columns": 1
+        }
+      },
+      {
+        "id": "aee3721e-5d66-41f7-adca-2ab642652d6b",
+        "properties": {
+          "visible": true,
+          "columns": 1
+        }
+      },
+      {
+        "id": "ba1ba662-8e5f-4a93-97fd-35da1e018f9e",
+        "properties": {
+          "visible": true,
+          "columns": 1
+        }
+      },
+      {
+        "id": "3d48543a-a42f-4fbc-aabd-db40ded357eb",
+        "properties": {
+          "visible": true,
+          "columns": 1
+        }
+      },
+      {
+        "id": "4408b1ca-163b-4b40-8740-f48a8f59fab2",
+        "properties": {
+          "visible": true,
+          "columns": 1
+        }
+      },
+      {
+        "id": "3374cdd1-21a6-4ef5-90d0-9ac950c9e67d",
+        "properties": {
+          "visible": true,
+          "columns": 1
+        }
+      },
+      {
+        "id": "0a3a9ff0-ed98-447a-ae1c-6bd71d688d57",
+        "properties": {
+          "visible": true,
+          "columns": 1
+        }
+      },
+      {
+        "id": "16a32a04-3b2b-48d1-9041-63bd8095d7bf",
+        "properties": {
+          "visible": true,
+          "columns": 1
+        }
+      },
+      {
+        "id": "6a97df6e-009e-41be-81e3-cf1470ad09bc",
+        "properties": {
+          "visible": true,
+          "columns": 1
+        }
+      }
+    ],
+    "keyed-attribute": [
+      {
+        "id": "8971ae65-2a3f-4e5a-7f99-717137dafce8",
+        "key-ref": "b81b64dc-0087-4b80-8be0-d7c78af91bb4",
+        "name": "Date Level",
+        "properties": {
+          "caption": "Date Level",
+          "visible": true,
+          "type": {
+            "enum": {}
+          },
+          "ordering": {
+            "sort-key": {
+              "order": "ascending",
+              "value": {}
+            }
+          },
+          "allowed-calculation-types": {
+            "calculation-type": [
+              "Lag",
+              "Siblings",
+              "Range",
+              "ParallelPeriod",
+              "Ancestor",
+              "Descendants",
+              "PeriodsToDate",
+              "DatesPeriodsToDate"
+            ]
+          }
+        }
+      },
+      {
+        "id": "85083eaa-8c1e-4a5b-4bff-084c394ffb93",
+        "key-ref": "3beb9c52-7ded-4472-8969-484f8be85acb",
+        "name": "Year1",
+        "properties": {
+          "caption": "Year",
+          "visible": true,
+          "type": {
+            "enum": {}
+          },
+          "ordering": {
+            "sort-key": {
+              "order": "ascending",
+              "value": {}
+            }
+          },
+          "allowed-calculation-types": {
+            "calculation-type": [
+              "Lag",
+              "Siblings",
+              "Range",
+              "ParallelPeriod",
+              "Ancestor",
+              "Descendants",
+              "PeriodsToDate",
+              "DatesPeriodsToDate"
+            ]
+          }
+        }
+      },
+      {
+        "id": "8f9b67cb-0dbf-4e7b-46f6-8eec914fcb5d",
+        "key-ref": "1bbcb185-00f4-43c6-9b80-d79dedb10571",
+        "name": "Quarter",
+        "properties": {
+          "caption": "Quarter",
+          "visible": true,
+          "type": {
+            "enum": {}
+          },
+          "ordering": {
+            "sort-key": {
+              "order": "ascending",
+              "value": {}
+            }
+          },
+          "allowed-calculation-types": {
+            "calculation-type": [
+              "Lag",
+              "Siblings",
+              "Range",
+              "ParallelPeriod",
+              "Ancestor",
+              "Descendants",
+              "PeriodsToDate",
+              "DatesPeriodsToDate"
+            ]
+          }
+        }
+      },
+      {
+        "id": "1a3cfb80-76ac-4dd0-454e-444f256d6131",
+        "key-ref": "c1b5f75a-2438-4708-b6f5-cde595d9796e",
+        "name": "Month1",
+        "properties": {
+          "caption": "Month",
+          "visible": true,
+          "type": {
+            "enum": {}
+          },
+          "ordering": {
+            "sort-key": {
+              "order": "ascending",
+              "value": {}
+            }
+          },
+          "allowed-calculation-types": {
+            "calculation-type": [
+              "Lag",
+              "Siblings",
+              "Range",
+              "ParallelPeriod",
+              "Ancestor",
+              "Descendants",
+              "PeriodsToDate",
+              "DatesPeriodsToDate"
+            ]
+          }
+        }
+      },
+      {
+        "id": "22d181b5-1fc4-4d5b-7c71-e95a258c0472",
+        "key-ref": "b482a170-5fcc-430d-8b6a-f083d249b564",
+        "name": "d_year_name",
+        "properties": {
+          "caption": "Year Name",
+          "visible": true,
+          "type": {
+            "enum": {}
+          },
+          "ordering": {
+            "sort-key": {
+              "order": "ascending",
+              "key-ref": {
+                "id": "02e1c7d6-7262-465b-b812-d15a082ec40d"
+              }
+            }
+          },
+          "allowed-calculation-types": {
+            "calculation-type": [
+              "Lag",
+              "Siblings",
+              "Range"
+            ]
+          }
+        }
+      },
+      {
+        "id": "c7d7c94a-67db-459f-7fcc-a870da6fa8f0",
+        "key-ref": "fe38da46-9c37-420b-9ac5-e0f8051e88c8",
+        "name": "d_quarter_name",
+        "properties": {
+          "caption": "Quarter Name",
+          "visible": true,
+          "type": {
+            "enum": {}
+          },
+          "ordering": {
+            "sort-key": {
+              "order": "ascending",
+              "key-ref": {
+                "id": "d4f98da8-a24e-4343-ad8c-a6ca0c3c55b8"
+              }
+            }
+          },
+          "allowed-calculation-types": {
+            "calculation-type": [
+              "Lag",
+              "Siblings",
+              "Range"
+            ]
+          }
+        }
+      },
+      {
+        "id": "155763f6-7e1b-4c64-4751-1720164340ac",
+        "key-ref": "e46368da-b15d-4941-9d68-8a64ca6b98b0",
+        "name": "d_month_name",
+        "properties": {
+          "caption": "Month Name",
+          "visible": true,
+          "type": {
+            "enum": {}
+          },
+          "ordering": {
+            "sort-key": {
+              "order": "ascending",
+              "key-ref": {
+                "id": "1d3797c2-5d13-4275-827b-ac85eaae256d"
+              }
+            }
+          },
+          "allowed-calculation-types": {
+            "calculation-type": [
+              "Lag",
+              "Siblings",
+              "Range"
+            ]
+          }
+        }
+      },
+      {
+        "id": "8a847338-6d9f-45f1-43ac-3097490ae9b5",
+        "key-ref": "2bac4afb-e9b4-4434-8a9f-b86a3699fcec",
+        "name": "Dim Product Level",
+        "properties": {
+          "caption": "Dim Product Level",
+          "visible": false,
+          "type": {
+            "enum": {}
+          },
+          "ordering": {
+            "sort-key": {
+              "order": "ascending",
+              "value": {}
+            }
+          },
+          "allowed-calculation-types": {
+            "calculation-type": []
+          }
+        }
+      },
+      {
+        "id": "2d128e1b-3d42-44de-5c2f-95fee9b0b15e",
+        "key-ref": "134c958e-24a9-4016-bfb3-653f9d6295af",
+        "name": "Dim Product Subcategory Level",
+        "properties": {
+          "caption": "Dim Product Subcategory Level",
+          "visible": false,
+          "type": {
+            "enum": {}
+          },
+          "ordering": {
+            "sort-key": {
+              "order": "ascending",
+              "value": {}
+            }
+          },
+          "allowed-calculation-types": {
+            "calculation-type": []
+          }
+        }
+      },
+      {
+        "id": "05b5c048-5ce2-44ac-6a68-4f6c9caa313b",
+        "key-ref": "aee3721e-5d66-41f7-adca-2ab642652d6b",
+        "name": "d_englishproductname",
+        "properties": {
+          "caption": "English Product Name",
+          "visible": true,
+          "folder": "Product",
+          "type": {
+            "enum": {}
+          },
+          "ordering": {
+            "sort-key": {
+              "order": "ascending",
+              "key-ref": {
+                "id": "ba1ba662-8e5f-4a93-97fd-35da1e018f9e"
+              }
+            }
+          },
+          "allowed-calculation-types": {
+            "calculation-type": [
+              "Lag",
+              "Siblings",
+              "Range"
+            ]
+          }
+        }
+      },
+      {
+        "id": "9e4cd281-5996-4c02-5622-aed8a4b9ce73",
+        "key-ref": "3d48543a-a42f-4fbc-aabd-db40ded357eb",
+        "name": "d_englishproductsubcategoryname",
+        "properties": {
+          "caption": "English Product Subcategory Name",
+          "visible": true,
+          "folder": "Product",
+          "type": {
+            "enum": {}
+          },
+          "ordering": {
+            "sort-key": {
+              "order": "ascending",
+              "key-ref": {
+                "id": "4408b1ca-163b-4b40-8740-f48a8f59fab2"
+              }
+            }
+          },
+          "allowed-calculation-types": {
+            "calculation-type": [
+              "Lag",
+              "Siblings",
+              "Range"
+            ]
+          }
+        }
+      },
+      {
+        "id": "866f2773-5549-4ec7-6c53-2469ecf27360",
+        "key-ref": "3374cdd1-21a6-4ef5-90d0-9ac950c9e67d",
+        "name": "d_salesordernumber",
+        "properties": {
+          "caption": "Sales Order Number",
+          "visible": true,
+          "type": {
+            "enum": {}
+          },
+          "ordering": {
+            "sort-key": {
+              "order": "ascending",
+              "key-ref": {
+                "id": "0a3a9ff0-ed98-447a-ae1c-6bd71d688d57"
+              }
+            }
+          },
+          "allowed-calculation-types": {
+            "calculation-type": [
+              "Lag",
+              "Siblings",
+              "Range"
+            ]
+          }
+        }
+      },
+      {
+        "id": "a76568de-92d7-4a01-5ab2-6b2d78ab98cf",
+        "key-ref": "16a32a04-3b2b-48d1-9041-63bd8095d7bf",
+        "name": "d_departmentgroupkey",
+        "properties": {
+          "caption": "Department Group Key Fake",
+          "visible": true,
+          "type": {
+            "enum": {}
+          },
+          "ordering": {
+            "sort-key": {
+              "order": "ascending",
+              "key-ref": {
+                "id": "6a97df6e-009e-41be-81e3-cf1470ad09bc"
+              }
+            }
+          },
+          "allowed-calculation-types": {
+            "calculation-type": [
+              "Lag",
+              "Siblings",
+              "Range"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "dimensions": {
+    "dimension": [
+      {
+        "id": "bac77bc1-e2e8-4753-758c-f2b48daf63df",
+        "name": "Date",
+        "properties": {
+          "visible": true,
+          "dimension-type": "Time"
+        },
+        "hierarchy": [
+          {
+            "id": "60e2e70c-d75e-47c5-b8ad-1d45fe222844",
+            "name": "Date Hierarchy",
+            "properties": {
+              "caption": "Date Hierarchy",
+              "visible": true,
+              "filter-empty": "Always",
+              "default-member": {
+                "all-member": {}
+              }
+            },
+            "level": [
+              {
+                "id": "97921a97-7829-42ba-b91b-995707c816c9",
+                "primary-attribute": "85083eaa-8c1e-4a5b-4bff-084c394ffb93",
+                "properties": {
+                  "unique-in-parent": false,
+                  "visible": true,
+                  "level-type": "TimeYears"
+                },
+                "keyed-attribute-ref": [
+                  {
+                    "attribute-id": "22d181b5-1fc4-4d5b-7c71-e95a258c0472",
+                    "properties": {
+                      "multiplicity": {}
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "3de7a97c-5ba5-4333-a70f-e0c7e21c7b29",
+                "primary-attribute": "8f9b67cb-0dbf-4e7b-46f6-8eec914fcb5d",
+                "properties": {
+                  "unique-in-parent": false,
+                  "visible": true,
+                  "level-type": "TimeQuarters"
+                },
+                "keyed-attribute-ref": [
+                  {
+                    "attribute-id": "c7d7c94a-67db-459f-7fcc-a870da6fa8f0",
+                    "properties": {
+                      "multiplicity": {}
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "80d009ba-6dab-4ad9-9b17-7a52a5dd5f34",
+                "primary-attribute": "1a3cfb80-76ac-4dd0-454e-444f256d6131",
+                "properties": {
+                  "unique-in-parent": false,
+                  "visible": true,
+                  "level-type": "TimeMonths"
+                },
+                "keyed-attribute-ref": [
+                  {
+                    "attribute-id": "155763f6-7e1b-4c64-4751-1720164340ac",
+                    "properties": {
+                      "multiplicity": {}
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "17d35213-3619-42d1-a643-0fb25f43d8f2",
+                "primary-attribute": "8971ae65-2a3f-4e5a-7f99-717137dafce8",
+                "properties": {
+                  "unique-in-parent": false,
+                  "visible": true,
+                  "level-type": "TimeDays"
+                }
+              }
+            ]
+          }
+        ],
+        "modeler-metadata": {
+          "global-id": "",
+          "version": 0,
+          "modified": false
+        }
+      },
+      {
+        "id": "0f987858-35b0-47b5-7e5b-fda62f92f2f7",
+        "name": "Dim Product",
+        "properties": {
+          "visible": true,
+          "dimension-type": "Other"
+        },
+        "hierarchy": [
+          {
+            "id": "56a382f7-b1a6-434a-b2a8-47cba1bf8c20",
+            "name": "Dim Product Hierarchy",
+            "properties": {
+              "caption": "Dim Product Hierarchy",
+              "visible": true,
+              "filter-empty": "Always",
+              "default-member": {
+                "all-member": {}
+              }
+            },
+            "level": [
+              {
+                "id": "6e3fe860-f6f3-48f2-8be9-fbbc19c2221c",
+                "primary-attribute": "8a847338-6d9f-45f1-43ac-3097490ae9b5",
+                "properties": {
+                  "unique-in-parent": false,
+                  "visible": false
+                },
+                "keyed-attribute-ref": [
+                  {
+                    "attribute-id": "2d128e1b-3d42-44de-5c2f-95fee9b0b15e",
+                    "ref-id": "6cad7704-5b49-42a6-92ca-2c3125d1d63e",
+                    "properties": {
+                      "multiplicity": {}
+                    }
+                  },
+                  {
+                    "attribute-id": "05b5c048-5ce2-44ac-6a68-4f6c9caa313b",
+                    "properties": {
+                      "multiplicity": {}
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "participating-dimensions": [
+          "1b4c7be2-3e0a-4658-433d-625d98d0866d"
+        ],
+        "modeler-metadata": {
+          "global-id": "",
+          "version": 0,
+          "modified": false
+        }
+      },
+      {
+        "id": "1b4c7be2-3e0a-4658-433d-625d98d0866d",
+        "name": "Dim Product Subcategory",
+        "properties": {
+          "visible": true,
+          "dimension-type": "Other"
+        },
+        "hierarchy": [
+          {
+            "id": "050d6e9c-806d-4b50-a322-bc14e6e98af7",
+            "name": "Dim Product Subcategory Hierarchy",
+            "properties": {
+              "caption": "Dim Product Subcategory Hierarchy",
+              "visible": true,
+              "filter-empty": "Always",
+              "default-member": {
+                "all-member": {}
+              }
+            },
+            "level": [
+              {
+                "id": "bd39418f-b363-42fd-a109-4db8c43e909d",
+                "primary-attribute": "2d128e1b-3d42-44de-5c2f-95fee9b0b15e",
+                "properties": {
+                  "unique-in-parent": false,
+                  "visible": false
+                },
+                "keyed-attribute-ref": [
+                  {
+                    "attribute-id": "9e4cd281-5996-4c02-5622-aed8a4b9ce73",
+                    "properties": {
+                      "multiplicity": {}
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "modeler-metadata": {
+          "global-id": "",
+          "version": 0,
+          "modified": false
+        }
+      }
+    ]
+  },
+  "datasets": {
+    "data-set": [
+      {
+        "id": "70f9ebca-c403-42af-6cd8-67fd640da47b",
+        "name": "datecustom",
+        "properties": {
+          "allow-aggregates": true,
+          "aggregate-locality": null,
+          "aggregate-destinations": null
+        },
+        "physical": {
+          "connection": {
+            "id": "Postgres14"
+          },
+          "tables": [
+            {
+              "schema": "asadventure",
+              "name": "datecustom"
+            }
+          ],
+          "immutable": false,
+          "columns": [
+            {
+              "id": "b0c45cf8-1245-48c3-bb23-721747f6a9b9",
+              "name": "pk_date",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "771db04e-3d94-4ae6-a77e-eca55027b3f4",
+              "name": "datekey",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "ad3c28cd-9f4d-44bd-8983-2d60c7242033",
+              "name": "date_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "2c560bd5-699c-4790-a96d-f6b450076b83",
+              "name": "year",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "5b80b3b3-f5f1-4ad3-8976-f7c9ad7cf235",
+              "name": "year_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "580c6505-8b8e-4c6d-a65f-4dfd5bdae240",
+              "name": "half_year",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "692ddd90-ebed-4fc0-adc2-7c7a03f960c0",
+              "name": "half_year_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "8ac1f938-2844-4095-addd-fe253897f6ad",
+              "name": "quarter",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "4c71768f-754d-403c-a591-782de4d20296",
+              "name": "quarter_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "ac0dfa0a-205f-4140-bc03-43f39af49b8e",
+              "name": "month",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "0bbe6147-a33d-4a19-b178-e1463093e74e",
+              "name": "month_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "c9e2dc33-b417-45a9-8d79-c0eb0ae18a4c",
+              "name": "week",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "49e8eab5-c475-4103-81f4-9af7cbf517b3",
+              "name": "week_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "56fb26fb-9a21-40e4-be1a-9b2282127e61",
+              "name": "day_of_year",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "3e8768b7-4485-4f3e-a308-0baaa8365b7c",
+              "name": "day_of_year_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "3aaffe2b-8f86-47e2-8f8e-af58bf184c9c",
+              "name": "day_of_half_year",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "54b3aaf2-b329-4cd9-b999-6643d45889a2",
+              "name": "day_of_half_year_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "b919df93-014a-480c-a20c-9f800d40ffb1",
+              "name": "day_of_quarter",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "7157a9b5-00f6-40dc-b6ea-bb9eb18f35c0",
+              "name": "day_of_quarter_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "caf69b51-6ff4-4e57-a53c-2936bca7b827",
+              "name": "day_of_month",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "ecce990d-8974-42ac-9b92-ad2cc5dd0cb9",
+              "name": "day_of_month_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "6aaf85de-0ad4-41b4-a278-751bc05498dc",
+              "name": "day_of_week",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "ec166621-4158-4ede-bf9d-736ba0f519bf",
+              "name": "day_of_week_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "8fa2ea2a-36b2-40ad-bdc3-1c3d8fcbeba2",
+              "name": "week_of_year",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "20d2d875-0ccf-45b3-90f6-c8e72076a3ea",
+              "name": "week_of_year_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "580f79e2-4b81-4879-bea6-3b43d69c4f12",
+              "name": "month_of_year",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "534eb59b-4ca3-4a05-8732-38e62493e468",
+              "name": "month_of_year_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "468f7c05-6462-4a11-8a86-54e3c8a2d8a7",
+              "name": "month_of_half_year",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "6d065f82-63f3-431b-a33a-e791b023dee1",
+              "name": "month_of_half_year_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "f3e30b56-f938-49d5-b25b-df97da51b675",
+              "name": "month_of_quarter",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "c873e4ec-d6b7-4ecd-a7f7-6102ef3ac61b",
+              "name": "month_of_quarter_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "eb12835e-646a-4872-ab94-96ef96acc9d9",
+              "name": "quarter_of_year",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "b5dd2685-ccc3-416c-9993-e69dc0414b3b",
+              "name": "quarter_of_year_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "d61cdc36-6115-4646-b440-27297a953489",
+              "name": "quarter_of_half_year",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "2b5d8215-6900-43c5-9d1f-eca020c232b3",
+              "name": "quarter_of_half_year_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "c3a3787d-d8d6-4112-9b2c-849768584fc0",
+              "name": "half_year_of_year",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "cc5c4533-b0e8-41f5-b7a5-2098efe6f5c5",
+              "name": "half_year_of_year_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "decff863-540a-4a61-b749-da9528185950",
+              "name": "reporting_year",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "b4ae5462-7d06-4811-9723-c4e1e2c0e24f",
+              "name": "reporting_year_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "b49eb431-752e-4da8-bb23-c422d45f061e",
+              "name": "reporting_half_year",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "c7a9310c-3467-49a3-8788-6c83678c2415",
+              "name": "reporting_half_year_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "b5e80cf7-022b-4d9d-b1f1-8e4e13c6b3c7",
+              "name": "reporting_quarter",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "b080d0a2-cda7-4bb1-bc3f-7f5a98e89a3c",
+              "name": "reporting_quarter_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "d885a188-56f9-4835-9830-e678189dee0f",
+              "name": "reporting_month",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "a2e22b5b-5e10-4640-9f12-bbe6b5f391d0",
+              "name": "reporting_month_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "cbdb5a02-ae62-4075-95aa-3364d7f27c97",
+              "name": "reporting_month_name2",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "78705cd1-4d63-4b9d-91e9-b75828c7e665",
+              "name": "reporting_week",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "2e59bdca-678e-4388-b63f-bedf710b1858",
+              "name": "reporting_week_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "d72950b9-7f06-4ec3-a2c5-4f83e5ba7f5a",
+              "name": "reporting_day",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "78204b11-9afd-44c1-a9c4-3d3e69af914a",
+              "name": "reporting_day_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "3cc4ddbf-cfe2-4e28-b46c-a4854beb9838",
+              "name": "reporting_day_of_year",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "646dd894-c0c0-4264-97ab-a239487d4fef",
+              "name": "reporting_day_of_year_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "d2f9befc-409d-40fe-9b22-d1cf3f63e04b",
+              "name": "reporting_day_of_half_year",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "6ab050d2-1a7a-4740-9193-ac4cd64b324a",
+              "name": "reporting_day_of_half_year_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "1d3528b0-dfb7-4448-893d-fb5ca5aa97c1",
+              "name": "reporting_day_of_quarter",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "29df4290-5230-474c-8d81-12a07626c18c",
+              "name": "reporting_day_of_quarter_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "04393326-88d1-420d-8aca-1c6a35075d2b",
+              "name": "reporting_day_of_month",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "a76e7a31-d3ed-45b7-b4b5-a362d759c807",
+              "name": "reporting_day_of_month_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "62aada28-726b-478f-b376-9184e8be4950",
+              "name": "reporting_day_of_week",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "4bb310d2-46c4-4c36-a12f-fd034891aa55",
+              "name": "reporting_day_of_week_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "0a473128-d900-4f72-996f-1d6d8c27b016",
+              "name": "reporting_week_of_year",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "b9c39748-2413-42a0-afaf-927cca11071e",
+              "name": "reporting_week_of_year_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "300613b7-fc50-484e-8c45-562622d55cd0",
+              "name": "reporting_week_of_half_year",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "c5cbdf1b-97e6-4e20-9fc3-8ea170f15abc",
+              "name": "reporting_week_of_half_year_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "dced4efc-cadb-4466-920e-1922e1b6b20c",
+              "name": "reporting_week_of_quarter",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "51da1689-6a1d-41c6-b8a4-a85c31a9b75a",
+              "name": "reporting_week_of_quarter_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "c48e843e-d144-4f4b-8854-3e5714272e05",
+              "name": "reporting_week_of_month",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "ee59ead2-8e0a-4263-9120-019c73efe39c",
+              "name": "reporting_week_of_month_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "76840cff-278c-41e2-a962-9e400508ae0f",
+              "name": "reporting_month_of_year",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "e6492994-5ff4-413e-ab39-0f34eeb447ea",
+              "name": "reporting_month_of_year_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "525c88c4-7066-49b1-912f-2ee6fd745a26",
+              "name": "reporting_month_of_half_year",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "2877d485-1968-4eaa-95ca-659dc793ef74",
+              "name": "reporting_month_of_half_year_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "cbb3df31-6ad8-4663-a409-2d3832c306fd",
+              "name": "reporting_month_of_quarter",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "b4ef29f8-488b-41ab-b2ea-4b9611a9db6f",
+              "name": "reporting_month_of_quarter_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "d98c5de6-9289-4932-806d-2bfc83b186e5",
+              "name": "reporting_quarter_of_year",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "bc23ee81-eb07-4f6e-b27a-b96f6b2f929a",
+              "name": "reporting_quarter_of_year_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "f5c14121-1700-4f73-b2d7-78abe6dde16d",
+              "name": "reporting_quarter_of_half_year",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "46af0713-ad2e-4f0f-9bbd-2a6372c00d38",
+              "name": "reporting_quarter_of_half_year_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "4c993203-3997-4817-81c5-e6ebfcc4bc63",
+              "name": "reporting_half_year_of_year",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "8fd59127-75cb-4359-a270-e6b4591360e5",
+              "name": "reporting_half_year_of_year_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "c316b3f9-8823-4e1d-8279-b5590acc11a9",
+              "name": "iso_8601_year",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "a0bc6161-4702-4baa-a634-4b069a02e579",
+              "name": "iso_8601_year_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "f92b6d9c-1c88-44b0-ab0d-3ed35846c308",
+              "name": "iso_8601_week",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "ce9ff228-1c5b-4e92-90e5-ec13ea76a329",
+              "name": "iso_8601_week_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "cb8d2a14-c641-455b-804b-2cbdd9a244cd",
+              "name": "iso_8601_day",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "59032a28-1a6d-4a64-aebe-f1a5c9f4a401",
+              "name": "iso_8601_day_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "a2340522-930e-4ed7-9ec0-05122dfa56db",
+              "name": "iso_8601_day_of_year",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "af721a6c-c02c-49d5-a564-635a25c5e550",
+              "name": "iso_8601_day_of_year_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "2a735d80-73be-4729-bc44-108e7259f9b2",
+              "name": "iso_8601_day_of_week",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "1ef4c7c6-439a-4d98-8d4e-9350fc1333e4",
+              "name": "iso_8601_day_of_week_name",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "f6d2811c-63b1-413f-95b5-b9b6d07cb5e6",
+              "name": "iso_8601_week_of_year",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "dfdd9826-1518-4e5c-ad63-55c266d548c8",
+              "name": "iso_8601_week_of_year_name_reporting_day_ctl",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "1aea72a2-739e-4156-9dcb-a9c7ff21bedd",
+              "name": "reporting_day_lykey",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "faf58f3e-d64d-4e1b-88e9-edd7f7962a97",
+              "name": "reporting_week_ctl",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "397a1618-15a4-4b46-8170-e060039f7774",
+              "name": "reporting_week_lykey",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "143edecb-43a3-43db-9cab-7793f4932e38",
+              "name": "reporting_month_lykey",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "42ff7932-af6c-494b-be5a-4879a53498e2",
+              "name": "reporting_quarter_lykey",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "251fa5dc-f231-495a-a304-a9998f35558d",
+              "name": "reporting_half_year_lykey",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "ee518a27-8090-479c-a15b-a8edcb9b6871",
+              "name": "reporting_year_lykey",
+              "type": {
+                "data-type": "DateTime"
+              }
+            }
+          ]
+        },
+        "logical": {
+          "key-ref": [
+            {
+              "id": "b81b64dc-0087-4b80-8be0-d7c78af91bb4",
+              "unique": true,
+              "complete": "true",
+              "column": [
+                "datekey"
+              ]
+            },
+            {
+              "id": "3beb9c52-7ded-4472-8969-484f8be85acb",
+              "unique": false,
+              "complete": "true",
+              "column": [
+                "year"
+              ]
+            },
+            {
+              "id": "1bbcb185-00f4-43c6-9b80-d79dedb10571",
+              "unique": false,
+              "complete": "true",
+              "column": [
+                "quarter"
+              ]
+            },
+            {
+              "id": "c1b5f75a-2438-4708-b6f5-cde595d9796e",
+              "unique": false,
+              "complete": "true",
+              "column": [
+                "month"
+              ]
+            },
+            {
+              "id": "b482a170-5fcc-430d-8b6a-f083d249b564",
+              "unique": false,
+              "complete": "true",
+              "column": [
+                "year_name"
+              ]
+            },
+            {
+              "id": "02e1c7d6-7262-465b-b812-d15a082ec40d",
+              "unique": false,
+              "complete": "true",
+              "column": [
+                "year_name"
+              ]
+            },
+            {
+              "id": "fe38da46-9c37-420b-9ac5-e0f8051e88c8",
+              "unique": false,
+              "complete": "true",
+              "column": [
+                "quarter_name"
+              ]
+            },
+            {
+              "id": "d4f98da8-a24e-4343-ad8c-a6ca0c3c55b8",
+              "unique": false,
+              "complete": "true",
+              "column": [
+                "quarter_name"
+              ]
+            },
+            {
+              "id": "e46368da-b15d-4941-9d68-8a64ca6b98b0",
+              "unique": false,
+              "complete": "true",
+              "column": [
+                "month_name"
+              ]
+            },
+            {
+              "id": "1d3797c2-5d13-4275-827b-ac85eaae256d",
+              "unique": false,
+              "complete": "true",
+              "column": [
+                "month_name"
+              ]
+            }
+          ],
+          "attribute-ref": [
+            {
+              "id": "8971ae65-2a3f-4e5a-7f99-717137dafce8",
+              "complete": "true",
+              "column": [
+                "datekey"
+              ]
+            },
+            {
+              "id": "85083eaa-8c1e-4a5b-4bff-084c394ffb93",
+              "complete": "true",
+              "column": [
+                "year"
+              ]
+            },
+            {
+              "id": "8f9b67cb-0dbf-4e7b-46f6-8eec914fcb5d",
+              "complete": "true",
+              "column": [
+                "quarter"
+              ]
+            },
+            {
+              "id": "1a3cfb80-76ac-4dd0-454e-444f256d6131",
+              "complete": "true",
+              "column": [
+                "month"
+              ]
+            },
+            {
+              "id": "22d181b5-1fc4-4d5b-7c71-e95a258c0472",
+              "complete": "true",
+              "column": [
+                "year_name"
+              ]
+            },
+            {
+              "id": "c7d7c94a-67db-459f-7fcc-a870da6fa8f0",
+              "complete": "true",
+              "column": [
+                "quarter_name"
+              ]
+            },
+            {
+              "id": "155763f6-7e1b-4c64-4751-1720164340ac",
+              "complete": "true",
+              "column": [
+                "month_name"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "148f75cc-8dda-41c0-4535-e2db5276a034",
+        "name": "dimproduct",
+        "properties": {
+          "allow-aggregates": true,
+          "aggregate-locality": null,
+          "aggregate-destinations": null
+        },
+        "physical": {
+          "connection": {
+            "id": "Postgres14"
+          },
+          "tables": [
+            {
+              "schema": "asadventure",
+              "name": "dimproduct"
+            }
+          ],
+          "immutable": false,
+          "columns": [
+            {
+              "id": "b03a3650-6691-41b7-86da-335cfc460ba9",
+              "name": "productkey",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "0d4a1a68-e149-4b16-827a-811927484213",
+              "name": "productalternatekey",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "49a9b2ea-d369-4fb6-a129-b1c04df89f7c",
+              "name": "productsubcategorykey",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "353a8236-e19d-493d-96b5-1fad5fb1b64e",
+              "name": "weightunitmeasurecode",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "1c5b10d7-0245-4bf5-bbc3-f300be3e31e4",
+              "name": "sizeunitmeasurecode",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "15ddd492-e163-4d8e-9473-f2a63a1f7026",
+              "name": "englishproductname",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "d517d291-a657-46a6-ad2b-9e6af4c93acb",
+              "name": "spanishproductname",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "24ca97ca-476c-4032-8a83-4cba9e8415d9",
+              "name": "frenchproductname",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "13a3bc48-999f-4e3c-9d3d-394e072321db",
+              "name": "standardcost",
+              "type": {
+                "data-type": "Double"
+              }
+            },
+            {
+              "id": "8cfec5a9-368d-4376-b344-8bb746b092dc",
+              "name": "finishedgoodsflag",
+              "type": {
+                "data-type": "Boolean"
+              }
+            },
+            {
+              "id": "bc35da9a-449c-4815-a0be-12bc6b617a0a",
+              "name": "color",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "0466569a-d0bb-43c4-ad67-a9091a949851",
+              "name": "safetystocklevel",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "e88327b3-276c-40b5-a530-8b38d4519d87",
+              "name": "reorderpoint",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "6468006c-cc45-4f8b-b139-ccba62d53728",
+              "name": "listprice",
+              "type": {
+                "data-type": "Double"
+              }
+            },
+            {
+              "id": "d53c33f1-af09-402e-ad65-4972e39eb33d",
+              "name": "size",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "2fc51d0c-01a9-47a2-b703-f6f0d7696346",
+              "name": "sizerange",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "644de931-92c7-4c50-a249-dfa6d42e9a29",
+              "name": "weight",
+              "type": {
+                "data-type": "Double"
+              }
+            },
+            {
+              "id": "6854c02c-56bf-4a0a-962f-c22dceec335c",
+              "name": "daystomanufacture",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "6c2560ef-b3c4-40cb-a4b3-c626a1e0e4b2",
+              "name": "productline",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "090efb62-971e-48f6-a8b4-af7faf3fc4ac",
+              "name": "dealerprice",
+              "type": {
+                "data-type": "Double"
+              }
+            },
+            {
+              "id": "9185e9d9-b229-4d11-9e70-02ab2d4564ce",
+              "name": "class",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "3cf9344f-020e-4991-8b8b-a579bd08a3c8",
+              "name": "style",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "89a25297-f807-47ca-86bf-fe6977325126",
+              "name": "modelname",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "1ff76fd5-1bda-4991-bb83-91a4d41ee51b",
+              "name": "largephoto",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "5cf50027-5528-4565-9c91-0ebcb4096fe5",
+              "name": "englishdescription",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "7042e12e-21d7-4265-92c4-dd710e679388",
+              "name": "frenchdescription",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "0a4fc272-5198-41b0-8da7-1325f5c3137c",
+              "name": "chinesedescription",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "626d2edf-3f4d-435f-be5e-a5d5e3cea782",
+              "name": "arabicdescription",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "171fedbe-60fd-43e0-9aa8-85a89f526426",
+              "name": "hebrewdescription",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "df20f7b5-9ef8-4568-8932-42940d78528d",
+              "name": "thaidescription",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "00d70235-f15b-45b2-b837-768ef5062cd2",
+              "name": "germandescription",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "8f078cd4-9787-49a0-bd56-43e0a632679d",
+              "name": "japanesedescription",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "047411ab-6862-46c4-aa66-c4754be0206f",
+              "name": "turkishdescription",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "3728f710-0a1a-4794-948e-32dd486bc100",
+              "name": "startdate",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "b454e36d-9217-42f8-a43c-38f18e7f1694",
+              "name": "enddate",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "2503f273-f60e-4c43-b20c-a28d2684ebba",
+              "name": "status",
+              "type": {
+                "data-type": "String"
+              }
+            }
+          ]
+        },
+        "logical": {
+          "key-ref": [
+            {
+              "id": "2bac4afb-e9b4-4434-8a9f-b86a3699fcec",
+              "unique": false,
+              "complete": "true",
+              "column": [
+                "productkey"
+              ]
+            },
+            {
+              "id": "134c958e-24a9-4016-bfb3-653f9d6295af",
+              "unique": false,
+              "complete": "false",
+              "ref-path": {
+                "ref": [
+                  {
+                    "id": "6cad7704-5b49-42a6-92ca-2c3125d1d63e"
+                  }
+                ]
+              },
+              "column": [
+                "productsubcategorykey"
+              ]
+            },
+            {
+              "id": "aee3721e-5d66-41f7-adca-2ab642652d6b",
+              "unique": false,
+              "complete": "true",
+              "column": [
+                "englishproductname"
+              ]
+            },
+            {
+              "id": "ba1ba662-8e5f-4a93-97fd-35da1e018f9e",
+              "unique": false,
+              "complete": "true",
+              "column": [
+                "englishproductname"
+              ]
+            }
+          ],
+          "attribute-ref": [
+            {
+              "id": "8a847338-6d9f-45f1-43ac-3097490ae9b5",
+              "complete": "true",
+              "column": [
+                "productline"
+              ]
+            },
+            {
+              "id": "05b5c048-5ce2-44ac-6a68-4f6c9caa313b",
+              "complete": "true",
+              "column": [
+                "englishproductname"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "370323f2-2a20-47e7-52ce-68ee989e8d29",
+        "name": "dimproductsubcategory",
+        "properties": {
+          "allow-aggregates": true,
+          "aggregate-locality": null,
+          "aggregate-destinations": null
+        },
+        "physical": {
+          "connection": {
+            "id": "Postgres14"
+          },
+          "tables": [
+            {
+              "schema": "asadventure",
+              "name": "dimproductsubcategory"
+            }
+          ],
+          "immutable": false,
+          "columns": [
+            {
+              "id": "79d78eb2-b909-4294-af91-c17e4be0ea8c",
+              "name": "productsubcategorykey",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "783def68-645f-4f8a-8a22-52f35b1cbc1f",
+              "name": "productsubcategoryalternatekey",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "34761bfb-378e-4ede-a62b-8f4d3fe4e300",
+              "name": "englishproductsubcategoryname",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "2e0a64e1-19f4-4b88-aa87-b7c3b0f80c1e",
+              "name": "spanishproductsubcategoryname",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "f394a03d-64af-4f91-952f-6eb6bbb6517d",
+              "name": "frenchproductsubcategoryname",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "b80d8819-3e23-4e8a-a30f-b59a6730094a",
+              "name": "productcategorykey",
+              "type": {
+                "data-type": "Long"
+              }
+            }
+          ]
+        },
+        "logical": {
+          "key-ref": [
+            {
+              "id": "134c958e-24a9-4016-bfb3-653f9d6295af",
+              "unique": false,
+              "complete": "true",
+              "column": [
+                "productsubcategorykey"
+              ]
+            },
+            {
+              "id": "3d48543a-a42f-4fbc-aabd-db40ded357eb",
+              "unique": false,
+              "complete": "true",
+              "column": [
+                "englishproductsubcategoryname"
+              ]
+            },
+            {
+              "id": "4408b1ca-163b-4b40-8740-f48a8f59fab2",
+              "unique": false,
+              "complete": "true",
+              "column": [
+                "englishproductsubcategoryname"
+              ]
+            }
+          ],
+          "attribute-ref": [
+            {
+              "id": "2d128e1b-3d42-44de-5c2f-95fee9b0b15e",
+              "complete": "true",
+              "column": [
+                "productsubcategorykey"
+              ]
+            },
+            {
+              "id": "9e4cd281-5996-4c02-5622-aed8a4b9ce73",
+              "complete": "true",
+              "column": [
+                "englishproductsubcategoryname"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "bc629834-92ad-45b2-6d84-8b9b8d4390d0",
+        "name": "factfinance",
+        "properties": {
+          "allow-aggregates": true,
+          "aggregate-locality": null,
+          "aggregate-destinations": null
+        },
+        "physical": {
+          "connection": {
+            "id": "Postgres14"
+          },
+          "tables": [
+            {
+              "schema": "asadventure",
+              "name": "factfinance"
+            }
+          ],
+          "immutable": false,
+          "columns": [
+            {
+              "id": "a2f29547-2f5b-487a-a64d-26bbef48eaf2",
+              "name": "financekey",
+              "type": {
+                "data-type": "Int"
+              }
+            },
+            {
+              "id": "40beeef3-0f9c-4b1d-9faf-307c67d0a85e",
+              "name": "datekey",
+              "type": {
+                "data-type": "Int"
+              }
+            },
+            {
+              "id": "20ab35d4-0068-4dfd-b190-1b6e55b0013d",
+              "name": "organizationkey",
+              "type": {
+                "data-type": "Int"
+              }
+            },
+            {
+              "id": "c3081e22-bfb9-4e3d-a76a-5f59e6e94929",
+              "name": "departmentgroupkey",
+              "type": {
+                "data-type": "Int"
+              }
+            },
+            {
+              "id": "1f6b2f03-27d8-4cb2-965f-44f84a6c08f8",
+              "name": "scenariokey",
+              "type": {
+                "data-type": "Int"
+              }
+            },
+            {
+              "id": "40eaf69e-4b31-4e3f-b077-f71071287090",
+              "name": "accountkey",
+              "type": {
+                "data-type": "Int"
+              }
+            },
+            {
+              "id": "3be16e3b-1574-4c83-a0b3-fccc4490815f",
+              "name": "amount",
+              "type": {
+                "data-type": "Double"
+              }
+            },
+            {
+              "id": "849a2e06-ae16-4793-9a5b-5038e9a4a299",
+              "name": "date",
+              "type": {
+                "data-type": "String"
+              }
+            }
+          ]
+        },
+        "logical": {}
+      },
+      {
+        "id": "48bb3099-97dd-42df-5a0a-608b2a6474eb",
+        "name": "factinternetsales",
+        "properties": {
+          "allow-aggregates": true,
+          "aggregate-locality": null,
+          "aggregate-destinations": null
+        },
+        "physical": {
+          "connection": {
+            "id": "Postgres14"
+          },
+          "tables": [
+            {
+              "schema": "asadventure",
+              "name": "factinternetsales"
+            }
+          ],
+          "immutable": false,
+          "columns": [
+            {
+              "id": "065316fa-3f02-4298-b15f-c3073110761e",
+              "name": "productkey",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "da819c86-0ea5-4119-8e3c-bec46d6647d4",
+              "name": "orderdatekey",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "c6b924e9-aad3-45e1-900e-bd7d1e929ca5",
+              "name": "duedatekey",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "8f4debac-2a7c-47a3-9f8e-f34231b06857",
+              "name": "shipdatekey",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "ba5f4f10-f420-4572-b464-eca9d6af8e34",
+              "name": "customerkey",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "320c1f03-abaf-4121-b3e9-f6717785d655",
+              "name": "promotionkey",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "453b3b3b-f42d-49fa-884d-36bf0c75ade1",
+              "name": "currencykey",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "2dcc60cb-c3ca-4560-afca-4b5860a660a3",
+              "name": "salesterritorykey",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "fc4e2e88-c41a-4798-86d7-fc74b25afd7d",
+              "name": "salesordernumber",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "9b972590-54b3-4200-9108-adcb414caf3d",
+              "name": "salesorderlinenumber",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "c9afa59f-8830-4715-b7d5-3321c3d40df8",
+              "name": "revisionnumber",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "2fd46582-a06a-439b-9b09-00b40a5dc465",
+              "name": "orderquantity",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "3521789d-e9c8-4dd2-8b2b-c26bc9da7378",
+              "name": "unitprice",
+              "type": {
+                "data-type": "Double"
+              }
+            },
+            {
+              "id": "acca626a-44c2-4e4c-8ad6-f9098143020f",
+              "name": "extendedamount",
+              "type": {
+                "data-type": "Double"
+              }
+            },
+            {
+              "id": "8ccadc6a-fed6-45f4-b391-13921e169097",
+              "name": "unitpricediscountpct",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "1cf01713-19f1-4ad2-960b-67ca8caca7dc",
+              "name": "discountamount",
+              "type": {
+                "data-type": "Long"
+              }
+            },
+            {
+              "id": "bccfddab-0f16-47da-aafe-c6ce0258ee58",
+              "name": "productstandardcost",
+              "type": {
+                "data-type": "Double"
+              }
+            },
+            {
+              "id": "448975cf-e053-4f13-be0c-c4fbf0a3afde",
+              "name": "totalproductcost",
+              "type": {
+                "data-type": "Double"
+              }
+            },
+            {
+              "id": "a17ade24-6ac4-4e1a-aabd-96e2786c2395",
+              "name": "salesamount",
+              "type": {
+                "data-type": "Double"
+              }
+            },
+            {
+              "id": "27be18a1-3302-4755-ad8a-b4cd0672226e",
+              "name": "taxamt",
+              "type": {
+                "data-type": "Double"
+              }
+            },
+            {
+              "id": "8d8dd032-995b-4494-b81d-dee9b8330820",
+              "name": "freight",
+              "type": {
+                "data-type": "Double"
+              }
+            },
+            {
+              "id": "c6f75427-de51-4f83-ba9c-2d64b2123c0a",
+              "name": "carriertrackingnumber",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "a3d3e4c6-15cc-4f38-9191-c6ff723e25c4",
+              "name": "customerponumber",
+              "type": {
+                "data-type": "String"
+              }
+            },
+            {
+              "id": "494433a2-07b7-4bbe-9622-39aade36c665",
+              "name": "orderdate",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "885a6aad-1461-4a66-b163-37027a2e1808",
+              "name": "duedate",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "8264b186-8591-48dc-a5a6-b7e0148cdb8e",
+              "name": "shipdate",
+              "type": {
+                "data-type": "DateTime"
+              }
+            },
+            {
+              "id": "4246f12e-532b-4f12-8d32-99d2e62fd31b",
+              "name": "Test Value",
+              "sqls": [
+                {
+                  "expression": "1"
+                }
+              ],
+              "type": {
+                "data-type": "Int"
+              }
+            },
+            {
+              "id": "0878b0ae-57c5-4b5c-bccb-cb3ad282ad47",
+              "name": "TestOrder",
+              "sqls": [
+                {
+                  "expression": "salesordernumber"
+                }
+              ],
+              "type": {
+                "data-type": "String"
+              }
+            }
+          ]
+        },
+        "logical": {
+          "key-ref": [
+            {
+              "id": "3374cdd1-21a6-4ef5-90d0-9ac950c9e67d",
+              "unique": false,
+              "complete": "true",
+              "column": [
+                "salesordernumber"
+              ]
+            },
+            {
+              "id": "0a3a9ff0-ed98-447a-ae1c-6bd71d688d57",
+              "unique": false,
+              "complete": "true",
+              "column": [
+                "salesordernumber"
+              ]
+            }
+          ],
+          "attribute-ref": [
+            {
+              "id": "866f2773-5549-4ec7-6c53-2469ecf27360",
+              "complete": "true",
+              "column": [
+                "salesordernumber"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "643df6a3-f56f-4f29-4407-1345e0355a9c",
+        "name": "fake_fact",
+        "properties": {
+          "allow-aggregates": true,
+          "aggregate-locality": null,
+          "aggregate-destinations": {
+            "allow-local": true,
+            "allow-peer": true,
+            "allow-preferred": true
+          }
+        },
+        "physical": {
+          "connection": {
+            "id": "Postgres14"
+          },
+          "queries": [
+            {
+              "sqls": [
+                {
+                  "expression": "select * from atscale_data.factfinance"
+                }
+              ]
+            }
+          ],
+          "immutable": false,
+          "columns": [
+            {
+              "id": "4ed034c6-80ab-4d10-b010-5d9e54253962",
+              "name": "financekey",
+              "type": {
+                "data-type": "Int"
+              }
+            },
+            {
+              "id": "f6a19c10-0eea-4953-801b-215cddc0d1d9",
+              "name": "datekey",
+              "type": {
+                "data-type": "Int"
+              }
+            },
+            {
+              "id": "553e9326-c048-4f16-ac2c-861b3d7ffe8b",
+              "name": "organizationkey",
+              "type": {
+                "data-type": "Int"
+              }
+            },
+            {
+              "id": "942f1d42-e274-4c9d-8a0a-ce610eace4b3",
+              "name": "departmentgroupkey",
+              "type": {
+                "data-type": "Int"
+              }
+            },
+            {
+              "id": "8885e8a4-9dda-469d-845b-f21273de6799",
+              "name": "scenariokey",
+              "type": {
+                "data-type": "Int"
+              }
+            },
+            {
+              "id": "81e868d3-3423-4383-8052-0cbf167eee7c",
+              "name": "accountkey",
+              "type": {
+                "data-type": "Int"
+              }
+            },
+            {
+              "id": "acb3509f-eff2-47d9-9b24-76b160fda00c",
+              "name": "amount",
+              "type": {
+                "data-type": "Double"
+              }
+            },
+            {
+              "id": "84b6770f-37f5-45b1-9118-0a43f6825425",
+              "name": "date",
+              "type": {
+                "data-type": "String"
+              }
+            }
+          ]
+        },
+        "logical": {
+          "key-ref": [
+            {
+              "id": "16a32a04-3b2b-48d1-9041-63bd8095d7bf",
+              "unique": false,
+              "complete": "true",
+              "column": [
+                "departmentgroupkey"
+              ]
+            },
+            {
+              "id": "6a97df6e-009e-41be-81e3-cf1470ad09bc",
+              "unique": false,
+              "complete": "true",
+              "column": [
+                "departmentgroupkey"
+              ]
+            }
+          ],
+          "attribute-ref": [
+            {
+              "id": "a76568de-92d7-4a01-5ab2-6b2d78ab98cf",
+              "complete": "true",
+              "column": [
+                "departmentgroupkey"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "calculated-members": {
+    "calculated-member": [
+      {
+        "id": "bd128a2e-c9b4-42f0-71c4-dabce8d1cb7a",
+        "name": "Unit Sold",
+        "properties": {
+          "caption": "Unit Sold",
+          "visible": false,
+          "folder": "Unit"
+        },
+        "expression": "[Measures].[m_orderquantity_sum]*[Measures].[m_unitprice_sum]",
+        "mdx-aggregate-function": ""
+      },
+      {
+        "id": "67ac6117-2092-427c-60dc-f8411525ae31",
+        "name": "Total",
+        "properties": {
+          "caption": "Total",
+          "visible": true
+        },
+        "expression": "[Measures].[Unit Sold]+[Measures].[m_salesamount_sum]",
+        "mdx-aggregate-function": ""
+      }
+    ]
+  },
+  "cubes": {
+    "cube": [
+      {
+        "id": "935f657e-715c-4f33-769f-0fadb443cd75",
+        "name": "TestDebug",
+        "properties": {
+          "visible": false,
+          "partitions": [
+            {
+              "attribute-ref": {
+                "id": "155763f6-7e1b-4c64-4751-1720164340ac",
+                "ref-path": {
+                  "ref": [
+                    {
+                      "id": "2e39c30b-6927-41cf-89df-85d1cc2dcb61"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "attributes": {
+          "attribute-key": [
+            {
+              "id": "af8039b2-af70-4846-a44d-0e034ed1e067",
+              "properties": {
+                "visible": true,
+                "columns": 1
+              }
+            },
+            {
+              "id": "62e8aea5-f4f9-456c-a63d-2f3a12afb8bf",
+              "properties": {
+                "visible": true,
+                "columns": 1
+              }
+            },
+            {
+              "id": "5c802566-bac4-4dc1-b002-05d08a7e789d",
+              "properties": {
+                "visible": true,
+                "columns": 1
+              }
+            },
+            {
+              "id": "4ab7d8b9-6546-43da-87ca-11f942ca4a84",
+              "properties": {
+                "visible": true,
+                "columns": 1
+              }
+            },
+            {
+              "id": "1e48f821-38fe-451e-afed-d285d23be81b",
+              "properties": {
+                "visible": true,
+                "columns": 1
+              }
+            },
+            {
+              "id": "ee9a319b-d28d-483d-a131-fa8d17178290",
+              "properties": {
+                "visible": true,
+                "columns": 1
+              }
+            },
+            {
+              "id": "ad079537-5660-4140-a84a-526ed1adc5cc",
+              "properties": {
+                "visible": true,
+                "columns": 1
+              }
+            },
+            {
+              "id": "539d02be-0271-45b6-96d4-617cc0c35950",
+              "properties": {
+                "visible": true,
+                "columns": 1
+              }
+            }
+          ],
+          "keyed-attribute": [
+            {
+              "id": "3cb673a9-3351-4d0f-8c12-1c640f913305",
+              "key-ref": "af8039b2-af70-4846-a44d-0e034ed1e067",
+              "name": "Sales_Order_Number Level",
+              "properties": {
+                "caption": "Sales Order Number",
+                "visible": true,
+                "type": {
+                  "enum": {}
+                },
+                "ordering": {
+                  "sort-key": {
+                    "order": "ascending",
+                    "value": {}
+                  }
+                },
+                "allowed-calculation-types": {
+                  "calculation-type": []
+                }
+              }
+            },
+            {
+              "id": "b71720eb-6113-4246-bf43-e7693eddb306",
+              "key-ref": "ee9a319b-d28d-483d-a131-fa8d17178290",
+              "name": "Test_Order Level",
+              "properties": {
+                "caption": "Test_Order Level",
+                "visible": true,
+                "type": {
+                  "enum": {}
+                }
+              }
+            },
+            {
+              "id": "0fceb35b-f8e0-43a9-8d69-ff55c31ea31c",
+              "key-ref": "ad079537-5660-4140-a84a-526ed1adc5cc",
+              "name": "Product Key Fake",
+              "properties": {
+                "caption": "Product Key Fake",
+                "visible": true,
+                "type": {
+                  "enum": {}
+                },
+                "ordering": {
+                  "sort-key": {
+                    "order": "ascending",
+                    "value": {}
+                  }
+                },
+                "allowed-calculation-types": {
+                  "calculation-type": [
+                    "Lag",
+                    "Siblings",
+                    "Range",
+                    "ParallelPeriod",
+                    "Ancestor",
+                    "Descendants"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "62ebb0c4-a728-4734-ac7c-da37c9e39ac4",
+              "key-ref": "539d02be-0271-45b6-96d4-617cc0c35950",
+              "name": "Organization_Key Level",
+              "properties": {
+                "caption": "Organization_Key Level",
+                "visible": true,
+                "type": {
+                  "enum": {}
+                },
+                "ordering": {
+                  "sort-key": {
+                    "order": "ascending",
+                    "value": {}
+                  }
+                },
+                "allowed-calculation-types": {
+                  "calculation-type": []
+                }
+              }
+            }
+          ],
+          "attribute": [
+            {
+              "id": "a85b53c8-9e6e-484f-93ac-273f41f6c607",
+              "name": "m_unitprice_sum",
+              "properties": {
+                "caption": "Unit Price",
+                "visible": false,
+                "type": {
+                  "measure": {
+                    "default-aggregation": "SUM"
+                  }
+                }
+              }
+            },
+            {
+              "id": "34e61b2d-0e34-4db2-8a60-14af78ef1077",
+              "name": "m_orderquantity_sum",
+              "properties": {
+                "caption": "Order Quantity",
+                "visible": false,
+                "type": {
+                  "measure": {
+                    "default-aggregation": "SUM"
+                  }
+                }
+              }
+            },
+            {
+              "id": "128c3d94-b482-4119-a3d3-2b0af2df3b42",
+              "name": "m_salesamount_sum",
+              "properties": {
+                "caption": "Sales Amount",
+                "visible": true,
+                "type": {
+                  "measure": {
+                    "default-aggregation": "SUM"
+                  }
+                }
+              }
+            },
+            {
+              "id": "ff3e4134-78ed-4830-a472-fbff5a17d1df",
+              "name": "m_salesordernumber_distinct",
+              "properties": {
+                "caption": "Sales Order Count",
+                "visible": true,
+                "type": {
+                  "count-distinct": {
+                    "key-ref": {
+                      "id": "62e8aea5-f4f9-456c-a63d-2f3a12afb8bf"
+                    },
+                    "approximate": false
+                  }
+                }
+              }
+            },
+            {
+              "id": "6dcad40f-8e5a-4f04-b27a-7ebf4de04ceb",
+              "name": "m_productkey_count",
+              "properties": {
+                "caption": "Product NDC",
+                "visible": true,
+                "type": {
+                  "count-nonnull": {
+                    "key-ref": {
+                      "id": "5c802566-bac4-4dc1-b002-05d08a7e789d"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "id": "a5c8a32b-1fae-4c95-a38b-c796d3f3096a",
+              "name": "m_productkey_distinct_est",
+              "properties": {
+                "caption": "Product Key NDC Estimate",
+                "visible": true,
+                "type": {
+                  "count-distinct": {
+                    "key-ref": {
+                      "id": "4ab7d8b9-6546-43da-87ca-11f942ca4a84"
+                    },
+                    "approximate": true
+                  }
+                }
+              }
+            },
+            {
+              "id": "0f1a8e77-90fb-485e-97b1-535f9e9a7a59",
+              "name": "m_amount_sumdistinct",
+              "properties": {
+                "caption": "Distinct Sum Amount",
+                "visible": true,
+                "type": {
+                  "sum-distinct": {
+                    "key-ref": {
+                      "id": "1e48f821-38fe-451e-afed-d285d23be81b"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "id": "6ad9f67c-3bc1-41e6-8b9c-fe33a8df88bb",
+              "name": "m_Test Value_sum",
+              "properties": {
+                "caption": "Test Value",
+                "visible": true,
+                "type": {
+                  "measure": {
+                    "default-aggregation": "SUM"
+                  }
+                }
+              }
+            },
+            {
+              "id": "da7260ac-55f9-4656-827f-e12b23800c94",
+              "name": "m_salesordernumber_avg",
+              "properties": {
+                "caption": "Average Sales Order Number",
+                "visible": true,
+                "type": {
+                  "measure": {
+                    "default-aggregation": "AVG"
+                  }
+                }
+              }
+            },
+            {
+              "id": "e4619e1c-1b8b-4009-aabc-b327fd6442ba",
+              "name": "Due Date_2",
+              "properties": {
+                "caption": "Semi Additive Unit Price",
+                "visible": true,
+                "type": {
+                  "measure": {
+                    "default-aggregation": "SUM",
+                    "additivity": {
+                      "subspace": {
+                        "aggregation-function": "LastNonEmpty",
+                        "attribute-ref": [
+                          {
+                            "id": "8971ae65-2a3f-4e5a-7f99-717137dafce8",
+                            "ref-path": {
+                              "ref": [
+                                {
+                                  "id": "ed7bb562-6c94-41dd-9a91-bd0dcf819e71"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "dimensions": {
+          "dimension": [
+            {
+              "id": "c7fcfbce-cbd8-494a-ab73-14dbcb14a1a4",
+              "name": "Sales_Order_Number",
+              "properties": {
+                "visible": true
+              },
+              "hierarchy": [
+                {
+                  "id": "5703f5a5-76de-4579-ae54-9c1b1e120b7f",
+                  "name": "Sales_Order_Number Hierarchy",
+                  "properties": {
+                    "caption": "Sales Order Number",
+                    "visible": true,
+                    "filter-empty": "Yes",
+                    "default-member": {
+                      "all-member": {}
+                    }
+                  },
+                  "level": [
+                    {
+                      "id": "db3cf8d7-52dc-429d-988f-6042748cd2be",
+                      "primary-attribute": "3cb673a9-3351-4d0f-8c12-1c640f913305",
+                      "properties": {
+                        "unique-in-parent": false,
+                        "visible": true
+                      }
+                    }
+                  ]
+                }
+              ],
+              "modeler-metadata": {
+                "global-id": "",
+                "version": 0,
+                "modified": false
+              }
+            },
+            {
+              "id": "253ba1ca-32e9-4032-bfde-f62e8adaab49",
+              "name": "Test_Order",
+              "properties": {
+                "visible": true
+              },
+              "hierarchy": [
+                {
+                  "id": "fe65eee9-d41a-4ee9-9d37-b4581dd207dd",
+                  "name": "Test_Order Hierarchy",
+                  "properties": {
+                    "caption": "Test_Order Hierarchy",
+                    "visible": true,
+                    "filter-empty": "Always",
+                    "default-member": {
+                      "all-member": {}
+                    }
+                  },
+                  "level": [
+                    {
+                      "id": "b696e87e-f235-4485-bba6-b280c082fd7b",
+                      "primary-attribute": "0fceb35b-f8e0-43a9-8d69-ff55c31ea31c",
+                      "properties": {
+                        "unique-in-parent": false,
+                        "visible": true
+                      }
+                    },
+                    {
+                      "id": "9a3100bb-6eaf-44ff-ab22-d366272554f6",
+                      "primary-attribute": "b71720eb-6113-4246-bf43-e7693eddb306",
+                      "properties": {
+                        "unique-in-parent": false,
+                        "visible": true
+                      },
+                      "keyed-attribute-ref": [
+                        {
+                          "attribute-id": "866f2773-5549-4ec7-6c53-2469ecf27360",
+                          "properties": {
+                            "multiplicity": {}
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "modeler-metadata": {
+                "global-id": "",
+                "version": 0,
+                "modified": false
+              }
+            },
+            {
+              "id": "dccd49d4-c34c-4f2c-b76a-2d7682088c81",
+              "name": "Organization_Key",
+              "properties": {
+                "visible": true
+              },
+              "hierarchy": [
+                {
+                  "id": "149535f5-2dc5-443a-bb81-1c615ea5546b",
+                  "name": "Organization_Key Hierarchy",
+                  "properties": {
+                    "caption": "Organization_Key Hierarchy",
+                    "visible": true,
+                    "filter-empty": "Always",
+                    "default-member": {
+                      "all-member": {}
+                    }
+                  },
+                  "level": [
+                    {
+                      "id": "7d3dac55-69ac-42ed-bc65-dc3de38a3b6b",
+                      "primary-attribute": "62ebb0c4-a728-4734-ac7c-da37c9e39ac4",
+                      "properties": {
+                        "unique-in-parent": false,
+                        "visible": true
+                      },
+                      "keyed-attribute-ref": [
+                        {
+                          "attribute-id": "a76568de-92d7-4a01-5ab2-6b2d78ab98cf",
+                          "properties": {
+                            "multiplicity": {}
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "modeler-metadata": {
+                "global-id": "",
+                "version": 0,
+                "modified": false
+              }
+            }
+          ]
+        },
+        "actions": {
+          "properties": {
+            "include-default-drill-through": true
+          }
+        },
+        "data-sets": {
+          "data-set-ref": [
+            {
+              "uiid": "0b0901d8-581a-4b4d-6e06-ddfff5ff8e84",
+              "id": "48bb3099-97dd-42df-5a0a-608b2a6474eb",
+              "properties": {
+                "allow-aggregates": true,
+                "create-hinted-aggregate": false,
+                "aggregate-destinations": null
+              },
+              "logical": {
+                "key-ref": [
+                  {
+                    "id": "2bac4afb-e9b4-4434-8a9f-b86a3699fcec",
+                    "unique": false,
+                    "complete": "false",
+                    "column": [
+                      "productkey"
+                    ]
+                  },
+                  {
+                    "id": "b81b64dc-0087-4b80-8be0-d7c78af91bb4",
+                    "unique": false,
+                    "complete": "false",
+                    "ref-path": {
+                      "new-ref": {
+                        "ref-id": "ed7bb562-6c94-41dd-9a91-bd0dcf819e71",
+                        "attribute-id": "8971ae65-2a3f-4e5a-7f99-717137dafce8",
+                        "ref-naming": "Due {0}"
+                      }
+                    },
+                    "column": [
+                      "duedatekey"
+                    ]
+                  },
+                  {
+                    "id": "b81b64dc-0087-4b80-8be0-d7c78af91bb4",
+                    "unique": false,
+                    "complete": "false",
+                    "ref-path": {
+                      "new-ref": {
+                        "ref-id": "2e39c30b-6927-41cf-89df-85d1cc2dcb61",
+                        "attribute-id": "8971ae65-2a3f-4e5a-7f99-717137dafce8",
+                        "ref-naming": "Order {0}"
+                      }
+                    },
+                    "column": [
+                      "orderdatekey"
+                    ]
+                  },
+                  {
+                    "id": "af8039b2-af70-4846-a44d-0e034ed1e067",
+                    "unique": false,
+                    "complete": "true",
+                    "column": [
+                      "salesordernumber"
+                    ]
+                  },
+                  {
+                    "id": "62e8aea5-f4f9-456c-a63d-2f3a12afb8bf",
+                    "unique": false,
+                    "complete": "true",
+                    "column": [
+                      "salesordernumber"
+                    ]
+                  },
+                  {
+                    "id": "5c802566-bac4-4dc1-b002-05d08a7e789d",
+                    "unique": false,
+                    "complete": "true",
+                    "column": [
+                      "productkey"
+                    ]
+                  },
+                  {
+                    "id": "4ab7d8b9-6546-43da-87ca-11f942ca4a84",
+                    "unique": false,
+                    "complete": "true",
+                    "column": [
+                      "productkey"
+                    ]
+                  },
+                  {
+                    "id": "ee9a319b-d28d-483d-a131-fa8d17178290",
+                    "unique": false,
+                    "complete": "true",
+                    "column": [
+                      "TestOrder"
+                    ]
+                  },
+                  {
+                    "id": "ad079537-5660-4140-a84a-526ed1adc5cc",
+                    "unique": false,
+                    "complete": "true",
+                    "column": [
+                      "productkey"
+                    ]
+                  }
+                ],
+                "attribute-ref": [
+                  {
+                    "id": "a85b53c8-9e6e-484f-93ac-273f41f6c607",
+                    "complete": "true",
+                    "column": [
+                      "unitprice"
+                    ]
+                  },
+                  {
+                    "id": "34e61b2d-0e34-4db2-8a60-14af78ef1077",
+                    "complete": "true",
+                    "column": [
+                      "orderquantity"
+                    ]
+                  },
+                  {
+                    "id": "3cb673a9-3351-4d0f-8c12-1c640f913305",
+                    "complete": "true",
+                    "column": [
+                      "salesordernumber"
+                    ]
+                  },
+                  {
+                    "id": "128c3d94-b482-4119-a3d3-2b0af2df3b42",
+                    "complete": "true",
+                    "column": [
+                      "salesamount"
+                    ]
+                  },
+                  {
+                    "id": "6ad9f67c-3bc1-41e6-8b9c-fe33a8df88bb",
+                    "complete": "true",
+                    "column": [
+                      "Test Value"
+                    ]
+                  },
+                  {
+                    "id": "b71720eb-6113-4246-bf43-e7693eddb306",
+                    "complete": "true",
+                    "column": [
+                      "TestOrder"
+                    ]
+                  },
+                  {
+                    "id": "0fceb35b-f8e0-43a9-8d69-ff55c31ea31c",
+                    "complete": "true",
+                    "column": [
+                      "productkey"
+                    ]
+                  },
+                  {
+                    "id": "da7260ac-55f9-4656-827f-e12b23800c94",
+                    "complete": "true",
+                    "column": [
+                      "salesordernumber"
+                    ]
+                  },
+                  {
+                    "id": "e4619e1c-1b8b-4009-aabc-b327fd6442ba",
+                    "complete": "true",
+                    "column": [
+                      "unitprice"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "uiid": "dd259551-17cd-4647-450d-e56d78cce6f1",
+              "id": "643df6a3-f56f-4f29-4407-1345e0355a9c",
+              "properties": {
+                "allow-aggregates": true,
+                "create-hinted-aggregate": false,
+                "aggregate-destinations": null
+              },
+              "logical": {
+                "key-ref": [
+                  {
+                    "id": "b81b64dc-0087-4b80-8be0-d7c78af91bb4",
+                    "unique": false,
+                    "complete": "false",
+                    "column": [
+                      "date"
+                    ]
+                  },
+                  {
+                    "id": "1e48f821-38fe-451e-afed-d285d23be81b",
+                    "unique": false,
+                    "complete": "true",
+                    "column": [
+                      "amount"
+                    ]
+                  },
+                  {
+                    "id": "539d02be-0271-45b6-96d4-617cc0c35950",
+                    "unique": false,
+                    "complete": "true",
+                    "column": [
+                      "organizationkey"
+                    ]
+                  }
+                ],
+                "attribute-ref": [
+                  {
+                    "id": "62ebb0c4-a728-4734-ac7c-da37c9e39ac4",
+                    "complete": "true",
+                    "column": [
+                      "organizationkey"
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "calculated-members": {
+          "calculated-member-ref": [
+            {
+              "XMLName": {
+                "Space": "",
+                "Local": ""
+              },
+              "id": "bd128a2e-c9b4-42f0-71c4-dabce8d1cb7a"
+            },
+            {
+              "XMLName": {
+                "Space": "",
+                "Local": ""
+              },
+              "id": "67ac6117-2092-427c-60dc-f8411525ae31"
+            }
+          ]
+        },
+        "aggregates": {}
+      }
+    ]
+  },
+  "createdBy": "bootstrap"
+}
