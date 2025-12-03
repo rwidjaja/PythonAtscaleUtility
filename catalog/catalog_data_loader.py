@@ -1,9 +1,9 @@
 # tabs/catalog_data_loader.py
 import pandas as pd
-from .cube_data_queries import run_xmla_query
-from .cube_data_parsers import parse_rows
-from .catalog_queries import CATALOG_QUERIES
-from .common_xmla import build_xmla_query
+from cubes.cube_data_queries import run_xmla_query
+from cubes.cube_data_parsers import parse_rows
+from catalog.catalog_queries import CATALOG_QUERIES
+from cubes.common_xmla import build_xmla_query
 
 def load_catalog_data(catalog: str, cube: str, log_function):
     """Load all catalog metadata for the selected catalog and cube."""

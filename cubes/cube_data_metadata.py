@@ -1,7 +1,7 @@
 # tabs/cube_data_metadata.py
 import pandas as pd
-from .cube_data_queries import run_xmla_query, DIMENSIONS_QUERY, HIERARCHIES_QUERY, LEVELS_QUERY, MEASURES_QUERY
-from .cube_data_parsers import parse_rows
+from cubes.cube_data_queries import run_xmla_query, DIMENSIONS_QUERY, HIERARCHIES_QUERY, LEVELS_QUERY, MEASURES_QUERY
+from cubes.cube_data_parsers import parse_rows
 
 def load_cube_metadata(catalog, cube, log_function):
     """Load all metadata for the selected cube"""

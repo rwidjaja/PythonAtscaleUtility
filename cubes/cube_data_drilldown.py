@@ -2,8 +2,8 @@
 import pandas as pd
 import tkinter as tk
 from tkinter import ttk
-from .cube_data_queries import run_xmla_query, build_xmla_request
-from .cube_data_parsers import parse_xmla_result_to_dataframe
+from cubes.cube_data_queries import run_xmla_query, build_xmla_request
+from cubes.cube_data_parsers import parse_xmla_result_to_dataframe
 
 def get_hierarchy_levels_fallback(hierarchy_unique_name, levels_df):
     """Fallback method to get levels if LEVEL_NUMBER is not available"""

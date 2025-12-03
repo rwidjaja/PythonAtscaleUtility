@@ -5,10 +5,10 @@ import pandas as pd
 from common import append_log
 
 # Import from our existing modules
-from .common_selector import CatalogCubeSelector
-from .catalog_data_loader import load_catalog_data
-from .catalog_tree_manager import populate_catalog_treeviews, handle_tree_selection
-from .catalog_display import display_catalog_details
+from cubes.common_selector import CatalogCubeSelector
+from catalog.catalog_data_loader import load_catalog_data
+from catalog.catalog_tree_manager import populate_catalog_treeviews, handle_tree_selection
+from catalog.catalog_display import display_catalog_details
 
 def build_tab(content, log_ref_container):
     # FIXED LAYOUT - Prevent takeover

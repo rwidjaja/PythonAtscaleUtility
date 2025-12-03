@@ -1,7 +1,8 @@
 # tabs/queries_executor.py
 import pandas as pd
-from tabs.cube_data_queries import run_xmla_query, build_xmla_request
-from tabs.mdx_parser import parse_mdx_result, debug_xmla_response
+from cubes.cube_data_queries import run_xmla_query, build_xmla_request
+from cubes.mdx_parser import parse_mdx_result, debug_xmla_response
+from cubes.cube_data_sql import execute_raw_sql_query
 
 
 class QueryExecutor:
@@ -78,7 +79,7 @@ class QueryExecutor:
             self.log(f"Executing SQL query against {catalog}.{cube}")
             
             # Import and use the raw SQL execution function with flags
-            from tabs.cube_data_sql import execute_raw_sql_query
+
             return execute_raw_sql_query(query, catalog, cube, self.log, use_agg, use_cache)
             
         except ImportError as e:

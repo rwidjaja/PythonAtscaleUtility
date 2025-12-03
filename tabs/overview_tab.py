@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 from common import append_log, load_config
 from api.folders import get_folders
-from .overview_semantic import SemanticParser
+from overview.overview_semantic import SemanticParser
 
 def build_tab(content, log_ref_container):
     config = load_config()

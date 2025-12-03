@@ -1,5 +1,5 @@
 # tabs/catalog_queries.py
-from .common_xmla import build_xmla_query
+from cubes.common_xmla import build_xmla_query
 
 # Central registry of SQL fragments and their expected columns.
 CATALOG_QUERIES = {

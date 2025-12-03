@@ -2,8 +2,8 @@
 import tkinter as tk
 from tkinter import ttk
 from common import append_log
-from .cube_data_queries import run_xmla_query, CATALOG_QUERY, CUBE_QUERY_TEMPLATE
-from .cube_data_parsers import parse_catalogs, parse_cubes
+from cubes.cube_data_queries import run_xmla_query, CATALOG_QUERY, CUBE_QUERY_TEMPLATE
+from cubes.cube_data_parsers import parse_catalogs, parse_cubes
 
 class CatalogCubeSelector:
     def __init__(self, parent, log_ref_container, on_selection_change=None):
