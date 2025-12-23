@@ -1,0 +1,3984 @@
+unique_name: Sales Insights - Postgres(2).catalog
+object_type: catalog
+label: Sales Insights - Postgres(2)
+version: 1.2
+aggressive_agg_promotion: false
+build_speculative_aggs: false
+models:
+  - unique_name: Internet Sales Cube
+    unique_id: Internet Sales Cube
+    label: Internet Sales Cube
+    visible: true
+    relationships:
+      - unique_name: factinternetsales.dataset_Customer_Dimension
+        from:
+          dataset: factinternetsales.dataset
+          join_columns:
+            - customerkey
+        to:
+          dimension: Customer Dimension
+          level: Customer Name
+      - unique_name: factinternetsales.dataset_Date_Dimension_Order
+        from:
+          dataset: factinternetsales.dataset
+          join_columns:
+            - orderdatekey
+        to:
+          dimension: Date Dimension
+          level: Reporting_Day
+        role_play: "Order {0}"
+      - unique_name: factinternetsales.dataset_Date_Dimension_Ship
+        from:
+          dataset: factinternetsales.dataset
+          join_columns:
+            - shipdatekey
+        to:
+          dimension: Date Dimension
+          level: Reporting_Day
+        role_play: "Ship {0}"
+      - unique_name: factinternetsales.dataset_Order_Dimension
+        from:
+          dataset: factinternetsales.dataset
+          join_columns:
+            - salesorderlinenumber
+            - salesordernumber
+            - currencykey
+        to:
+          dimension: Order Dimension
+          level: order_line_item
+      - unique_name: factinternetsales.dataset_Product_Dimension
+        from:
+          dataset: factinternetsales.dataset
+          join_columns:
+            - productkey
+        to:
+          dimension: Product Dimension
+          level: Product Name
+      - unique_name: factinternetsales.dataset_Date_Dimension_Order_1
+        from:
+          dataset: factinternetsales.dataset
+          join_columns:
+            - orderdatekey
+        to:
+          dimension: Date Dimension
+          level: DayMonth
+        role_play: "Order {0}"
+      - unique_name: factinternetsales.dataset_Date_Dimension_Ship_1
+        from:
+          dataset: factinternetsales.dataset
+          join_columns:
+            - shipdatekey
+        to:
+          dimension: Date Dimension
+          level: DayMonth
+        role_play: "Ship {0}"
+      - unique_name: factinternetsales.dataset_Date_Dimension_Order_2
+        from:
+          dataset: factinternetsales.dataset
+          join_columns:
+            - orderdatekey
+        to:
+          dimension: Date Dimension
+          level: customday
+        role_play: "Order {0}"
+      - unique_name: factinternetsales.dataset_Date_Dimension_Ship_2
+        from:
+          dataset: factinternetsales.dataset
+          join_columns:
+            - shipdatekey
+        to:
+          dimension: Date Dimension
+          level: customday
+        role_play: "Ship {0}"
+    dimensions:
+      - Color Dimension
+      - Size Dimension
+      - Style Dimension
+      - Weight
+    metrics:
+      - unique_name: calculatedtax1
+        folder: Sales Metrics
+      - unique_name: customercount1
+        folder: Customer Metrics
+      - unique_name: customercountestimate1
+        folder: Customer Metrics
+      - unique_name: lastproductunitprice
+        folder: Product Metrics
+      - unique_name: maxOrderDate
+        folder: Time Relative
+      - unique_name: maxtaxamount1
+        folder: Sales Metrics
+      - unique_name: MinOrderDate
+        folder: Time Relative
+      - unique_name: orderquantity1
+        folder: Sales Metrics
+      - unique_name: salesamount1
+        folder: Sales Metrics
+      - unique_name: salesamountAvg1
+        folder: Sales Metrics
+      - unique_name: salesamountsstdev1
+        folder: Sales Metrics
+      - unique_name: soldproductNDC1
+        folder: Sales Metrics
+      - unique_name: Average Customer Count per Order
+        folder: Time Relative
+      - unique_name: Average Est Customer Count per Order
+        folder: Time Relative
+      - unique_name: Average Last Product Unit Count per Order
+        folder: Time Relative
+      - unique_name: Average Max Tax Count per Order
+        folder: Time Relative
+      - unique_name: Average Sales Amount SD Count per Order
+        folder: Time Relative
+      - unique_name: Average Sales per Order
+        folder: Time Relative
+      - unique_name: Average Sold Product per Order
+        folder: Time Relative
+      - unique_name: Customer Count-Order CustomPP445-PrevYear
+        folder: Time Relative
+      - unique_name: Customer Count-Order CustomPP445-PrevYearGrowth
+        folder: Time Relative
+      - unique_name: Customer Count-Order CustomPP445-PrevYearGrowthPct
+        folder: Time Relative
+      - unique_name: Customer Count-Order Retail445-30PrdMvAvg
+        folder: Time Relative
+      - unique_name: Customer Count-Order Retail445-30PrdMvAvgPrevYear
+        folder: Time Relative
+      - unique_name: Customer Count-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+        folder: Time Relative
+      - unique_name: Customer Count-Order Retail445-30PrdMvLowerBand
+        folder: Time Relative
+      - unique_name: Customer Count-Order Retail445-30PrdMvStdev
+        folder: Time Relative
+      - unique_name: Customer Count-Order Retail445-30PrdMvUpperBand
+        folder: Time Relative
+      - unique_name: Customer Count-Order Retail445-Next
+        folder: Time Relative
+      - unique_name: Customer Count-Order Retail445-Prev
+        folder: Time Relative
+      - unique_name: Customer Count-Order Retail445-PrevPeriodGrowth
+        folder: Time Relative
+      - unique_name: Customer Count-Order Retail445-PrevPeriodGrowthPct
+        folder: Time Relative
+      - unique_name: Customer Count-Order Retail445-PrevYear
+        folder: Time Relative
+      - unique_name: Customer Count-Order Retail445-PrevYearGrowth
+        folder: Time Relative
+      - unique_name: Customer Count-Order Retail445-PrevYearGrowthPct
+        folder: Time Relative
+      - unique_name: Customer Count-Order Retail445-YTD
+        folder: Time Relative
+      - unique_name: Customer Count-Order Retail445-YTDPrevYear
+        folder: Time Relative
+      - unique_name: Estimated Customer Count-Order CustomPP445-PrevYear
+        folder: Time Relative
+      - unique_name: Estimated Customer Count-Order CustomPP445-PrevYearGrowth
+        folder: Time Relative
+      - unique_name: Estimated Customer Count-Order CustomPP445-PrevYearGrowthPct
+        folder: Time Relative
+      - unique_name: Estimated Customer Count-Order Retail445-30PrdMvAvg
+        folder: Time Relative
+      - unique_name: Estimated Customer Count-Order Retail445-30PrdMvAvgPrevYear
+        folder: Time Relative
+      - unique_name: Estimated Customer Count-Order Retail445-30PrdMvAvgPrevYearGro
+        folder: Time Relative
+      - unique_name: Estimated Customer Count-Order Retail445-30PrdMvLowerBand
+        folder: Time Relative
+      - unique_name: Estimated Customer Count-Order Retail445-30PrdMvStdev
+        folder: Time Relative
+      - unique_name: Estimated Customer Count-Order Retail445-30PrdMvUpperBand
+        folder: Time Relative
+      - unique_name: Estimated Customer Count-Order Retail445-Next
+        folder: Time Relative
+      - unique_name: Estimated Customer Count-Order Retail445-Prev
+        folder: Time Relative
+      - unique_name: Estimated Customer Count-Order Retail445-PrevPeriodGrowth
+        folder: Time Relative
+      - unique_name: Estimated Customer Count-Order Retail445-PrevPeriodGrowthPct
+        folder: Time Relative
+      - unique_name: Estimated Customer Count-Order Retail445-PrevYear
+        folder: Time Relative
+      - unique_name: Estimated Customer Count-Order Retail445-PrevYearGrowth
+        folder: Time Relative
+      - unique_name: Estimated Customer Count-Order Retail445-PrevYearGrowthPct
+        folder: Time Relative
+      - unique_name: Estimated Customer Count-Order Retail445-YTD
+        folder: Time Relative
+      - unique_name: Estimated Customer Count-Order Retail445-YTDPrevYear
+        folder: Time Relative
+      - unique_name: Last Product Unit Price-Order CustomPP445-PrevYear
+        folder: Time Relative
+      - unique_name: Last Product Unit Price-Order CustomPP445-PrevYearGrowth
+        folder: Time Relative
+      - unique_name: Last Product Unit Price-Order CustomPP445-PrevYearGrowthPct
+        folder: Time Relative
+      - unique_name: Last Product Unit Price-Order Retail445-30PrdMvAvg
+        folder: Time Relative
+      - unique_name: Last Product Unit Price-Order Retail445-30PrdMvAvgPrevYear
+        folder: Time Relative
+      - unique_name: Last Product Unit Price-Order Retail445-30PrdMvAvgPrevYearGrow
+        folder: Time Relative
+      - unique_name: Last Product Unit Price-Order Retail445-30PrdMvLowerBand
+        folder: Time Relative
+      - unique_name: Last Product Unit Price-Order Retail445-30PrdMvStdev
+        folder: Time Relative
+      - unique_name: Last Product Unit Price-Order Retail445-30PrdMvUpperBand
+        folder: Time Relative
+      - unique_name: Last Product Unit Price-Order Retail445-Next
+        folder: Time Relative
+      - unique_name: Last Product Unit Price-Order Retail445-Prev
+        folder: Time Relative
+      - unique_name: Last Product Unit Price-Order Retail445-PrevPeriodGrowth
+        folder: Time Relative
+      - unique_name: Last Product Unit Price-Order Retail445-PrevPeriodGrowthPct
+        folder: Time Relative
+      - unique_name: Last Product Unit Price-Order Retail445-PrevYear
+        folder: Time Relative
+      - unique_name: Last Product Unit Price-Order Retail445-PrevYearGrowth
+        folder: Time Relative
+      - unique_name: Last Product Unit Price-Order Retail445-PrevYearGrowthPct
+        folder: Time Relative
+      - unique_name: Last Product Unit Price-Order Retail445-YTD
+        folder: Time Relative
+      - unique_name: Last Product Unit Price-Order Retail445-YTDPrevYear
+        folder: Time Relative
+      - unique_name: Max Tax Amount-Order CustomPP445-PrevYear
+        folder: Time Relative
+      - unique_name: Max Tax Amount-Order CustomPP445-PrevYearGrowth
+        folder: Time Relative
+      - unique_name: Max Tax Amount-Order CustomPP445-PrevYearGrowthPct
+        folder: Time Relative
+      - unique_name: Max Tax Amount-Order Retail445-30PrdMvAvg
+        folder: Time Relative
+      - unique_name: Max Tax Amount-Order Retail445-30PrdMvAvgPrevYear
+        folder: Time Relative
+      - unique_name: Max Tax Amount-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+        folder: Time Relative
+      - unique_name: Max Tax Amount-Order Retail445-30PrdMvLowerBand
+        folder: Time Relative
+      - unique_name: Max Tax Amount-Order Retail445-30PrdMvStdev
+        folder: Time Relative
+      - unique_name: Max Tax Amount-Order Retail445-30PrdMvUpperBand
+        folder: Time Relative
+      - unique_name: Max Tax Amount-Order Retail445-Next
+        folder: Time Relative
+      - unique_name: Max Tax Amount-Order Retail445-Prev
+        folder: Time Relative
+      - unique_name: Max Tax Amount-Order Retail445-PrevPeriodGrowth
+        folder: Time Relative
+      - unique_name: Max Tax Amount-Order Retail445-PrevPeriodGrowthPct
+        folder: Time Relative
+      - unique_name: Max Tax Amount-Order Retail445-PrevYear
+        folder: Time Relative
+      - unique_name: Max Tax Amount-Order Retail445-PrevYearGrowth
+        folder: Time Relative
+      - unique_name: Max Tax Amount-Order Retail445-PrevYearGrowthPct
+        folder: Time Relative
+      - unique_name: Max Tax Amount-Order Retail445-YTD
+        folder: Time Relative
+      - unique_name: Max Tax Amount-Order Retail445-YTDPrevYear
+        folder: Time Relative
+      - unique_name: Sales Amount SStdev-Order CustomPP445-PrevYear
+        folder: Time Relative
+      - unique_name: Sales Amount SStdev-Order CustomPP445-PrevYearGrowth
+        folder: Time Relative
+      - unique_name: Sales Amount SStdev-Order CustomPP445-PrevYearGrowthPct
+        folder: Time Relative
+      - unique_name: Sales Amount SStdev-Order Retail445-30PrdMvAvg
+        folder: Time Relative
+      - unique_name: Sales Amount SStdev-Order Retail445-30PrdMvAvgPrevYear
+        folder: Time Relative
+      - unique_name: Sales Amount SStdev-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+        folder: Time Relative
+      - unique_name: Sales Amount SStdev-Order Retail445-30PrdMvLowerBand
+        folder: Time Relative
+      - unique_name: Sales Amount SStdev-Order Retail445-30PrdMvStdev
+        folder: Time Relative
+      - unique_name: Sales Amount SStdev-Order Retail445-30PrdMvUpperBand
+        folder: Time Relative
+      - unique_name: Sales Amount SStdev-Order Retail445-Next
+        folder: Time Relative
+      - unique_name: Sales Amount SStdev-Order Retail445-Prev
+        folder: Time Relative
+      - unique_name: Sales Amount SStdev-Order Retail445-PrevPeriodGrowth
+        folder: Time Relative
+      - unique_name: Sales Amount SStdev-Order Retail445-PrevPeriodGrowthPct
+        folder: Time Relative
+      - unique_name: Sales Amount SStdev-Order Retail445-PrevYear
+        folder: Time Relative
+      - unique_name: Sales Amount SStdev-Order Retail445-PrevYearGrowth
+        folder: Time Relative
+      - unique_name: Sales Amount SStdev-Order Retail445-PrevYearGrowthPct
+        folder: Time Relative
+      - unique_name: Sales Amount SStdev-Order Retail445-YTD
+        folder: Time Relative
+      - unique_name: Sales Amount SStdev-Order Retail445-YTDPrevYear
+        folder: Time Relative
+      - unique_name: Sales Amount-Order CustomPP445-PrevYear
+        folder: Time Relative
+      - unique_name: Sales Amount-Order CustomPP445-PrevYearGrowth
+        folder: Time Relative
+      - unique_name: Sales Amount-Order CustomPP445-PrevYearGrowthPct
+        folder: Time Relative
+      - unique_name: Sales Amount-Order Retail445-30PrdMvAvg
+        folder: Time Relative
+      - unique_name: Sales Amount-Order Retail445-30PrdMvAvgPrevYear
+        folder: Time Relative
+      - unique_name: Sales Amount-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+        folder: Time Relative
+      - unique_name: Sales Amount-Order Retail445-30PrdMvLowerBand
+        folder: Time Relative
+      - unique_name: Sales Amount-Order Retail445-30PrdMvStdev
+        folder: Time Relative
+      - unique_name: Sales Amount-Order Retail445-30PrdMvUpperBand
+        folder: Time Relative
+      - unique_name: Sales Amount-Order Retail445-Next
+        folder: Time Relative
+      - unique_name: Sales Amount-Order Retail445-Prev
+        folder: Time Relative
+      - unique_name: Sales Amount-Order Retail445-PrevPeriodGrowth
+        folder: Time Relative
+      - unique_name: Sales Amount-Order Retail445-PrevPeriodGrowthPct
+        folder: Time Relative
+      - unique_name: Sales Amount-Order Retail445-PrevYear
+        folder: Time Relative
+      - unique_name: Sales Amount-Order Retail445-PrevYearGrowth
+        folder: Time Relative
+      - unique_name: Sales Amount-Order Retail445-PrevYearGrowthPct
+        folder: Time Relative
+      - unique_name: Sales Amount-Order Retail445-YTD
+        folder: Time Relative
+      - unique_name: Sales Amount-Order Retail445-YTDPrevYear
+        folder: Time Relative
+      - unique_name: SoldProductNDC-Order CustomPP445-PrevYear
+        folder: Time Relative
+      - unique_name: SoldProductNDC-Order CustomPP445-PrevYearGrowth
+        folder: Time Relative
+      - unique_name: SoldProductNDC-Order CustomPP445-PrevYearGrowthPct
+        folder: Time Relative
+      - unique_name: SoldProductNDC-Order Retail445-30PrdMvAvg
+        folder: Time Relative
+      - unique_name: SoldProductNDC-Order Retail445-30PrdMvAvgPrevYear
+        folder: Time Relative
+      - unique_name: SoldProductNDC-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+        folder: Time Relative
+      - unique_name: SoldProductNDC-Order Retail445-30PrdMvLowerBand
+        folder: Time Relative
+      - unique_name: SoldProductNDC-Order Retail445-30PrdMvStdev
+        folder: Time Relative
+      - unique_name: SoldProductNDC-Order Retail445-30PrdMvUpperBand
+        folder: Time Relative
+      - unique_name: SoldProductNDC-Order Retail445-Next
+        folder: Time Relative
+      - unique_name: SoldProductNDC-Order Retail445-Prev
+        folder: Time Relative
+      - unique_name: SoldProductNDC-Order Retail445-PrevPeriodGrowth
+        folder: Time Relative
+      - unique_name: SoldProductNDC-Order Retail445-PrevPeriodGrowthPct
+        folder: Time Relative
+      - unique_name: SoldProductNDC-Order Retail445-PrevYear
+        folder: Time Relative
+      - unique_name: SoldProductNDC-Order Retail445-PrevYearGrowth
+        folder: Time Relative
+      - unique_name: SoldProductNDC-Order Retail445-PrevYearGrowthPct
+        folder: Time Relative
+      - unique_name: SoldProductNDC-Order Retail445-YTD
+        folder: Time Relative
+      - unique_name: SoldProductNDC-Order Retail445-YTDPrevYear
+        folder: Time Relative
+      - unique_name: T1
+      - unique_name: T2
+      - unique_name: Total
+      - unique_name: X
+    dataset_properties:
+      factinternetsales.dataset:
+        allow_aggregates: true
+    drillthroughs:
+      - unique_name: Customer Details
+        unique_id: Internet Sales Cube.Customer Details.drill
+        model: Internet Sales Cube
+        attributes:
+          - name: State
+            dimension: Geography Dimension
+          - name: Customer Name
+            dimension: Customer Dimension
+          - name: City
+            dimension: Geography Dimension
+          - name: Zip Code
+            dimension: Geography Dimension
+        metrics:
+          - orderquantity1
+          - salesamount1
+      - unique_name: Shipping Details
+        unique_id: Internet Sales Cube.Shipping Details.drill
+        model: Internet Sales Cube
+        attributes:
+          - name: Customer Name
+            dimension: Customer Dimension
+          - name: Style
+            dimension: Style Dimension
+          - name: Product Name
+            dimension: Product Dimension
+          - name: Color
+            dimension: Color Dimension
+          - name: Size
+            dimension: Size Dimension
+        metrics:
+          - orderquantity1
+          - salesamount1
+dimensions:
+  - unique_name: Customer Dimension
+    object_type: dimension
+    unique_id: Customer Dimension.dimension
+    label: Customer Dimension
+    description: Customer Key
+    type: standard
+    hierarchies:
+      - unique_name: Customer Hierarchy
+        unique_id: Customer Dimension.dimension.Customer Hierarchy
+        label: Customer Hierarchy
+        filter_empty: "no"
+        folder: Customer Attributes
+        levels:
+          - unique_name: Customer Name
+    attributes:
+      - unique_name: Customer Name
+        unique_id: Customer Dimension.dimension.Customer Hierarchy.Customer Name
+        label: Customer Name
+        description: Customer Key
+        is_unique_key: true
+        dataset: dimcustomer.dataset
+        key_columns:
+          - customerkey
+        name_column: fullname
+      - unique_name: d_firstname
+        unique_id: Customer Dimension.dimension.d_firstname
+        label: First Name
+        associated_level: Customer Name
+        dataset: dimcustomer.dataset
+        key_columns:
+          - firstname
+        name_column: firstname
+      - unique_name: d_lastname
+        unique_id: Customer Dimension.dimension.d_lastname
+        label: Last Name
+        associated_level: Customer Name
+        dataset: dimcustomer.dataset
+        key_columns:
+          - lastname
+        name_column: lastname
+      - unique_name: Occupation
+        unique_id: Customer Dimension.dimension.Occupation
+        label: Occupation
+        folder: Customer Attributes
+        associated_level: Customer Name
+        dataset: dimcustomer.dataset
+        key_columns:
+          - occupation
+        name_column: occupation
+    relationships:
+      - unique_name: CustomerDimension_GeographyDimension
+        from:
+          dimension: Customer Dimension
+          hierarchy: Customer Hierarchy
+          level: Customer Name
+          dataset: dimcustomer.dataset
+          join_columns:
+            - geographykey
+        to:
+          dimension: Geography Dimension
+          level: GeoKeyCity
+        type: embedded
+      - unique_name: CustomerDimension_GeographyDimension_1
+        from:
+          dimension: Customer Dimension
+          hierarchy: Customer Hierarchy
+          level: Customer Name
+          dataset: dimcustomer.dataset
+          join_columns:
+            - geographykey
+        to:
+          dimension: Geography Dimension
+          level: GeoKeyZip
+        type: embedded
+      - unique_name: CustomerDimension_GenderDimension
+        from:
+          dimension: Customer Dimension
+          hierarchy: Customer Hierarchy
+          level: Customer Name
+          dataset: dimcustomer.dataset
+          join_columns:
+            - gender
+        to:
+          dimension: Gender Dimension
+          level: Gender
+        type: embedded
+    modeler_metadata:
+      version: 0
+      modified: "false"
+  - unique_name: Date Dimension
+    object_type: dimension
+    unique_id: Date Dimension.dimension
+    label: Date Dimension
+    description: "Date Dimension that includes Gregorian, ISO8601 and Retail 445 calendars"
+    type: time
+    hierarchies:
+      - unique_name: Date Month Hierarchy
+        unique_id: Date Dimension.dimension.Date Month Hierarchy
+        label: Date Month Hierarchy
+        description: "A Gregorian Date Hierarchy.  Organizes time by Year, Quarter,\
+          \ Month, Day."
+        filter_empty: "no"
+        folder: Date Attributes
+        levels:
+          - unique_name: YearMonth
+          - unique_name: Quarter
+          - unique_name: Month1
+          - unique_name: DayMonth
+      - unique_name: Date Week Hierarchy
+        unique_id: Date Dimension.dimension.Date Week Hierarchy
+        label: Date Week Hierarchy
+        filter_empty: "yes"
+        folder: Date Attributes
+        levels:
+          - unique_name: YearWeek
+          - unique_name: Week
+          - unique_name: DayMonth
+      - unique_name: Retail445
+        unique_id: Date Dimension.dimension.Retail445
+        label: Retail445
+        description: A Retail 4-4-5 calendar
+        filter_empty: "yes"
+        folder: Date Attributes
+        levels:
+          - unique_name: ReportIng_Year
+          - unique_name: ReportIng_Half_Year
+          - unique_name: ReportIng_Quarter
+          - unique_name: ReportIng_Month
+          - unique_name: ReportIng_Week
+          - unique_name: Reporting_Day
+      - unique_name: CustomPP445
+        unique_id: Date Dimension.dimension.CustomPP445
+        label: CustomPP445
+        description: A 445 calendar with custom parallel period keys defined for each
+          level.  The underlying data matches the results of the Retail445 hierarchy
+          because the data table contains the standard key assignments generated by
+          the default ParallelPeriod logic.  A real custom ParallelPeriod hierarchy
+          would have different parallel period key assignments to satisfy the reporting
+          business's reporting comparison requirements.
+        filter_empty: "yes"
+        folder: Date Attributes
+        levels:
+          - unique_name: customyear
+          - unique_name: customquarter
+            parallel_periods:
+              - level: customyear
+                key_columns:
+                  - rpt_quarter_lykey
+          - unique_name: custommonth
+            parallel_periods:
+              - level: customyear
+                key_columns:
+                  - rpt_month_lykey
+          - unique_name: customweek
+            parallel_periods:
+              - level: customyear
+                key_columns:
+                  - rpt_week_lykey
+          - unique_name: customday
+            parallel_periods:
+              - level: customyear
+                key_columns:
+                  - rpt_day_lykey
+    attributes:
+      - unique_name: customday
+        unique_id: Date Dimension.dimension.CustomPP445.customday
+        label: Custom Day
+        description: A 445 calendar with custom parallel period keys defined for each
+          level.  The underlying data matches the results of the Retail445 hierarchy
+          because the data table contains the standard key assignments generated by
+          the default ParallelPeriod logic.  A real custom ParallelPeriod hierarchy
+          would have different parallel period key assignments to satisfy the reporting
+          business's reporting comparison requirements.
+        is_unique_key: true
+        dataset: DateCustom.dataset
+        key_columns:
+          - datekey
+        name_column: rpt_day
+        sort_column: datekey
+        time_unit: day
+      - unique_name: custommonth
+        unique_id: Date Dimension.dimension.CustomPP445.custommonth
+        label: Custom Month
+        description: "Same as [Retail445].[Reporting Month] but has a custom parallel\
+          \ period key."
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_month
+        name_column: rpt_month_name2
+        sort_column: rpt_month
+        time_unit: month
+      - unique_name: customquarter
+        unique_id: Date Dimension.dimension.CustomPP445.customquarter
+        label: Custom Quarter
+        description: "Same as [Retail445].[Reporting Quarter] but has a custom parallel\
+          \ period key."
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_quarter
+        name_column: rpt_quarter_name
+        sort_column: rpt_quarter
+        time_unit: quarter
+      - unique_name: customweek
+        unique_id: Date Dimension.dimension.CustomPP445.customweek
+        label: Custom Week
+        description: "Same as [Retail445].[Reporting Week] but has a custom parallel\
+          \ period key."
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_week
+        name_column: rpt_week_name
+        sort_column: rpt_week
+        time_unit: week
+      - unique_name: customyear
+        unique_id: Date Dimension.dimension.CustomPP445.customyear
+        label: Custom Year
+        description: "Same as [Retail445].[Reporting Year] but has a custom parallel\
+          \ period key."
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_year
+        name_column: rpt_year_name
+        sort_column: rpt_year
+        time_unit: year
+      - unique_name: d_Custom_Day_Of_Month
+        unique_id: Date Dimension.dimension.d_Custom_Day_Of_Month
+        label: Custom Day Of Month
+        folder: Date Attributes
+        associated_level: customday
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_day_of_month_name
+        name_column: rpt_day_of_month_name
+        sort_column: rpt_day_of_month_name
+      - unique_name: d_Custom_Day_Of_Week
+        unique_id: Date Dimension.dimension.d_Custom_Day_Of_Week
+        label: Custom Day Of Week
+        folder: Date Attributes
+        associated_level: customday
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_day_of_week_name
+        name_column: rpt_day_of_week_name
+        sort_column: rpt_day_of_week_name
+      - unique_name: d_Custom_Day_Of_Year
+        unique_id: Date Dimension.dimension.d_Custom_Day_Of_Year
+        label: Custom Day Of Year
+        folder: Date Attributes
+        associated_level: customday
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_day_of_year_name
+        name_column: rpt_day_of_year_name
+        sort_column: rpt_day_of_year_name
+      - unique_name: d_Custom_Month_Name
+        unique_id: Date Dimension.dimension.d_Custom_Month_Name
+        label: Custom Month Name
+        folder: Date Attributes
+        associated_level: custommonth
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_month_name2
+        name_column: rpt_month_name2
+        sort_column: rpt_month_name2
+      - unique_name: d_Custom_Month_Of_Quarter
+        unique_id: Date Dimension.dimension.d_Custom_Month_Of_Quarter
+        label: Custom Month Of Quarter
+        folder: Date Attributes
+        associated_level: custommonth
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_month_of_quarter_name
+        name_column: rpt_month_of_quarter_name
+        sort_column: rpt_month_of_quarter_name
+      - unique_name: d_Custom_Month_Of_Year
+        unique_id: Date Dimension.dimension.d_Custom_Month_Of_Year
+        label: Custom Month Of Year
+        folder: Date Attributes
+        associated_level: custommonth
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_month_of_year_name
+        name_column: rpt_month_of_year_name
+        sort_column: rpt_month_of_year_name
+      - unique_name: d_Custom_Quarter_Of_Year
+        unique_id: Date Dimension.dimension.d_Custom_Quarter_Of_Year
+        label: Custom Quarter Of Year
+        folder: Date Attributes
+        associated_level: customquarter
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_quarter_of_year_name
+        name_column: rpt_quarter_of_year_name
+        sort_column: rpt_quarter_of_year_name
+      - unique_name: d_Custom_Week_Of_Month
+        unique_id: Date Dimension.dimension.d_Custom_Week_Of_Month
+        label: Custom Week Of Month
+        folder: Date Attributes
+        associated_level: customweek
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_week_of_month_name
+        name_column: rpt_week_of_month_name
+        sort_column: rpt_week_of_month_name
+      - unique_name: d_Custom_Week_Of_Year
+        unique_id: Date Dimension.dimension.d_Custom_Week_Of_Year
+        label: Custom Week Of Year
+        folder: Date Attributes
+        associated_level: customweek
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_week_of_year_name
+        name_column: rpt_week_of_year_name
+        sort_column: rpt_week_of_year_name
+      - unique_name: d_day_of_month
+        unique_id: Date Dimension.dimension.d_day_of_month
+        label: Day Of Month
+        folder: Date Attributes
+        associated_level: DayMonth
+        associated_hierarchy: Date Month Hierarchy
+        dataset: DateCustom.dataset
+        key_columns:
+          - day_of_month
+        name_column: day_of_month
+        sort_column: day_of_month
+      - unique_name: d_day_of_week_name
+        unique_id: Date Dimension.dimension.d_day_of_week_name
+        label: Day Of Week Name
+        folder: Date Attributes
+        associated_level: DayMonth
+        associated_hierarchy: Date Month Hierarchy
+        dataset: DateCustom.dataset
+        key_columns:
+          - day_of_week_name
+        name_column: day_of_week_name
+        sort_column: day_of_week_name
+      - unique_name: d_day_of_week_number
+        unique_id: Date Dimension.dimension.d_day_of_week_number
+        label: Day Of Week Number
+        folder: Date Attributes
+        associated_level: DayMonth
+        associated_hierarchy: Date Month Hierarchy
+        dataset: DateCustom.dataset
+        key_columns:
+          - day_of_week
+        name_column: day_of_week
+        sort_column: day_of_week
+      - unique_name: d_month_of_year
+        unique_id: Date Dimension.dimension.d_month_of_year
+        label: Month Of Year
+        folder: Date Attributes
+        associated_level: Month1
+        dataset: DateCustom.dataset
+        key_columns:
+          - month_of_year
+        name_column: month_of_year
+        sort_column: month_of_year
+      - unique_name: d_quarter_number
+        unique_id: Date Dimension.dimension.d_quarter_number
+        label: Quarter Number
+        folder: Date Attributes
+        associated_level: Quarter
+        dataset: DateCustom.dataset
+        key_columns:
+          - quarter_of_year
+        name_column: quarter_of_year
+        sort_column: quarter_of_year
+      - unique_name: d_Reporting_Month_Name
+        unique_id: Date Dimension.dimension.d_Reporting_Month_Name
+        label: ReportIng Month Name
+        folder: Date Attributes
+        associated_level: ReportIng_Month
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_month_name
+        name_column: rpt_month_name2
+        sort_column: rpt_month_name2
+      - unique_name: d_week_of_year
+        unique_id: Date Dimension.dimension.d_week_of_year
+        label: Week Of Year
+        folder: Date Attributes
+        associated_level: Week
+        dataset: DateCustom.dataset
+        key_columns:
+          - week_of_year
+        name_column: week_of_year
+        sort_column: week_of_year
+      - unique_name: Day_Date
+        unique_id: Date Dimension.dimension.Day_Date
+        label: Day Date
+        folder: Date Attributes
+        associated_level: DayMonth
+        associated_hierarchy: Date Month Hierarchy
+        dataset: DateCustom.dataset
+        key_columns:
+          - pk_date
+        name_column: pk_date
+        sort_column: pk_date
+      - unique_name: DayMonth
+        unique_id: Date Dimension.dimension.Date Month Hierarchy.DayMonth
+        label: Day
+        description: Day level of standard calendar Month Hierarchy
+        is_unique_key: true
+        dataset: DateCustom.dataset
+        key_columns:
+          - datekey
+        name_column: date_name
+        sort_column: datekey
+        time_unit: day
+      - unique_name: Month1
+        unique_id: Date Dimension.dimension.Date Month Hierarchy.Month1
+        label: Month
+        dataset: DateCustom.dataset
+        key_columns:
+          - month
+        name_column: month_name
+        sort_column: month
+        time_unit: month
+      - unique_name: Quarter
+        unique_id: Date Dimension.dimension.Date Month Hierarchy.Quarter
+        label: Quarter
+        dataset: DateCustom.dataset
+        key_columns:
+          - quarter
+        name_column: quarter_name
+        sort_column: quarter
+        time_unit: quarter
+      - unique_name: Reporting_Day
+        unique_id: Date Dimension.dimension.Retail445.Reporting_Day
+        label: Reporting Day
+        description: A Retail 4-4-5 calendar
+        is_unique_key: true
+        dataset: DateCustom.dataset
+        key_columns:
+          - datekey
+        name_column: rpt_day
+        sort_column: datekey
+        time_unit: day
+      - unique_name: Reporting_Day_Of_Month
+        unique_id: Date Dimension.dimension.Reporting_Day_Of_Month
+        label: ReportIng Day Of Month
+        folder: Date Attributes
+        associated_level: Reporting_Day
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_day_of_month
+        name_column: rpt_day_of_month_name
+        sort_column: rpt_day_of_month_name
+      - unique_name: Reporting_Day_Of_Week
+        unique_id: Date Dimension.dimension.Reporting_Day_Of_Week
+        label: ReportIng Day Of Week
+        folder: Date Attributes
+        associated_level: Reporting_Day
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_day_of_week
+        name_column: rpt_day_of_week_name
+        sort_column: rpt_day_of_week_name
+      - unique_name: Reporting_Day_Of_Year
+        unique_id: Date Dimension.dimension.Reporting_Day_Of_Year
+        label: ReportIng Day Of Year
+        folder: Date Attributes
+        associated_level: Reporting_Day
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_day_of_year
+        name_column: rpt_day_of_year_name
+        sort_column: rpt_day_of_year_name
+      - unique_name: ReportIng_Half_Year
+        unique_id: Date Dimension.dimension.Retail445.ReportIng_Half_Year
+        label: ReportIng Half Year
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_half_year
+        name_column: rpt_half_year_name
+        sort_column: rpt_half_year
+        time_unit: halfyear
+      - unique_name: Reporting_Half_Year_Of_Year
+        unique_id: Date Dimension.dimension.Reporting_Half_Year_Of_Year
+        label: ReportIng Half Year Of Year
+        folder: Date Attributes
+        associated_level: ReportIng_Half_Year
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_half_year_of_year
+        name_column: rpt_half_year_of_year_name
+        sort_column: rpt_half_year_of_year_name
+      - unique_name: ReportIng_Month
+        unique_id: Date Dimension.dimension.Retail445.ReportIng_Month
+        label: ReportIng Month
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_month
+        name_column: rpt_month_name2
+        sort_column: rpt_month
+        time_unit: month
+      - unique_name: Reporting_Month_Of_Quarter
+        unique_id: Date Dimension.dimension.Reporting_Month_Of_Quarter
+        label: ReportIng Month Of Quarter
+        folder: Date Attributes
+        associated_level: ReportIng_Month
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_month_of_quarter
+        name_column: rpt_month_of_quarter_name
+        sort_column: rpt_month_of_quarter_name
+      - unique_name: Reporting_Month_Of_Year
+        unique_id: Date Dimension.dimension.Reporting_Month_Of_Year
+        label: ReportIng Month Of Year
+        folder: Date Attributes
+        associated_level: ReportIng_Month
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_month_of_year
+        name_column: rpt_month_of_year_name
+        sort_column: rpt_month_of_year_name
+      - unique_name: ReportIng_Quarter
+        unique_id: Date Dimension.dimension.Retail445.ReportIng_Quarter
+        label: ReportIng Quarter
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_quarter
+        name_column: rpt_quarter_name
+        sort_column: rpt_quarter
+        time_unit: quarter
+      - unique_name: Reporting_Quarter_Of_Year
+        unique_id: Date Dimension.dimension.Reporting_Quarter_Of_Year
+        label: ReportIng Quarter Of Year
+        folder: Date Attributes
+        associated_level: ReportIng_Quarter
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_quarter_of_year
+        name_column: rpt_quarter_of_year_name
+        sort_column: rpt_quarter_of_year_name
+      - unique_name: ReportIng_Week
+        unique_id: Date Dimension.dimension.Retail445.ReportIng_Week
+        label: ReportIng Week
+        description: Week level of the 4-4-5 calendar
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_week
+        name_column: rpt_week_name
+        sort_column: rpt_week
+        time_unit: week
+      - unique_name: Reporting_Week_Of_Month
+        unique_id: Date Dimension.dimension.Reporting_Week_Of_Month
+        label: ReportIng Week Of Month
+        folder: Date Attributes
+        associated_level: ReportIng_Week
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_week_of_month
+        name_column: rpt_week_of_month_name
+        sort_column: rpt_week_of_month_name
+      - unique_name: Reporting_Week_Of_Year
+        unique_id: Date Dimension.dimension.Reporting_Week_Of_Year
+        label: ReportIng Week Of Year
+        folder: Date Attributes
+        associated_level: ReportIng_Week
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_week_of_year
+        name_column: rpt_week_of_year_name
+        sort_column: rpt_week_of_year_name
+      - unique_name: ReportIng_Year
+        unique_id: Date Dimension.dimension.Retail445.ReportIng_Year
+        label: ReportIng Year
+        dataset: DateCustom.dataset
+        key_columns:
+          - rpt_year
+        name_column: rpt_year_name
+        sort_column: rpt_year
+        time_unit: year
+      - unique_name: W_Day_Date
+        unique_id: Date Dimension.dimension.W_Day_Date
+        label: W Day Date
+        folder: Date Attributes
+        associated_level: DayMonth
+        associated_hierarchy: Date Week Hierarchy
+        dataset: DateCustom.dataset
+        key_columns:
+          - pk_date
+        name_column: pk_date
+        sort_column: pk_date
+      - unique_name: w_day_of_week_name
+        unique_id: Date Dimension.dimension.w_day_of_week_name
+        label: W Day Of Week Name
+        folder: Date Attributes
+        associated_level: DayMonth
+        associated_hierarchy: Date Week Hierarchy
+        dataset: DateCustom.dataset
+        key_columns:
+          - day_of_week_name
+        name_column: day_of_week_name
+        sort_column: day_of_week_name
+      - unique_name: w_day_of_week_number
+        unique_id: Date Dimension.dimension.w_day_of_week_number
+        label: W Day Of Week Number
+        folder: Date Attributes
+        associated_level: DayMonth
+        associated_hierarchy: Date Week Hierarchy
+        dataset: DateCustom.dataset
+        key_columns:
+          - day_of_week
+        name_column: day_of_week
+        sort_column: day_of_week
+      - unique_name: Week
+        unique_id: Date Dimension.dimension.Date Week Hierarchy.Week
+        label: Week
+        dataset: DateCustom.dataset
+        key_columns:
+          - week
+        name_column: week_name
+        sort_column: week
+        time_unit: week
+      - unique_name: YearMonth
+        unique_id: Date Dimension.dimension.Date Month Hierarchy.YearMonth
+        label: Year
+        description: Year level of the Standard Calendar Month Hierarchy.
+        dataset: DateCustom.dataset
+        key_columns:
+          - year
+        name_column: year_name
+        sort_column: year
+        time_unit: year
+      - unique_name: YearWeek
+        unique_id: Date Dimension.dimension.Date Week Hierarchy.YearWeek
+        label: Year
+        dataset: DateCustom.dataset
+        key_columns:
+          - year
+        name_column: year_name
+        sort_column: year
+        time_unit: year
+    calculation_groups:
+      - unique_name: retail445CalcGroup
+        label: retail445CalcGroup
+        folder: retail445
+        calculated_members:
+          - unique_name: Current
+            expression: "([Date Dimension].CurrentMember, [Measures].currentMember)"
+            format: standard
+            use_input_metric_format: true
+          - unique_name: Retail445 Last Year
+            expression: "(ParallelPeriod([Date Dimension].[Retail445].[ReportIng_Year],\
+              \ 1, [Date Dimension].[Retail445].CurrentMember), [Measures].currentMember)"
+            format: standard
+            use_input_metric_format: true
+          - unique_name: Retail445 Year to Date
+            expression: "Aggregate(PeriodsToDate([Date Dimension].[Retail445].[ReportIng_Year],\
+              \ [Date Dimension].[Retail445].CurrentMember),[Measures].currentMember)"
+            format: standard
+            use_input_metric_format: true
+    modeler_metadata:
+      version: 0
+      modified: "false"
+  - unique_name: Gender Dimension
+    object_type: dimension
+    unique_id: Gender Dimension.dimension
+    label: Gender Dimension
+    type: standard
+    hierarchies:
+      - unique_name: Gender Hierarchy
+        unique_id: Gender Dimension.dimension.Gender Hierarchy
+        label: Gender Hierarchy
+        folder: Customer Attributes
+        levels:
+          - unique_name: Gender
+    attributes:
+      - unique_name: Gender
+        unique_id: Gender Dimension.dimension.Gender Hierarchy.Gender
+        label: Gender
+        is_unique_key: true
+        dataset: dimgender.dataset
+        key_columns:
+          - genderkey
+        name_column: gendername
+  - unique_name: Geography Dimension
+    object_type: dimension
+    unique_id: Geography Dimension.dimension
+    label: Geography Dimension
+    type: standard
+    hierarchies:
+      - unique_name: Geography City
+        unique_id: Geography Dimension.dimension.Geography City
+        label: Geography City
+        folder: Customer Attributes
+        levels:
+          - unique_name: CountryCity
+          - unique_name: State
+          - unique_name: City
+          - unique_name: GeoKeyCity
+            is_hidden: true
+      - unique_name: Geography Zip
+        unique_id: Geography Dimension.dimension.Geography Zip
+        label: Geography Zip
+        folder: Customer Attributes
+        levels:
+          - unique_name: CountryZip
+          - unique_name: Zip Code
+          - unique_name: GeoKeyZip
+            is_hidden: true
+    attributes:
+      - unique_name: City
+        unique_id: Geography Dimension.dimension.Geography City.City
+        label: City
+        dataset: dim_geo_city.dataset
+        key_columns:
+          - statekey
+          - city
+        name_column: citystatekey
+      - unique_name: CountryCity
+        unique_id: Geography Dimension.dimension.Geography City.CountryCity
+        label: Country
+        is_unique_key: true
+        dataset: dim_geo_country.dataset
+        key_columns:
+          - country
+        name_column: country
+      - unique_name: CountryZip
+        unique_id: Geography Dimension.dimension.Geography Zip.CountryZip
+        label: Country
+        dataset: dim_geo_country.dataset
+        key_columns:
+          - country
+        name_column: country
+      - unique_name: d_city
+        unique_id: Geography Dimension.dimension.d_city
+        label: City
+        associated_level: City
+        dataset: dim_geo_city.dataset
+        key_columns:
+          - city
+        name_column: city
+      - unique_name: d_postalcode
+        unique_id: Geography Dimension.dimension.d_postalcode
+        label: Postal Code
+        associated_level: Zip Code
+        dataset: dim_geo_postalcode.dataset
+        key_columns:
+          - postalcode
+        name_column: postalcode
+      - unique_name: GeoKeyCity
+        unique_id: Geography Dimension.dimension.Geography City.GeoKeyCity
+        label: GeoKey
+        is_unique_key: true
+        dataset: dim_geo_city.dataset
+        key_columns:
+          - geographykey
+        name_column: geographykey
+      - unique_name: GeoKeyZip
+        unique_id: Geography Dimension.dimension.Geography Zip.GeoKeyZip
+        label: GeoKey
+        is_unique_key: true
+        dataset: dim_geo_postalcode.dataset
+        key_columns:
+          - geographykey
+        name_column: geographykey
+      - unique_name: State
+        unique_id: Geography Dimension.dimension.Geography City.State
+        label: State
+        is_unique_key: true
+        dataset: dim_geo_state.dataset
+        key_columns:
+          - statekey
+        name_column: state
+      - unique_name: Zip Code
+        unique_id: Geography Dimension.dimension.Geography Zip.Zip Code
+        label: Zip Code
+        is_unique_key: true
+        dataset: dim_geo_postalcode.dataset
+        key_columns:
+          - country
+          - postalcode
+        name_column: countrypostalcode
+    relationships:
+      - from:
+          dimension: Geography Dimension
+          dataset: dim_geo_city.dataset
+          join_columns:
+            - statekey
+        to:
+          dimension: Geography Dimension
+          level: State
+        type: snowflake
+      - from:
+          dimension: Geography Dimension
+          dataset: dim_geo_postalcode.dataset
+          join_columns:
+            - country
+        to:
+          dimension: Geography Dimension
+          level: CountryZip
+        type: snowflake
+      - from:
+          dimension: Geography Dimension
+          dataset: dim_geo_state.dataset
+          join_columns:
+            - country
+        to:
+          dimension: Geography Dimension
+          level: CountryCity
+        type: snowflake
+  - unique_name: Order Dimension
+    object_type: dimension
+    unique_id: Order Dimension.dimension
+    label: Order Dimension
+    type: standard
+    hierarchies:
+      - unique_name: Order Dimension
+        unique_id: Order Dimension.dimension.Order Dimension
+        label: Order Dimension
+        folder: Orders
+        levels:
+          - unique_name: currency
+          - unique_name: order
+          - unique_name: order_line_item
+    attributes:
+      - unique_name: currency
+        unique_id: Order Dimension.dimension.Order Dimension.currency
+        label: Currency
+        dataset: dimorder.dataset
+        key_columns:
+          - currencykey
+        name_column: currency_name
+      - unique_name: order
+        unique_id: Order Dimension.dimension.Order Dimension.order
+        label: Order
+        dataset: dimorder.dataset
+        key_columns:
+          - salesordernumber
+          - currencykey
+        name_column: salesordernumber
+      - unique_name: order_line_item
+        unique_id: Order Dimension.dimension.Order Dimension.order_line_item
+        label: Order Line Item
+        description: Order Line Item
+        is_unique_key: true
+        dataset: dimorder.dataset
+        key_columns:
+          - salesorderlinenumber
+          - salesordernumber
+          - currencykey
+        name_column: salesorderlinenumber
+      - unique_name: typeorder
+        unique_id: Order Dimension.dimension.typeorder
+        label: Order Type
+        folder: Orders
+        associated_level: order_line_item
+        dataset: dimorder.dataset
+        key_columns:
+          - type
+        name_column: type
+        sort_column: type
+  - unique_name: Product Dimension
+    object_type: dimension
+    unique_id: Product Dimension.dimension
+    label: Product Dimension
+    description: "Product Line, Category, and Name"
+    type: standard
+    hierarchies:
+      - unique_name: Product Dimension
+        unique_id: Product Dimension.dimension.Product Dimension
+        label: Product Hierarchy
+        folder: Product Attributes
+        levels:
+          - unique_name: Product Line
+          - unique_name: Product Category
+          - unique_name: Product Name
+    attributes:
+      - unique_name: d_productsubcategoryId
+        unique_id: Product Dimension.dimension.d_productsubcategoryId
+        label: Product Subcategory ID
+        description: ID of the product category
+        associated_level: Product Category
+        dataset: dimproduct.dataset
+        key_columns:
+          - productsubcategorykey
+        name_column: productsubcategorykey
+      - unique_name: Product Category
+        unique_id: Product Dimension.dimension.Product Dimension.Product Category
+        label: Product Category
+        description: Product Sub Category
+        dataset: dimproduct.dataset
+        key_columns:
+          - productline
+          - productsubcategorykey
+        name_column: productsubcategoryname
+      - unique_name: Product Line
+        unique_id: Product Dimension.dimension.Product Dimension.Product Line
+        label: Product Line
+        description: Product Line
+        dataset: dimproduct.dataset
+        key_columns:
+          - productline
+        name_column: productline
+      - unique_name: Product Name
+        unique_id: Product Dimension.dimension.Product Dimension.Product Name
+        label: Product Name
+        description: Full Product Name
+        is_unique_key: true
+        dataset: dimproduct.dataset
+        key_columns:
+          - productkey
+        name_column: englishproductname
+    metrics:
+      - unique_name: List Price
+        unique_id: List Price
+        label: List Price
+        calculation_method: sum
+        folder: Product Metrics
+        hierarchy: Product Dimension
+        level: Product Name
+        dataset: dimproduct.dataset
+        column: listprice
+  - unique_name: Color Dimension
+    object_type: dimension
+    unique_id: Internet Sales Cube.Color Dimension.dimension
+    label: Color Dimension
+    description: 'Product Color '
+    is_degenerate: true
+    model: Internet Sales Cube
+    hierarchies:
+      - unique_name: Color
+        unique_id: Internet Sales Cube.Color Dimension.dimension.Color
+        label: Color
+        filter_empty: "yes"
+        folder: Product Attributes
+        levels:
+          - unique_name: Color
+    attributes:
+      - unique_name: Color
+        unique_id: Internet Sales Cube.Color Dimension.dimension.Color.Color
+        label: Color
+        description: Product Color
+        dataset: factinternetsales.dataset
+        key_columns:
+          - color
+        name_column: color
+    modeler_metadata:
+      version: 0
+      modified: "false"
+  - unique_name: Size Dimension
+    object_type: dimension
+    unique_id: Internet Sales Cube.Size Dimension.dimension
+    label: Size Dimension
+    description: Product Size
+    is_degenerate: true
+    model: Internet Sales Cube
+    hierarchies:
+      - unique_name: Size
+        unique_id: Internet Sales Cube.Size Dimension.dimension.Size
+        label: Size
+        folder: Product Attributes
+        levels:
+          - unique_name: Size
+    attributes:
+      - unique_name: Size
+        unique_id: Internet Sales Cube.Size Dimension.dimension.Size.Size
+        label: Size
+        dataset: factinternetsales.dataset
+        key_columns:
+          - size
+        name_column: size
+    modeler_metadata:
+      version: 0
+      modified: "false"
+  - unique_name: Style Dimension
+    object_type: dimension
+    unique_id: Internet Sales Cube.Style Dimension.dimension
+    label: Style Dimension
+    description: Product Style
+    is_degenerate: true
+    model: Internet Sales Cube
+    hierarchies:
+      - unique_name: Style
+        unique_id: Internet Sales Cube.Style Dimension.dimension.Style
+        label: Style
+        folder: Product Attributes
+        levels:
+          - unique_name: Style
+    attributes:
+      - unique_name: Style
+        unique_id: Internet Sales Cube.Style Dimension.dimension.Style.Style
+        label: Style
+        description: Product Style
+        dataset: factinternetsales.dataset
+        key_columns:
+          - style
+        name_column: style
+    modeler_metadata:
+      version: 0
+      modified: "false"
+  - unique_name: Weight
+    object_type: dimension
+    unique_id: Internet Sales Cube.Weight.dimension
+    label: Weight
+    is_degenerate: true
+    model: Internet Sales Cube
+    hierarchies:
+      - unique_name: Weight
+        unique_id: Internet Sales Cube.Weight.dimension.Weight
+        label: Weight
+        filter_empty: "yes"
+        folder: Product Attributes
+        levels:
+          - unique_name: Weight
+    attributes:
+      - unique_name: Weight
+        unique_id: Internet Sales Cube.Weight.dimension.Weight.Weight
+        label: Weight
+        dataset: factinternetsales.dataset
+        key_columns:
+          - weight
+        name_column: weight
+    modeler_metadata:
+      version: 0
+      modified: "false"
+datasets:
+  - unique_name: DateCustom.dataset
+    unique_id: DateCustom.dataset.dataset
+    label: DateCustom
+    connection_id: Postgres14.connection
+    table: datecustom
+    columns:
+      - name: date_name
+        data_type: string
+      - name: datekey
+        data_type: long
+      - name: day_of_half_year
+        data_type: long
+      - name: day_of_half_year_name
+        data_type: string
+      - name: day_of_month
+        data_type: long
+      - name: day_of_month_name
+        data_type: string
+      - name: day_of_quarter
+        data_type: long
+      - name: day_of_quarter_name
+        data_type: string
+      - name: day_of_week
+        data_type: long
+      - name: day_of_week_name
+        data_type: string
+      - name: day_of_year
+        data_type: long
+      - name: day_of_year_name
+        data_type: string
+      - name: half_year
+        data_type: datetime
+      - name: half_year_name
+        data_type: string
+      - name: half_year_of_year
+        data_type: long
+      - name: half_year_of_year_name
+        data_type: string
+      - name: iso_8601_day
+        data_type: datetime
+      - name: iso_8601_day_name
+        data_type: string
+      - name: iso_8601_day_of_week
+        data_type: long
+      - name: iso_8601_day_of_week_name
+        data_type: string
+      - name: iso_8601_day_of_year
+        data_type: long
+      - name: iso_8601_day_of_year_name
+        data_type: string
+      - name: iso_8601_week
+        data_type: datetime
+      - name: iso_8601_week_name
+        data_type: string
+      - name: iso_8601_week_of_year
+        data_type: long
+      - name: iso_8601_wk_yr_nm_rpt_dy_ctl
+        data_type: string
+      - name: iso_8601_year
+        data_type: datetime
+      - name: iso_8601_year_name
+        data_type: string
+      - name: month
+        data_type: datetime
+      - name: month_name
+        data_type: string
+      - name: month_of_half_year
+        data_type: long
+      - name: month_of_half_year_name
+        data_type: string
+      - name: month_of_quarter
+        data_type: long
+      - name: month_of_quarter_name
+        data_type: string
+      - name: month_of_year
+        data_type: long
+      - name: month_of_year_name
+        data_type: string
+      - name: pk_date
+        data_type: datetime
+      - name: quarter
+        data_type: datetime
+      - name: quarter_name
+        data_type: string
+      - name: quarter_of_half_year
+        data_type: long
+      - name: quarter_of_half_year_name
+        data_type: string
+      - name: quarter_of_year
+        data_type: long
+      - name: quarter_of_year_name
+        data_type: string
+      - name: rpt_day
+        data_type: datetime
+      - name: rpt_day_lykey
+        data_type: datetime
+      - name: rpt_day_name
+        data_type: string
+      - name: rpt_day_of_half_year
+        data_type: long
+      - name: rpt_day_of_half_year_name
+        data_type: string
+      - name: rpt_day_of_month
+        data_type: long
+      - name: rpt_day_of_month_name
+        data_type: string
+      - name: rpt_day_of_quarter
+        data_type: long
+      - name: rpt_day_of_quarter_name
+        data_type: string
+      - name: rpt_day_of_week
+        data_type: long
+      - name: rpt_day_of_week_name
+        data_type: string
+      - name: rpt_day_of_year
+        data_type: long
+      - name: rpt_day_of_year_name
+        data_type: string
+      - name: rpt_half_year
+        data_type: datetime
+      - name: rpt_half_year_lykey
+        data_type: datetime
+      - name: rpt_half_year_name
+        data_type: string
+      - name: rpt_half_year_of_year
+        data_type: long
+      - name: rpt_half_year_of_year_name
+        data_type: string
+      - name: rpt_month
+        data_type: datetime
+      - name: rpt_month_lykey
+        data_type: datetime
+      - name: rpt_month_name
+        data_type: string
+      - name: rpt_month_name2
+        data_type: string
+      - name: rpt_month_of_half_year
+        data_type: long
+      - name: rpt_month_of_half_year_name
+        data_type: string
+      - name: rpt_month_of_quarter
+        data_type: long
+      - name: rpt_month_of_quarter_name
+        data_type: string
+      - name: rpt_month_of_year
+        data_type: long
+      - name: rpt_month_of_year_name
+        data_type: string
+      - name: rpt_quarter
+        data_type: datetime
+      - name: rpt_quarter_lykey
+        data_type: datetime
+      - name: rpt_quarter_name
+        data_type: string
+      - name: rpt_quarter_of_half_year
+        data_type: long
+      - name: rpt_quarter_of_half_year_name
+        data_type: string
+      - name: rpt_quarter_of_year
+        data_type: long
+      - name: rpt_quarter_of_year_name
+        data_type: string
+      - name: rpt_week
+        data_type: datetime
+      - name: rpt_week_ctl
+        data_type: datetime
+      - name: rpt_week_lykey
+        data_type: datetime
+      - name: rpt_week_name
+        data_type: string
+      - name: rpt_week_of_half_year
+        data_type: long
+      - name: rpt_week_of_half_year_name
+        data_type: string
+      - name: rpt_week_of_month
+        data_type: long
+      - name: rpt_week_of_month_name
+        data_type: string
+      - name: rpt_week_of_quarter
+        data_type: long
+      - name: rpt_week_of_quarter_name
+        data_type: string
+      - name: rpt_week_of_year
+        data_type: long
+      - name: rpt_week_of_year_name
+        data_type: string
+      - name: rpt_year
+        data_type: datetime
+      - name: rpt_year_lykey
+        data_type: datetime
+      - name: rpt_year_name
+        data_type: string
+      - name: week
+        data_type: datetime
+      - name: week_name
+        data_type: string
+      - name: week_of_year
+        data_type: long
+      - name: week_of_year_name
+        data_type: string
+      - name: year
+        data_type: datetime
+      - name: year_name
+        data_type: string
+  - unique_name: dim_geo_city.dataset
+    unique_id: dim_geo_city.dataset.dataset
+    label: dim_geo_city
+    connection_id: Postgres14.connection
+    table: dim_geo_city
+    columns:
+      - name: city
+        data_type: string
+      - name: citystatekey
+        data_type: string
+      - name: geographykey
+        data_type: int
+      - name: statekey
+        data_type: string
+  - unique_name: dim_geo_country.dataset
+    unique_id: dim_geo_country.dataset.dataset
+    label: dim_geo_country
+    connection_id: Postgres14.connection
+    table: dim_geo_country
+    columns:
+      - name: country
+        data_type: string
+  - unique_name: dim_geo_postalcode.dataset
+    unique_id: dim_geo_postalcode.dataset.dataset
+    label: dim_geo_postalcode
+    connection_id: Postgres14.connection
+    table: dim_geo_postalcode
+    columns:
+      - name: country
+        data_type: string
+      - name: countrypostalcode
+        data_type: string
+      - name: geographykey
+        data_type: int
+      - name: postalcode
+        data_type: string
+  - unique_name: dim_geo_state.dataset
+    unique_id: dim_geo_state.dataset.dataset
+    label: dim_geo_state
+    connection_id: Postgres14.connection
+    table: dim_geo_state
+    columns:
+      - name: country
+        data_type: string
+      - name: state
+        data_type: string
+      - name: statekey
+        data_type: string
+  - unique_name: dimcustomer.dataset
+    unique_id: dimcustomer.dataset.dataset
+    label: dimcustomer
+    connection_id: Postgres14.connection
+    table: dimcustomer
+    columns:
+      - name: customerkey
+        data_type: int
+      - name: datefirstpurchase
+        data_type: string
+      - name: firstname
+        data_type: string
+      - name: fullname
+        data_type: string
+      - name: gender
+        data_type: string
+      - name: geographykey
+        data_type: int
+      - name: lastname
+        data_type: string
+      - name: occupation
+        data_type: string
+  - unique_name: dimgender.dataset
+    unique_id: dimgender.dataset.dataset
+    label: dimgender
+    connection_id: Postgres14.connection
+    table: dimgender
+    columns:
+      - name: genderkey
+        data_type: string
+      - name: gendername
+        data_type: string
+  - unique_name: dimorder.dataset
+    unique_id: dimorder.dataset.dataset
+    label: dimorder
+    connection_id: Postgres14.connection
+    table: dimorder
+    columns:
+      - name: currency_name
+        data_type: string
+      - name: currencykey
+        data_type: int
+      - name: linename
+        data_type: string
+      - name: ordername
+        data_type: string
+      - name: ordernumberlinekey
+        data_type: string
+      - name: salesorderlinenumber
+        data_type: int
+      - name: salesordernumber
+        data_type: string
+      - name: type
+        data_type: string
+  - unique_name: dimproduct.dataset
+    unique_id: dimproduct.dataset.dataset
+    label: dimproduct
+    connection_id: Postgres14.connection
+    table: dimproduct
+    columns:
+      - name: englishproductname
+        data_type: string
+      - name: listprice
+        data_type: float
+      - name: productkey
+        data_type: int
+      - name: productline
+        data_type: string
+      - name: productsubcategorykey
+        data_type: int
+      - name: productsubcategoryname
+        data_type: string
+      - name: startdate
+        data_type: string
+  - unique_name: factinternetsales.dataset
+    unique_id: factinternetsales.dataset.dataset
+    label: factinternetsales
+    connection_id: Postgres14.connection
+    table: factinternetsales
+    columns:
+      - name: Calculated Tax
+        data_type: double
+        sql: salesamount*0.085
+        dialects:
+          - dialect: Snowflake
+            sql: '"salesamount"*0.085'
+          - dialect: Oracle
+            sql: '"salesamount"*0.085'
+          - dialect: Db2
+            sql: '"salesamount"*0.085'
+      - name: currencykey
+        data_type: int
+      - name: customerkey
+        data_type: int
+      - name: orderdate
+        data_type: string
+      - name: orderdatekey
+        data_type: int
+      - name: orderquantity
+        data_type: int
+      - name: productkey
+        data_type: int
+      - name: sales_reasons
+        data_type: string
+      - name: salesamount
+        data_type: float
+      - name: salesorderlinenumber
+        data_type: int
+      - name: salesordernumber
+        data_type: string
+      - name: shipdatekey
+        data_type: int
+      - name: taxamt
+        data_type: float
+      - name: unitprice
+        data_type: float
+      - name: product_info
+        map:
+          field_terminator: ","
+          key_terminator: ':'
+          key_type: String
+          value_type: String
+      - name: color
+        data_type: string
+        parent_column: product_info
+      - name: size
+        data_type: string
+        parent_column: product_info
+      - name: style
+        data_type: string
+        parent_column: product_info
+      - name: weight
+        data_type: string
+        parent_column: product_info
+metrics:
+  - unique_name: calculatedtax1
+    models:
+      - Internet Sales Cube
+    unique_id: calculatedtax1
+    label: Calculated Tax
+    calculation_method: sum
+    folder: Sales Metrics
+    format: "$#,##0.00"
+    dataset: factinternetsales.dataset
+    column: Calculated Tax
+  - unique_name: customercount1
+    models:
+      - Internet Sales Cube
+    unique_id: customercount1
+    label: Customer Count
+    calculation_method: count distinct
+    folder: Customer Metrics
+    format: general number
+    dataset: factinternetsales.dataset
+    column: customerkey
+  - unique_name: customercountestimate1
+    models:
+      - Internet Sales Cube
+    unique_id: customercountestimate1
+    label: Estimated Customer Count
+    calculation_method: estimated count distinct
+    folder: Customer Metrics
+    format: general number
+    dataset: factinternetsales.dataset
+    column: customerkey
+  - unique_name: lastproductunitprice
+    models:
+      - Internet Sales Cube
+    unique_id: lastproductunitprice
+    label: Last Product Unit Price
+    calculation_method: maximum
+    folder: Product Metrics
+    format: "$#,##0.00"
+    semi_additive:
+      position: last
+      relationships:
+        - factinternetsales.dataset_Product_Dimension
+    dataset: factinternetsales.dataset
+    column: unitprice
+  - unique_name: maxOrderDate
+    models:
+      - Internet Sales Cube
+    unique_id: maxOrderDate
+    label: MaxOrderDate
+    calculation_method: maximum
+    folder: Time Relative
+    dataset: factinternetsales.dataset
+    column: orderdatekey
+  - unique_name: maxtaxamount1
+    models:
+      - Internet Sales Cube
+    unique_id: maxtaxamount1
+    label: Max Tax Amount
+    calculation_method: maximum
+    folder: Sales Metrics
+    format: "$#,##0.00"
+    dataset: factinternetsales.dataset
+    column: taxamt
+  - unique_name: MinOrderDate
+    models:
+      - Internet Sales Cube
+    unique_id: MinOrderDate
+    label: MinOrderDate
+    calculation_method: minimum
+    folder: Time Relative
+    dataset: factinternetsales.dataset
+    column: orderdatekey
+  - unique_name: orderquantity1
+    models:
+      - Internet Sales Cube
+    unique_id: orderquantity1
+    label: Order Quantity
+    calculation_method: sum
+    folder: Sales Metrics
+    format: general number
+    dataset: factinternetsales.dataset
+    column: orderquantity
+  - unique_name: salesamount1
+    models:
+      - Internet Sales Cube
+    unique_id: salesamount1
+    label: Sales Amount
+    calculation_method: sum
+    folder: Sales Metrics
+    format: "$#,##0.00"
+    dataset: factinternetsales.dataset
+    column: salesamount
+  - unique_name: salesamountAvg1
+    models:
+      - Internet Sales Cube
+    unique_id: salesamountAvg1
+    label: Sales Amount Avg
+    description: Average Sales Amount
+    calculation_method: average
+    folder: Sales Metrics
+    format: "$#,##0.00"
+    dataset: factinternetsales.dataset
+    column: salesamount
+  - unique_name: salesamountsstdev1
+    models:
+      - Internet Sales Cube
+    unique_id: salesamountsstdev1
+    label: Sales Amount SStdev
+    calculation_method: stddev_samp
+    folder: Sales Metrics
+    format: "$#,##0.00"
+    dataset: factinternetsales.dataset
+    column: salesamount
+  - unique_name: soldproductNDC1
+    models:
+      - Internet Sales Cube
+    unique_id: soldproductNDC1
+    label: SoldProductNDC
+    description: Sold Product Non-Distinct Count
+    calculation_method: count non-null
+    folder: Sales Metrics
+    format: general number
+    dataset: factinternetsales.dataset
+    column: productkey
+  - unique_name: Average Customer Count per Order
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Average Customer Count per Order
+    label: Average Customer Count per Order
+    expression: "([Measures].[customercount1] / [Measures].[orderquantity1])"
+    folder: Time Relative
+    orig_uuid: 951959045
+  - unique_name: Average Est Customer Count per Order
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Average Est Customer Count per Order
+    label: Average Est Customer Count per Order
+    expression: "([Measures].[customercountestimate1] / [Measures].[orderquantity1])"
+    folder: Time Relative
+    orig_uuid: 1160895391
+  - unique_name: Average Last Product Unit Count per Order
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Average Last Product Unit Count per Order
+    label: Average Last Product Unit Count per Order
+    expression: "([Measures].[lastproductunitprice] / [Measures].[orderquantity1])"
+    folder: Time Relative
+    orig_uuid: 1225056204
+  - unique_name: Average Max Tax Count per Order
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Average Max Tax Count per Order
+    label: Average Max Tax Count per Order
+    expression: "([Measures].[maxtaxamount1] / [Measures].[orderquantity1])"
+    folder: Time Relative
+    orig_uuid: 933393788
+  - unique_name: Average Sales Amount SD Count per Order
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Average Sales Amount SD Count per Order
+    label: Average Sales Amount SD Count per Order
+    expression: "([Measures].[salesamountsstdev1] / [Measures].[orderquantity1])"
+    folder: Time Relative
+    orig_uuid: 933105958
+  - unique_name: Average Sales per Order
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Average Sales per Order
+    label: Average Sales per Order
+    expression: "([Measures].[salesamount1] / [Measures].[orderquantity1])"
+    folder: Time Relative
+    orig_uuid: 1677100366
+  - unique_name: Average Sold Product per Order
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Average Sold Product per Order
+    label: Average Sold Product per Order
+    expression: "([Measures].[soldproductNDC1] / [Measures].[orderquantity1])"
+    folder: Time Relative
+    orig_uuid: 1755267749
+  - unique_name: Customer Count-Order CustomPP445-PrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Customer Count-Order CustomPP445-PrevYear
+    label: Customer Count-Order CustomPP445-PrevYear
+    description: "Previous Period Sales with a custom lookback key.  Use with [Order\
+      \ CustomPP445]"
+    expression: "CASE WHEN ISEMPTY([Measures].[customercount1]) THEN \nNULL\nELSE\
+      \ (ParallelPeriod([Order Date Dimension].[Order CustomPP445].[Order customyear],\
+      \ 1, [Order Date Dimension].[Order CustomPP445].CurrentMember), [Measures].[customercount1])\
+      \ END"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 1959328343
+  - unique_name: Customer Count-Order CustomPP445-PrevYearGrowth
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Customer Count-Order CustomPP445-PrevYearGrowth
+    label: Customer Count-Order CustomPP445-PrevYearGrowth
+    description: "Growth over Previous Period Sales with a custom lookback key.  Use\
+      \ with [Order CustomPP445]"
+    expression: "CASE WHEN ISEMPTY([Measures].[Customer Count-Order CustomPP445-PrevYear])\
+      \ or ISEMPTY(([Order Date Dimension].[Order CustomPP445].CurrentMember, [Measures].[customercount1]))\
+      \ THEN\nNULL \nELSE \n([Order Date Dimension].[Order CustomPP445].CurrentMember,\
+      \ [Measures].[customercount1]) - [Measures].[Customer Count-Order CustomPP445-PrevYear]\n\
+      END"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 1068636368
+  - unique_name: Customer Count-Order CustomPP445-PrevYearGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Customer Count-Order CustomPP445-PrevYearGrowthPct
+    label: Customer Count-Order CustomPP445-PrevYearGrowthPct
+    description: "Percent growth over Previous Period Sales with a custom lookback\
+      \ key.  Use with [Order CustomPP445]"
+    expression: "CASE WHEN ISEMPTY([Measures].[Customer Count-Order CustomPP445-PrevYear])\
+      \ THEN NULL \nELSE [Measures].[Customer Count-Order CustomPP445-PrevYearGrowth]\
+      \ / [Measures].[Customer Count-Order CustomPP445-PrevYear] \nEND"
+    folder: Time Relative
+    format: percent
+    orig_uuid: 986707911
+  - unique_name: Customer Count-Order Retail445-30PrdMvAvg
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Customer Count-Order Retail445-30PrdMvAvg
+    label: Customer Count-Order Retail445-30PrdMvAvg
+    description: '30 Period Moving Average of Sales Amount.  Meant to execute at Day
+      Level  of '
+    expression: "Avg([Order Date Dimension].[Order Retail445].CurrentMember.Lag(29):[Order\
+      \ Date Dimension].[Order Retail445].CurrentMember, [Measures].[customercount1])"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 1961012593
+  - unique_name: Customer Count-Order Retail445-30PrdMvAvgPrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Customer Count-Order Retail445-30PrdMvAvgPrevYear
+    label: Customer Count-Order Retail445-30PrdMvAvgPrevYear
+    description: "Prev Year's 30 Period Moving  Average of Sales. Use on the [Order\
+      \ Retail445] Dimension"
+    expression: "Avg(ParallelPeriod([Order Date Dimension].[Order Retail445].[Order\
+      \ ReportIng_Year], 1, [Order Date Dimension].[Order Retail445].CurrentMember).Lag(29):\
+      \ \nParallelPeriod([Order Date Dimension].[Order Retail445].[Order ReportIng_Year],\
+      \ 1, [Order Date Dimension].[Order Retail445].CurrentMember), [Measures].[customercount1]\n\
+      )"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 1054888575
+  - unique_name: Customer Count-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Customer Count-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+    label: Customer Count-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+    description: Sales 30 Period Moving Avg  vs Prev Year as Percentage
+    expression: "([Measures].[Customer Count-Order Retail445-30PrdMvAvg] - [Measures].[Customer\
+      \ Count-Order Retail445-30PrdMvAvgPrevYear])  / [Measures].[Customer Count-Order\
+      \ Retail445-30PrdMvAvgPrevYear]\n                                "
+    folder: Time Relative
+    format: percent
+    orig_uuid: 580963363
+  - unique_name: Customer Count-Order Retail445-30PrdMvLowerBand
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Customer Count-Order Retail445-30PrdMvLowerBand
+    label: Customer Count-Order Retail445-30PrdMvLowerBand
+    description: "Sales 30 Day Moving Average - 1 Stdev, use on [Order Retail445]"
+    expression: "[Measures].[Customer Count-Order Retail445-30PrdMvAvg] - [Measures].[Customer\
+      \ Count-Order Retail445-30PrdMvStdev]"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 389995213
+  - unique_name: Customer Count-Order Retail445-30PrdMvStdev
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Customer Count-Order Retail445-30PrdMvStdev
+    label: Customer Count-Order Retail445-30PrdMvStdev
+    description: "30 Period Standard Deviation Use at Day Level of [Order Retail445]"
+    expression: "Stdev([Order Date Dimension].[Order Retail445].CurrentMember.Lag(29):[Order\
+      \ Date Dimension].[Order Retail445].CurrentMember, [Measures].[customercount1])"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 283011247
+  - unique_name: Customer Count-Order Retail445-30PrdMvUpperBand
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Customer Count-Order Retail445-30PrdMvUpperBand
+    label: Customer Count-Order Retail445-30PrdMvUpperBand
+    description: "Sales 30 Day Moving Average + 1 Standard Deviation use on [Order\
+      \ Retail445]"
+    expression: "[Measures].[Customer Count-Order Retail445-30PrdMvAvg] + [Measures].[Customer\
+      \ Count-Order Retail445-30PrdMvStdev]"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 938988596
+  - unique_name: Customer Count-Order Retail445-Next
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Customer Count-Order Retail445-Next
+    label: Customer Count-Order Retail445-Next
+    description: Next Period's  Sales Amount on Order Retail445
+    expression: "CASE WHEN ISEMPTY([Measures].[customercount1]) \nTHEN NULL\nELSE\n\
+      ([Order Date Dimension].[Order Retail445].CurrentMember.NextMember, [Measures].[customercount1])\n\
+      END\n                                "
+    folder: Time Relative
+    format: general number
+    orig_uuid: 465994146
+  - unique_name: Customer Count-Order Retail445-Prev
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Customer Count-Order Retail445-Prev
+    label: 'Customer Count-Order Retail445-Prev '
+    description: Order Reporting Hierarchy Previous Period Sales
+    expression: "CASE WHEN ISEMPTY([Measures].[customercount1]) \nTHEN NULL\nELSE\n\
+      ([Order Date Dimension].[Order Retail445].CurrentMember.PrevMember, [Measures].[customercount1])\n\
+      END\n                                "
+    folder: Time Relative
+    format: general number
+    orig_uuid: 1034867298
+  - unique_name: Customer Count-Order Retail445-PrevPeriodGrowth
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Customer Count-Order Retail445-PrevPeriodGrowth
+    label: Customer Count-Order Retail445-PrevPeriodGrowth
+    description: Order Retail 445 Growth since previous period.
+    expression: "CASE WHEN ISEMPTY([Measures].[Customer Count-Order Retail445-Prev])\
+      \ OR ISEMPTY([Measures].[customercount1])\nTHEN NULL \nELSE \n([Order Date Dimension].[Order\
+      \ Retail445].CurrentMember, [Measures].[customercount1]) - [Measures].[Customer\
+      \ Count-Order Retail445-Prev]\nEND"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 459784090
+  - unique_name: Customer Count-Order Retail445-PrevPeriodGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Customer Count-Order Retail445-PrevPeriodGrowthPct
+    label: Customer Count-Order Retail445-PrevPeriodGrowthPct
+    description: Order Retail445 Previous Period Growth Percent
+    expression: |-
+      CASE WHEN ISEMPTY([Measures].[Customer Count-Order Retail445-Prev]) THEN NULL
+      ELSE
+      (([Order Date Dimension].[Order Retail445].CurrentMember, [Measures].[customercount1]) - [Measures].[Customer Count-Order Retail445-Prev]) / [Measures].[Customer Count-Order Retail445-Prev]
+      END
+    folder: Time Relative
+    format: percent
+    orig_uuid: 1082700003
+  - unique_name: Customer Count-Order Retail445-PrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Customer Count-Order Retail445-PrevYear
+    label: Customer Count-Order Retail445-PrevYear
+    description: Order Sales Amount Prev Year (Retail445)
+    expression: "CASE WHEN ISEMPTY([Measures].[customercount1]) THEN \nNULL \nELSE\
+      \ (ParallelPeriod([Order Date Dimension].[Order Retail445].[Order ReportIng_Year],\
+      \ 1, [Order Date Dimension].[Order Retail445].CurrentMember), [Measures].[customercount1])\
+      \ END"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 1140988101
+  - unique_name: Customer Count-Order Retail445-PrevYearGrowth
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Customer Count-Order Retail445-PrevYearGrowth
+    label: Customer Count-Order Retail445-PrevYearGrowth
+    description: Parallel Period Sales Growth  Since the Previous Year
+    expression: "CASE WHEN ISEMPTY([Measures].[Customer Count-Order Retail445-PrevYear])\
+      \ or ISEMPTY(([Order Date Dimension].[Order Retail445].CurrentMember, [Measures].[customercount1]))\
+      \ THEN\nNULL \nELSE \n([Order Date Dimension].[Order Retail445].CurrentMember,\
+      \ [Measures].[customercount1]) - [Measures].[Customer Count-Order Retail445-PrevYear]\n\
+      END\n                                "
+    folder: Time Relative
+    format: general number
+    orig_uuid: 916847390
+  - unique_name: Customer Count-Order Retail445-PrevYearGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Customer Count-Order Retail445-PrevYearGrowthPct
+    label: Customer Count-Order Retail445-PrevYearGrowthPct
+    description: Order Retail445 Sales Amount Year-over-year growth as percent
+    expression: "CASE WHEN ISEMPTY([Measures].[Customer Count-Order Retail445-PrevYear])\
+      \ THEN NULL \nELSE [Measures].[Customer Count-Order Retail445-PrevYearGrowth]\
+      \ / [Measures].[Customer Count-Order Retail445-PrevYear] \nEND"
+    folder: Time Relative
+    format: percent
+    orig_uuid: 243741977
+  - unique_name: Customer Count-Order Retail445-YTD
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Customer Count-Order Retail445-YTD
+    label: Customer Count-Order Retail445-YTD
+    description: Sales Amount Year-to-date Order Retail445
+    expression: "CASE WHEN ISEMPTY([Measures].[customercount1]) THEN NULL \nELSE \n\
+      Avg(PeriodsToDate([Order Date Dimension].[Order Retail445].[Order ReportIng_Year],\
+      \ [Order Date Dimension].[Order Retail445].CurrentMember), [Measures].[customercount1])\
+      \ \nEND "
+    folder: Time Relative
+    format: general number
+    orig_uuid: 999193946
+  - unique_name: Customer Count-Order Retail445-YTDPrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Customer Count-Order Retail445-YTDPrevYear
+    label: Customer Count-Order Retail445-YTDPrevYear
+    description: 'Previous Year''s Year-to-date Sum of Sales '
+    expression: "Avg(\nPeriodsToDate([Order Date Dimension].[Order Retail445].[Order\
+      \ ReportIng_Year], ParallelPeriod([Order Date Dimension].[Order Retail445].[Order\
+      \ ReportIng_Year], 1, [Order Date Dimension].[Order Retail445].CurrentMember)),\
+      \ \n[Measures].[customercount1])\n                                "
+    folder: Time Relative
+    format: general number
+    orig_uuid: 187333526
+  - unique_name: Estimated Customer Count-Order CustomPP445-PrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Estimated Customer Count-Order CustomPP445-PrevYear
+    label: Estimated Customer Count-Order CustomPP445-PrevYear
+    description: "Previous Period Sales with a custom lookback key.  Use with [Order\
+      \ CustomPP445]"
+    expression: "CASE WHEN ISEMPTY([Measures].[customercountestimate1]) THEN \nNULL\n\
+      ELSE (ParallelPeriod([Order Date Dimension].[Order CustomPP445].[Order customyear],\
+      \ 1, [Order Date Dimension].[Order CustomPP445].CurrentMember), [Measures].[customercountestimate1])\
+      \ END"
+    folder: Time Relative
+    orig_uuid: 1951357637
+  - unique_name: Estimated Customer Count-Order CustomPP445-PrevYearGrowth
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Estimated Customer Count-Order CustomPP445-PrevYearGrowth
+    label: Estimated Customer Count-Order CustomPP445-PrevYearGrowth
+    description: "Growth over Previous Period Sales with a custom lookback key.  Use\
+      \ with [Order CustomPP445]"
+    expression: "CASE WHEN ISEMPTY([Measures].[Estimated Customer Count-Order CustomPP445-PrevYear])\
+      \ or ISEMPTY(([Order Date Dimension].[Order CustomPP445].CurrentMember, [Measures].[customercountestimate1]))\
+      \ THEN\nNULL \nELSE \n([Order Date Dimension].[Order CustomPP445].CurrentMember,\
+      \ [Measures].[customercountestimate1]) - [Measures].[Estimated Customer Count-Order\
+      \ CustomPP445-PrevYear]\nEND"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 832907500
+  - unique_name: Estimated Customer Count-Order CustomPP445-PrevYearGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Estimated Customer Count-Order CustomPP445-PrevYearGrowthPct
+    label: Estimated Customer Count-Order CustomPP445-PrevYearGrowthPct
+    description: "Percent growth over Previous Period Sales with a custom lookback\
+      \ key.  Use with [Order CustomPP445]"
+    expression: "CASE WHEN ISEMPTY([Measures].[Estimated Customer Count-Order CustomPP445-PrevYear])\
+      \ THEN NULL \nELSE [Measures].[Estimated Customer Count-Order CustomPP445-PrevYearGrowth]\
+      \ / [Measures].[Estimated Customer Count-Order CustomPP445-PrevYear] \nEND"
+    folder: Time Relative
+    format: percent
+    orig_uuid: 1313885539
+  - unique_name: Estimated Customer Count-Order Retail445-30PrdMvAvg
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Estimated Customer Count-Order Retail445-30PrdMvAvg
+    label: Estimated Customer Count-Order Retail445-30PrdMvAvg
+    description: '30 Period Moving Average of Sales Amount.  Meant to execute at Day
+      Level  of '
+    expression: "Avg([Order Date Dimension].[Order Retail445].CurrentMember.Lag(29):[Order\
+      \ Date Dimension].[Order Retail445].CurrentMember, [Measures].[customercountestimate1])"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 1949673387
+  - unique_name: Estimated Customer Count-Order Retail445-30PrdMvAvgPrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Estimated Customer Count-Order Retail445-30PrdMvAvgPrevYear
+    label: Estimated Customer Count-Order Retail445-30PrdMvAvgPrevYear
+    description: "Prev Year's 30 Period Moving  Average of Sales. Use on the [Order\
+      \ Retail445] Dimension"
+    expression: "Avg(ParallelPeriod([Order Date Dimension].[Order Retail445].[Order\
+      \ ReportIng_Year], 1, [Order Date Dimension].[Order Retail445].CurrentMember).Lag(29):\
+      \ \nParallelPeriod([Order Date Dimension].[Order Retail445].[Order ReportIng_Year],\
+      \ 1, [Order Date Dimension].[Order Retail445].CurrentMember), [Measures].[customercountestimate1]\n\
+      )"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 2142254181
+  - unique_name: Estimated Customer Count-Order Retail445-30PrdMvAvgPrevYearGro
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Estimated Customer Count-Order Retail445-30PrdMvAvgPrevYearGro
+    label: Estimated Customer Count-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+    description: Sales 30 Period Moving Avg  vs Prev Year as Percentage
+    expression: "[Measures].[Estimated Customer Count-Order Retail445-30PrdMvAvg]\
+      \ + [Measures].[Estimated Customer Count-Order Retail445-30PrdMvStdev]"
+    folder: Time Relative
+    format: percent
+    orig_uuid: 591894321
+  - unique_name: Estimated Customer Count-Order Retail445-30PrdMvLowerBand
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Estimated Customer Count-Order Retail445-30PrdMvLowerBand
+    label: Estimated Customer Count-Order Retail445-30PrdMvLowerBand
+    description: "Sales 30 Day Moving Average - 1 Stdev, use on [Order Retail445]"
+    expression: "[Measures].[Estimated Customer Count-Order Retail445-30PrdMvAvg]\
+      \ - [Measures].[Estimated Customer Count-Order Retail445-30PrdMvStdev]"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 625724081
+  - unique_name: Estimated Customer Count-Order Retail445-30PrdMvStdev
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Estimated Customer Count-Order Retail445-30PrdMvStdev
+    label: Estimated Customer Count-Order Retail445-30PrdMvStdev
+    description: "30 Period Standard Deviation Use at Day Level of [Order Retail445]"
+    expression: "Stdev([Order Date Dimension].[Order Retail445].CurrentMember.Lag(29):[Order\
+      \ Date Dimension].[Order Retail445].CurrentMember, [Measures].[customercountestimate1])"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 210168467
+  - unique_name: Estimated Customer Count-Order Retail445-30PrdMvUpperBand
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Estimated Customer Count-Order Retail445-30PrdMvUpperBand
+    label: Estimated Customer Count-Order Retail445-30PrdMvUpperBand
+    description: "Sales 30 Day Moving Average + 1 Standard Deviation use on [Order\
+      \ Retail445]"
+    expression: "[Measures].[Estimated Customer Count-Order Retail445-30PrdMvAvg]\
+      \ + [Measures].[Estimated Customer Count-Order Retail445-30PrdMvStdev]"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 703259728
+  - unique_name: Estimated Customer Count-Order Retail445-Next
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Estimated Customer Count-Order Retail445-Next
+    label: Estimated Customer Count-Order Retail445-Next
+    description: Next Period's  Sales Amount on Order Retail445
+    expression: "CASE WHEN ISEMPTY([Measures].[customercountestimate1]) \nTHEN NULL\n\
+      ELSE\n([Order Date Dimension].[Order Retail445].CurrentMember.NextMember, [Measures].[customercountestimate1])\n\
+      END\n                                "
+    folder: Time Relative
+    format: general number
+    orig_uuid: 1192155258
+  - unique_name: Estimated Customer Count-Order Retail445-Prev
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Estimated Customer Count-Order Retail445-Prev
+    label: 'Estimated Customer Count-Order Retail445-Prev '
+    description: Order Reporting Hierarchy Previous Period Sales
+    expression: "CASE WHEN ISEMPTY([Measures].[customercountestimate1]) \nTHEN NULL\n\
+      ELSE\n([Order Date Dimension].[Order Retail445].CurrentMember.PrevMember, [Measures].[customercountestimate1])\n\
+      END\n                                "
+    folder: Time Relative
+    format: general number
+    orig_uuid: 623282106
+  - unique_name: Estimated Customer Count-Order Retail445-PrevPeriodGrowth
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Estimated Customer Count-Order Retail445-PrevPeriodGrowth
+    label: Estimated Customer Count-Order Retail445-PrevPeriodGrowth
+    description: Order Retail 445 Growth since previous period.
+    expression: "CASE WHEN ISEMPTY([Measures].[Estimated Customer Count-Order Retail445-Prev])\
+      \ OR ISEMPTY([Measures].[customercountestimate1])\nTHEN NULL \nELSE \n([Order\
+      \ Date Dimension].[Order Retail445].CurrentMember, [Measures].[customercountestimate1])\
+      \ - [Measures].[Estimated Customer Count-Order Retail445-Prev]\nEND"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 695512958
+  - unique_name: Estimated Customer Count-Order Retail445-PrevPeriodGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Estimated Customer Count-Order Retail445-PrevPeriodGrowthPct
+    label: Estimated Customer Count-Order Retail445-PrevPeriodGrowthPct
+    description: Order Retail445 Previous Period Growth Percent
+    expression: |-
+      CASE WHEN ISEMPTY([Measures].[Estimated Customer Count-Order Retail445-Prev]) THEN NULL
+      ELSE
+      (([Order Date Dimension].[Order Retail445].CurrentMember, [Measures].[customercountestimate1]) - [Measures].[Estimated Customer Count-Order Retail445-Prev]) / [Measures].[Estimated Customer Count-Order Retail445-Prev]
+      END
+    folder: Time Relative
+    format: percent
+    orig_uuid: 755522375
+  - unique_name: Estimated Customer Count-Order Retail445-PrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Estimated Customer Count-Order Retail445-PrevYear
+    label: Estimated Customer Count-Order Retail445-PrevYear
+    description: Order Sales Amount Prev Year (Retail445)
+    expression: "CASE WHEN ISEMPTY([Measures].[customercountestimate1]) THEN \nNULL\
+      \ \nELSE (ParallelPeriod([Order Date Dimension].[Order Retail445].[Order ReportIng_Year],\
+      \ 1, [Order Date Dimension].[Order Retail445].CurrentMember), [Measures].[customercountestimate1])\
+      \ END"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 1574907049
+  - unique_name: Estimated Customer Count-Order Retail445-PrevYearGrowth
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Estimated Customer Count-Order Retail445-PrevYearGrowth
+    label: Estimated Customer Count-Order Retail445-PrevYearGrowth
+    description: Parallel Period Sales Growth  Since the Previous Year
+    expression: "CASE WHEN ISEMPTY([Measures].[Estimated Customer Count-Order Retail445-PrevYear])\
+      \ or ISEMPTY(([Order Date Dimension].[Order Retail445].CurrentMember, [Measures].[customercountestimate1]))\
+      \ THEN\nNULL \nELSE \n([Order Date Dimension].[Order Retail445].CurrentMember,\
+      \ [Measures].[customercountestimate1]) - [Measures].[Estimated Customer Count-Order\
+      \ Retail445-PrevYear]\nEND\n                                "
+    folder: Time Relative
+    format: general number
+    orig_uuid: 365587454
+  - unique_name: Estimated Customer Count-Order Retail445-PrevYearGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Estimated Customer Count-Order Retail445-PrevYearGrowthPct
+    label: Estimated Customer Count-Order Retail445-PrevYearGrowthPct
+    description: Order Retail445 Sales Amount Year-over-year growth as percent
+    expression: "CASE WHEN ISEMPTY([Measures].[Estimated Customer Count-Order Retail445-PrevYear])\
+      \ THEN NULL \nELSE [Measures].[Estimated Customer Count-Order Retail445-PrevYearGrowth]\
+      \ / [Measures].[Estimated Customer Count-Order Retail445-PrevYear] \nEND"
+    folder: Time Relative
+    format: percent
+    orig_uuid: 1038597707
+  - unique_name: Estimated Customer Count-Order Retail445-YTD
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Estimated Customer Count-Order Retail445-YTD
+    label: Estimated Customer Count-Order Retail445-YTD
+    description: Sales Amount Year-to-date Order Retail445
+    expression: "CASE WHEN ISEMPTY([Measures].[customercountestimate1]) THEN NULL\
+      \ \nELSE \nAvg(PeriodsToDate([Order Date Dimension].[Order Retail445].[Order\
+      \ ReportIng_Year], [Order Date Dimension].[Order Retail445].CurrentMember),\
+      \ [Measures].[customercountestimate1]) \nEND "
+    folder: Time Relative
+    format: general number
+    orig_uuid: 716862730
+  - unique_name: Estimated Customer Count-Order Retail445-YTDPrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Estimated Customer Count-Order Retail445-YTDPrevYear
+    label: Estimated Customer Count-Order Retail445-YTDPrevYear
+    description: 'Previous Year''s Year-to-date Sum of Sales '
+    expression: "Avg(\nPeriodsToDate([Order Date Dimension].[Order Retail445].[Order\
+      \ ReportIng_Year], ParallelPeriod([Order Date Dimension].[Order Retail445].[Order\
+      \ ReportIng_Year], 1, [Order Date Dimension].[Order Retail445].CurrentMember)),\
+      \ \n[Measures].[customercountestimate1])\n                                "
+    folder: Time Relative
+    format: general number
+    orig_uuid: 1159514618
+  - unique_name: Last Product Unit Price-Order CustomPP445-PrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Last Product Unit Price-Order CustomPP445-PrevYear
+    label: Last Product Unit Price-Order CustomPP445-PrevYear
+    description: "Previous Period Sales with a custom lookback key.  Use with [Order\
+      \ CustomPP445]"
+    expression: "CASE WHEN ISEMPTY([Measures].[lastproductunitprice]) THEN \nNULL\n\
+      ELSE (ParallelPeriod([Order Date Dimension].[Order CustomPP445].[Order customyear],\
+      \ 1, [Order Date Dimension].[Order CustomPP445].CurrentMember), [Measures].[lastproductunitprice])\
+      \ END"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 1914574406
+  - unique_name: Last Product Unit Price-Order CustomPP445-PrevYearGrowth
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Last Product Unit Price-Order CustomPP445-PrevYearGrowth
+    label: Last Product Unit Price-Order CustomPP445-PrevYearGrowth
+    description: "Growth over Previous Period Sales with a custom lookback key.  Use\
+      \ with [Order CustomPP445]"
+    expression: "CASE WHEN ISEMPTY([Measures].[Last Product Unit Price-Order CustomPP445-PrevYear])\
+      \ or ISEMPTY(([Order Date Dimension].[Order CustomPP445].CurrentMember, [Measures].[lastproductunitprice]))\
+      \ THEN\nNULL \nELSE \n([Order Date Dimension].[Order CustomPP445].CurrentMember,\
+      \ [Measures].[lastproductunitprice]) - [Measures].[Last Product Unit Price-Order\
+      \ CustomPP445-PrevYear]\nEND"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 1427379167
+  - unique_name: Last Product Unit Price-Order CustomPP445-PrevYearGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Last Product Unit Price-Order CustomPP445-PrevYearGrowthPct
+    label: Last Product Unit Price-Order CustomPP445-PrevYearGrowthPct
+    description: "Percent growth over Previous Period Sales with a custom lookback\
+      \ key.  Use with [Order CustomPP445]"
+    expression: "CASE WHEN ISEMPTY([Measures].[Last Product Unit Price-Order CustomPP445-PrevYear])\
+      \ THEN NULL \nELSE [Measures].[Last Product Unit Price-Order CustomPP445-PrevYearGrowth]\
+      \ / [Measures].[Last Product Unit Price-Order CustomPP445-PrevYear] \nEND"
+    folder: Time Relative
+    format: percent
+    orig_uuid: 1016715448
+  - unique_name: Last Product Unit Price-Order Retail445-30PrdMvAvg
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Last Product Unit Price-Order Retail445-30PrdMvAvg
+    label: Last Product Unit Price-Order Retail445-30PrdMvAvg
+    description: '30 Period Moving Average of Sales Amount.  Meant to execute at Day
+      Level  of '
+    expression: "Avg([Order Date Dimension].[Order Retail445].CurrentMember.Lag(29):[Order\
+      \ Date Dimension].[Order Retail445].CurrentMember, [Measures].[lastproductunitprice])"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 1916258656
+  - unique_name: Last Product Unit Price-Order Retail445-30PrdMvAvgPrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Last Product Unit Price-Order Retail445-30PrdMvAvgPrevYear
+    label: Last Product Unit Price-Order Retail445-30PrdMvAvgPrevYear
+    description: "Prev Year's 30 Period Moving  Average of Sales. Use on the [Order\
+      \ Retail445] Dimension"
+    expression: "Avg(ParallelPeriod([Order Date Dimension].[Order Retail445].[Order\
+      \ ReportIng_Year], 1, [Order Date Dimension].[Order Retail445].CurrentMember).Lag(29):\
+      \ \nParallelPeriod([Order Date Dimension].[Order Retail445].[Order ReportIng_Year],\
+      \ 1, [Order Date Dimension].[Order Retail445].CurrentMember), [Measures].[lastproductunitprice]\n\
+      )"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 1024289392
+  - unique_name: Last Product Unit Price-Order Retail445-30PrdMvAvgPrevYearGrow
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Last Product Unit Price-Order Retail445-30PrdMvAvgPrevYearGrow
+    label: Last Product Unit Price-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+    description: Sales 30 Period Moving Avg  vs Prev Year as Percentage
+    expression: "[Measures].[Last Product Unit Price-Order Retail445-30PrdMvAvg] +\
+      \ [Measures].[Last Product Unit Price-Order Retail445-30PrdMvStdev]"
+    folder: Time Relative
+    format: percent
+    orig_uuid: 1178903363
+  - unique_name: Last Product Unit Price-Order Retail445-30PrdMvLowerBand
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Last Product Unit Price-Order Retail445-30PrdMvLowerBand
+    label: Last Product Unit Price-Order Retail445-30PrdMvLowerBand
+    description: "Sales 30 Day Moving Average - 1 Stdev, use on [Order Retail445]"
+    expression: "[Measures].[Last Product Unit Price-Order Retail445-30PrdMvAvg] -\
+      \ [Measures].[Last Product Unit Price-Order Retail445-30PrdMvStdev]"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 1408956548
+  - unique_name: Last Product Unit Price-Order Retail445-30PrdMvStdev
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Last Product Unit Price-Order Retail445-30PrdMvStdev
+    label: Last Product Unit Price-Order Retail445-30PrdMvStdev
+    description: "30 Period Standard Deviation Use at Day Level of [Order Retail445]"
+    expression: "Stdev([Order Date Dimension].[Order Retail445].CurrentMember.Lag(29):[Order\
+      \ Date Dimension].[Order Retail445].CurrentMember, [Measures].[lastproductunitprice])"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 224150750
+  - unique_name: Last Product Unit Price-Order Retail445-30PrdMvUpperBand
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Last Product Unit Price-Order Retail445-30PrdMvUpperBand
+    label: Last Product Unit Price-Order Retail445-30PrdMvUpperBand
+    description: "Sales 30 Day Moving Average + 1 Standard Deviation use on [Order\
+      \ Retail445]"
+    expression: "[Measures].[Last Product Unit Price-Order Retail445-30PrdMvAvg] +\
+      \ [Measures].[Last Product Unit Price-Order Retail445-30PrdMvStdev]"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 1557026939
+  - unique_name: Last Product Unit Price-Order Retail445-Next
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Last Product Unit Price-Order Retail445-Next
+    label: Last Product Unit Price-Order Retail445-Next
+    description: Next Period's  Sales Amount on Order Retail445
+    expression: "CASE WHEN ISEMPTY([Measures].[lastproductunitprice]) \nTHEN NULL\n\
+      ELSE\n([Order Date Dimension].[Order Retail445].CurrentMember.NextMember, [Measures].[lastproductunitprice])\n\
+      END\n                                "
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 375323857
+  - unique_name: Last Product Unit Price-Order Retail445-Prev
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Last Product Unit Price-Order Retail445-Prev
+    label: 'Last Product Unit Price-Order Retail445-Prev '
+    description: Order Reporting Hierarchy Previous Period Sales
+    expression: "CASE WHEN ISEMPTY([Measures].[lastproductunitprice]) \nTHEN NULL\n\
+      ELSE\n([Order Date Dimension].[Order Retail445].CurrentMember.PrevMember, [Measures].[lastproductunitprice])\n\
+      END\n                                "
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 944197009
+  - unique_name: Last Product Unit Price-Order Retail445-PrevPeriodGrowth
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Last Product Unit Price-Order Retail445-PrevPeriodGrowth
+    label: Last Product Unit Price-Order Retail445-PrevPeriodGrowth
+    description: Order Retail 445 Growth since previous period.
+    expression: "CASE WHEN ISEMPTY([Measures].[Last Product Unit Price-Order Retail445-Prev])\
+      \ OR ISEMPTY([Measures].[lastproductunitprice])\nTHEN NULL \nELSE \n([Order\
+      \ Date Dimension].[Order Retail445].CurrentMember, [Measures].[lastproductunitprice])\
+      \ - [Measures].[Last Product Unit Price-Order Retail445-Prev]\nEND"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 1339167671
+  - unique_name: Last Product Unit Price-Order Retail445-PrevPeriodGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Last Product Unit Price-Order Retail445-PrevPeriodGrowthPct
+    label: Last Product Unit Price-Order Retail445-PrevPeriodGrowthPct
+    description: Order Retail445 Previous Period Growth Percent
+    expression: |-
+      CASE WHEN ISEMPTY([Measures].[Last Product Unit Price-Order Retail445-Prev]) THEN NULL
+      ELSE
+      (([Order Date Dimension].[Order Retail445].CurrentMember, [Measures].[lastproductunitprice]) - [Measures].[Last Product Unit Price-Order Retail445-Prev]) / [Measures].[Last Product Unit Price-Order Retail445-Prev]
+      END
+    folder: Time Relative
+    format: percent
+    orig_uuid: 1052692466
+  - unique_name: Last Product Unit Price-Order Retail445-PrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Last Product Unit Price-Order Retail445-PrevYear
+    label: Last Product Unit Price-Order Retail445-PrevYear
+    description: Order Sales Amount Prev Year (Retail445)
+    expression: "CASE WHEN ISEMPTY([Measures].[lastproductunitprice]) THEN \nNULL\
+      \ \nELSE (ParallelPeriod([Order Date Dimension].[Order Retail445].[Order ReportIng_Year],\
+      \ 1, [Order Date Dimension].[Order Retail445].CurrentMember), [Measures].[lastproductunitprice])\
+      \ END"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 92576652
+  - unique_name: Last Product Unit Price-Order Retail445-PrevYearGrowth
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Last Product Unit Price-Order Retail445-PrevYearGrowth
+    label: Last Product Unit Price-Order Retail445-PrevYearGrowth
+    description: Parallel Period Sales Growth  Since the Previous Year
+    expression: "CASE WHEN ISEMPTY([Measures].[Last Product Unit Price-Order Retail445-PrevYear])\
+      \ or ISEMPTY(([Order Date Dimension].[Order Retail445].CurrentMember, [Measures].[lastproductunitprice]))\
+      \ THEN\nNULL \nELSE \n([Order Date Dimension].[Order Retail445].CurrentMember,\
+      \ [Measures].[lastproductunitprice]) - [Measures].[Last Product Unit Price-Order\
+      \ Retail445-PrevYear]\nEND\n                                "
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 186484621
+  - unique_name: Last Product Unit Price-Order Retail445-PrevYearGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Last Product Unit Price-Order Retail445-PrevYearGrowthPct
+    label: Last Product Unit Price-Order Retail445-PrevYearGrowthPct
+    description: Order Retail445 Sales Amount Year-over-year growth as percent
+    expression: "CASE WHEN ISEMPTY([Measures].[Last Product Unit Price-Order Retail445-PrevYear])\
+      \ THEN NULL \nELSE [Measures].[Last Product Unit Price-Order Retail445-PrevYearGrowth]\
+      \ / [Measures].[Last Product Unit Price-Order Retail445-PrevYear] \nEND"
+    folder: Time Relative
+    format: percent
+    orig_uuid: 310812234
+  - unique_name: Last Product Unit Price-Order Retail445-YTD
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Last Product Unit Price-Order Retail445-YTD
+    label: Last Product Unit Price-Order Retail445-YTD
+    description: Sales Amount Year-to-date Order Retail445
+    expression: "CASE WHEN ISEMPTY([Measures].[lastproductunitprice]) THEN NULL \n\
+      ELSE \nAvg(PeriodsToDate([Order Date Dimension].[Order Retail445].[Order ReportIng_Year],\
+      \ [Order Date Dimension].[Order Retail445].CurrentMember), [Measures].[lastproductunitprice])\
+      \ \nEND "
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 2104647755
+  - unique_name: Last Product Unit Price-Order Retail445-YTDPrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Last Product Unit Price-Order Retail445-YTDPrevYear
+    label: Last Product Unit Price-Order Retail445-YTDPrevYear
+    description: 'Previous Year''s Year-to-date Avg Last product price '
+    expression: "Avg(\nPeriodsToDate([Order Date Dimension].[Order Retail445].[Order\
+      \ ReportIng_Year], ParallelPeriod([Order Date Dimension].[Order Retail445].[Order\
+      \ ReportIng_Year], 1, [Order Date Dimension].[Order Retail445].CurrentMember)),\
+      \ \n[Measures].[lastproductunitprice])\n                                "
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 1574705573
+  - unique_name: Max Tax Amount-Order CustomPP445-PrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Max Tax Amount-Order CustomPP445-PrevYear
+    label: Max Tax Amount-Order CustomPP445-PrevYear
+    description: "Previous Period Sales with a custom lookback key.  Use with [Order\
+      \ CustomPP445]"
+    expression: "CASE WHEN ISEMPTY([Measures].[maxtaxamount1]) THEN \nNULL\nELSE (ParallelPeriod([Order\
+      \ Date Dimension].[Order CustomPP445].[Order customyear], 1, [Order Date Dimension].[Order\
+      \ CustomPP445].CurrentMember), [Measures].[maxtaxamount1]) END"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 2090801331
+  - unique_name: Max Tax Amount-Order CustomPP445-PrevYearGrowth
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Max Tax Amount-Order CustomPP445-PrevYearGrowth
+    label: Max Tax Amount-Order CustomPP445-PrevYearGrowth
+    description: "Growth over Previous Period Sales with a custom lookback key.  Use\
+      \ with [Order CustomPP445]"
+    expression: "CASE WHEN ISEMPTY([Measures].[Max Tax Amount-Order CustomPP445-PrevYear])\
+      \ or ISEMPTY(([Order Date Dimension].[Order CustomPP445].CurrentMember, [Measures].[maxtaxamount1]))\
+      \ THEN\nNULL \nELSE \n([Order Date Dimension].[Order CustomPP445].CurrentMember,\
+      \ [Measures].[maxtaxamount1]) - [Measures].[Max Tax Amount-Order CustomPP445-PrevYear]\n\
+      END"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 223531148
+  - unique_name: Max Tax Amount-Order CustomPP445-PrevYearGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Max Tax Amount-Order CustomPP445-PrevYearGrowthPct
+    label: Max Tax Amount-Order CustomPP445-PrevYearGrowthPct
+    description: "Percent growth over Previous Period Sales with a custom lookback\
+      \ key.  Use with [Order CustomPP445]"
+    expression: "CASE WHEN ISEMPTY([Measures].[Max Tax Amount-Order CustomPP445-PrevYear])\
+      \ THEN NULL \nELSE [Measures].[Max Tax Amount-Order CustomPP445-PrevYearGrowth]\
+      \ / [Measures].[Max Tax Amount-Order CustomPP445-PrevYear] \nEND"
+    folder: Time Relative
+    format: percent
+    orig_uuid: 157303019
+  - unique_name: Max Tax Amount-Order Retail445-30PrdMvAvg
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Max Tax Amount-Order Retail445-30PrdMvAvg
+    label: Max Tax Amount-Order Retail445-30PrdMvAvg
+    description: '30 Period Moving Average of Sales Amount.  Meant to execute at Day
+      Level  of '
+    expression: "Avg([Order Date Dimension].[Order Retail445].CurrentMember.Lag(29):[Order\
+      \ Date Dimension].[Order Retail445].CurrentMember, [Measures].[maxtaxamount1])"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 2092485581
+  - unique_name: Max Tax Amount-Order Retail445-30PrdMvAvgPrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Max Tax Amount-Order Retail445-30PrdMvAvgPrevYear
+    label: Max Tax Amount-Order Retail445-30PrdMvAvgPrevYear
+    description: "Prev Year's 30 Period Moving  Average of Sales. Use on the [Order\
+      \ Retail445] Dimension"
+    expression: "Avg(ParallelPeriod([Order Date Dimension].[Order Retail445].[Order\
+      \ ReportIng_Year], 1, [Order Date Dimension].[Order Retail445].CurrentMember).Lag(29):\
+      \ \nParallelPeriod([Order Date Dimension].[Order Retail445].[Order ReportIng_Year],\
+      \ 1, [Order Date Dimension].[Order Retail445].CurrentMember), [Measures].[maxtaxamount1]\n\
+      )"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 527454243
+  - unique_name: Max Tax Amount-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Max Tax Amount-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+    label: Max Tax Amount-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+    description: Sales 30 Period Moving Avg  vs Prev Year as Percentage
+    expression: "([Measures].[Max Tax Amount-Order Retail445-30PrdMvAvg] - [Measures].[Max\
+      \ Tax Amount-Order Retail445-30PrdMvAvgPrevYear])  / [Measures].[Max Tax Amount-Order\
+      \ Retail445-30PrdMvAvgPrevYear]"
+    folder: Time Relative
+    format: percent
+    orig_uuid: 2033588481
+  - unique_name: Max Tax Amount-Order Retail445-30PrdMvLowerBand
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Max Tax Amount-Order Retail445-30PrdMvLowerBand
+    label: Max Tax Amount-Order Retail445-30PrdMvLowerBand
+    description: "Sales 30 Day Moving Average - 1 Stdev, use on [Order Retail445]"
+    expression: "[Measures].[Max Tax Amount-Order Retail445-30PrdMvAvg] - [Measures].[Max\
+      \ Tax Amount-Order Retail445-30PrdMvStdev]"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 1682162729
+  - unique_name: Max Tax Amount-Order Retail445-30PrdMvStdev
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Max Tax Amount-Order Retail445-30PrdMvStdev
+    label: Max Tax Amount-Order Retail445-30PrdMvStdev
+    description: "30 Period Standard Deviation Use at Day Level of [Order Retail445]"
+    expression: "Stdev([Order Date Dimension].[Order Retail445].CurrentMember.Lag(29):[Order\
+      \ Date Dimension].[Order Retail445].CurrentMember, [Measures].[maxtaxamount1])"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 2074501131
+  - unique_name: Max Tax Amount-Order Retail445-30PrdMvUpperBand
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Max Tax Amount-Order Retail445-30PrdMvUpperBand
+    label: Max Tax Amount-Order Retail445-30PrdMvUpperBand
+    description: "Sales 30 Day Moving Average + 1 Standard Deviation use on [Order\
+      \ Retail445]"
+    expression: "[Measures].[Max Tax Amount-Order Retail445-30PrdMvAvg] + [Measures].[Max\
+      \ Tax Amount-Order Retail445-30PrdMvStdev]"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 353178920
+  - unique_name: Max Tax Amount-Order Retail445-Next
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Max Tax Amount-Order Retail445-Next
+    label: Max Tax Amount-Order Retail445-Next
+    description: Next Period's  Sales Amount on Order Retail445
+    expression: "CASE WHEN ISEMPTY([Measures].[maxtaxamount1]) \nTHEN NULL\nELSE\n\
+      ([Order Date Dimension].[Order Retail445].CurrentMember.NextMember, [Measures].[maxtaxamount1])\n\
+      END\n                                "
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 860252930
+  - unique_name: Max Tax Amount-Order Retail445-Prev
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Max Tax Amount-Order Retail445-Prev
+    label: 'Max Tax Amount-Order Retail445-Prev '
+    description: Order Reporting Hierarchy Previous Period Sales
+    expression: "CASE WHEN ISEMPTY([Measures].[maxtaxamount1]) \nTHEN NULL\nELSE\n\
+      ([Order Date Dimension].[Order Retail445].CurrentMember.PrevMember, [Measures].[maxtaxamount1])\n\
+      END\n                                "
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 291379778
+  - unique_name: Max Tax Amount-Order Retail445-PrevPeriodGrowth
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Max Tax Amount-Order Retail445-PrevPeriodGrowth
+    label: Max Tax Amount-Order Retail445-PrevPeriodGrowth
+    description: Order Retail 445 Growth since previous period.
+    expression: "CASE WHEN ISEMPTY([Measures].[Max Tax Amount-Order Retail445-Prev])\
+      \ OR ISEMPTY([Measures].[maxtaxamount1])\nTHEN NULL \nELSE \n([Order Date Dimension].[Order\
+      \ Retail445].CurrentMember, [Measures].[maxtaxamount1]) - [Measures].[Max Tax\
+      \ Amount-Order Retail445-Prev]\nEND"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 1751951606
+  - unique_name: Max Tax Amount-Order Retail445-PrevPeriodGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Max Tax Amount-Order Retail445-PrevPeriodGrowthPct
+    label: Max Tax Amount-Order Retail445-PrevPeriodGrowthPct
+    description: Order Retail445 Previous Period Growth Percent
+    expression: |-
+      CASE WHEN ISEMPTY([Measures].[Max Tax Amount-Order Retail445-Prev]) THEN NULL
+      ELSE
+      (([Order Date Dimension].[Order Retail445].CurrentMember, [Measures].[maxtaxamount1]) - [Measures].[Max Tax Amount-Order Retail445-Prev]) / [Measures].[Max Tax Amount-Order Retail445-Prev]
+      END
+    folder: Time Relative
+    format: percent
+    orig_uuid: 1912104895
+  - unique_name: Max Tax Amount-Order Retail445-PrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Max Tax Amount-Order Retail445-PrevYear
+    label: Max Tax Amount-Order Retail445-PrevYear
+    description: Order Sales Amount Prev Year (Retail445)
+    expression: "CASE WHEN ISEMPTY([Measures].[maxtaxamount1]) THEN \nNULL \nELSE\
+      \ (ParallelPeriod([Order Date Dimension].[Order Retail445].[Order ReportIng_Year],\
+      \ 1, [Order Date Dimension].[Order Retail445].CurrentMember), [Measures].[maxtaxamount1])\
+      \ END"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 1413750305
+  - unique_name: Max Tax Amount-Order Retail445-PrevYearGrowth
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Max Tax Amount-Order Retail445-PrevYearGrowth
+    label: Max Tax Amount-Order Retail445-PrevYearGrowth
+    description: Parallel Period Sales Growth  Since the Previous Year
+    expression: "CASE WHEN ISEMPTY([Measures].[Max Tax Amount-Order Retail445-PrevYear])\
+      \ or ISEMPTY(([Order Date Dimension].[Order Retail445].CurrentMember, [Measures].[maxtaxamount1]))\
+      \ THEN\nNULL \nELSE \n([Order Date Dimension].[Order Retail445].CurrentMember,\
+      \ [Measures].[maxtaxamount1]) - [Measures].[Max Tax Amount-Order Retail445-PrevYear]\n\
+      END\n                                "
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 256740218
+  - unique_name: Max Tax Amount-Order Retail445-PrevYearGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Max Tax Amount-Order Retail445-PrevYearGrowthPct
+    label: Max Tax Amount-Order Retail445-PrevYearGrowthPct
+    description: Order Retail445 Sales Amount Year-over-year growth as percent
+    expression: "CASE WHEN ISEMPTY([Measures].[Max Tax Amount-Order Retail445-PrevYear])\
+      \ THEN NULL \nELSE [Measures].[Max Tax Amount-Order Retail445-PrevYearGrowth]\
+      \ / [Measures].[Max Tax Amount-Order Retail445-PrevYear] \nEND"
+    folder: Time Relative
+    format: percent
+    orig_uuid: 1646229309
+  - unique_name: Max Tax Amount-Order Retail445-YTD
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Max Tax Amount-Order Retail445-YTD
+    label: Max Tax Amount-Order Retail445-YTD
+    description: Sales Amount Year-to-date Order Retail445
+    expression: "CASE WHEN ISEMPTY([Measures].[maxtaxamount1]) THEN NULL \nELSE \n\
+      Aggregate(PeriodsToDate([Order Date Dimension].[Order Retail445].[Order ReportIng_Year],\
+      \ [Order Date Dimension].[Order Retail445].CurrentMember), [Measures].[maxtaxamount1])\
+      \ \nEND "
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 679317118
+  - unique_name: Max Tax Amount-Order Retail445-YTDPrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Max Tax Amount-Order Retail445-YTDPrevYear
+    label: Max Tax Amount-Order Retail445-YTDPrevYear
+    description: 'Previous Year''s Year-to-date Sum of Sales '
+    expression: "Aggregate(\nPeriodsToDate([Order Date Dimension].[Order Retail445].[Order\
+      \ ReportIng_Year], ParallelPeriod([Order Date Dimension].[Order Retail445].[Order\
+      \ ReportIng_Year], 1, [Order Date Dimension].[Order Retail445].CurrentMember)),\
+      \ \n[Measures].[maxtaxamount1])\n                                "
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 406638194
+  - unique_name: Sales Amount SStdev-Order CustomPP445-PrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount SStdev-Order CustomPP445-PrevYear
+    label: Sales Amount SStdev-Order CustomPP445-PrevYear
+    description: "Previous Period Sales with a custom lookback key.  Use with [Order\
+      \ CustomPP445]"
+    expression: "CASE WHEN ISEMPTY([Measures].[salesamountsstdev1]) THEN \nNULL\n\
+      ELSE (ParallelPeriod([Order Date Dimension].[Order CustomPP445].[Order customyear],\
+      \ 1, [Order Date Dimension].[Order CustomPP445].CurrentMember), [Measures].[salesamountsstdev1])\
+      \ END"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 1511178419
+  - unique_name: Sales Amount SStdev-Order CustomPP445-PrevYearGrowth
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount SStdev-Order CustomPP445-PrevYearGrowth
+    label: Sales Amount SStdev-Order CustomPP445-PrevYearGrowth
+    description: "Growth over Previous Period Sales with a custom lookback key.  Use\
+      \ with [Order CustomPP445]"
+    expression: "CASE WHEN ISEMPTY([Measures].[Sales Amount SStdev-Order CustomPP445-PrevYear])\
+      \ or ISEMPTY(([Order Date Dimension].[Order CustomPP445].CurrentMember, [Measures].[salesamountsstdev1]))\
+      \ THEN\nNULL \nELSE \n([Order Date Dimension].[Order CustomPP445].CurrentMember,\
+      \ [Measures].[salesamountsstdev1]) - [Measures].[Sales Amount SStdev-Order CustomPP445-PrevYear]\n\
+      END"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 546801524
+  - unique_name: Sales Amount SStdev-Order CustomPP445-PrevYearGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount SStdev-Order CustomPP445-PrevYearGrowthPct
+    label: Sales Amount SStdev-Order CustomPP445-PrevYearGrowthPct
+    description: "Percent growth over Previous Period Sales with a custom lookback\
+      \ key.  Use with [Order CustomPP445]"
+    expression: "CASE WHEN ISEMPTY([Measures].[Sales Amount SStdev-Order CustomPP445-PrevYear])\
+      \ THEN NULL \nELSE [Measures].[Sales Amount SStdev-Order CustomPP445-PrevYearGrowth]\
+      \ / [Measures].[Sales Amount SStdev-Order CustomPP445-PrevYear] \nEND"
+    folder: Time Relative
+    format: percent
+    orig_uuid: 813066005
+  - unique_name: Sales Amount SStdev-Order Retail445-30PrdMvAvg
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount SStdev-Order Retail445-30PrdMvAvg
+    label: Sales Amount SStdev-Order Retail445-30PrdMvAvg
+    description: '30 Period Moving Average of Sales Amount.  Meant to execute at Day
+      Level  of '
+    expression: "Avg([Order Date Dimension].[Order Retail445].CurrentMember.Lag(29):[Order\
+      \ Date Dimension].[Order Retail445].CurrentMember, [Measures].[salesamountsstdev1])"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 1512862669
+  - unique_name: Sales Amount SStdev-Order Retail445-30PrdMvAvgPrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount SStdev-Order Retail445-30PrdMvAvgPrevYear
+    label: Sales Amount SStdev-Order Retail445-30PrdMvAvgPrevYear
+    description: "Prev Year's 30 Period Moving  Average of Sales. Use on the [Order\
+      \ Retail445] Dimension"
+    expression: "Avg(ParallelPeriod([Order Date Dimension].[Order Retail445].[Order\
+      \ ReportIng_Year], 1, [Order Date Dimension].[Order Retail445].CurrentMember).Lag(29):\
+      \ \nParallelPeriod([Order Date Dimension].[Order Retail445].[Order ReportIng_Year],\
+      \ 1, [Order Date Dimension].[Order Retail445].CurrentMember), [Measures].[salesamountsstdev1]\n\
+      )"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 2082777123
+  - unique_name: Sales Amount SStdev-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount SStdev-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+    label: Sales Amount SStdev-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+    description: Sales 30 Period Moving Avg  vs Prev Year as Percentage
+    expression: "([Measures].[Sales Amount SStdev-Order Retail445-30PrdMvAvg] - [Measures].[Sales\
+      \ Amount SStdev-Order Retail445-30PrdMvAvgPrevYear])  / [Measures].[Sales Amount\
+      \ SStdev-Order Retail445-30PrdMvAvgPrevYear]"
+    folder: Time Relative
+    format: percent
+    orig_uuid: 1937280767
+  - unique_name: Sales Amount SStdev-Order Retail445-30PrdMvLowerBand
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount SStdev-Order Retail445-30PrdMvLowerBand
+    label: Sales Amount SStdev-Order Retail445-30PrdMvLowerBand
+    description: "Sales 30 Day Moving Average - 1 Stdev, use on [Order Retail445]"
+    expression: "[Measures].[Sales Amount SStdev-Order Retail445-30PrdMvAvg] - [Measures].[Sales\
+      \ Amount SStdev-Order Retail445-30PrdMvStdev]"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 911830057
+  - unique_name: Sales Amount SStdev-Order Retail445-30PrdMvStdev
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount SStdev-Order Retail445-30PrdMvStdev
+    label: Sales Amount SStdev-Order Retail445-30PrdMvStdev
+    description: "30 Period Standard Deviation Use at Day Level of [Order Retail445]"
+    expression: "Stdev([Order Date Dimension].[Order Retail445].CurrentMember.Lag(29):[Order\
+      \ Date Dimension].[Order Retail445].CurrentMember, [Measures].[salesamountsstdev1])"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 892336117
+  - unique_name: Sales Amount SStdev-Order Retail445-30PrdMvUpperBand
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount SStdev-Order Retail445-30PrdMvUpperBand
+    label: Sales Amount SStdev-Order Retail445-30PrdMvUpperBand
+    description: "Sales 30 Day Moving Average + 1 Standard Deviation use on [Order\
+      \ Retail445]"
+    expression: "[Measures].[Sales Amount SStdev-Order Retail445-30PrdMvAvg] + [Measures].[Sales\
+      \ Amount SStdev-Order Retail445-30PrdMvStdev]"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 417153752
+  - unique_name: Sales Amount SStdev-Order Retail445-Next
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount SStdev-Order Retail445-Next
+    label: Sales Amount SStdev-Order Retail445-Next
+    description: Next Period's  Sales Amount on Order Retail445
+    expression: "CASE WHEN ISEMPTY([Measures].[salesamountsstdev1]) \nTHEN NULL\n\
+      ELSE\n([Order Date Dimension].[Order Retail445].CurrentMember.NextMember, [Measures].[salesamountsstdev1])\n\
+      END\n                                "
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 336280830
+  - unique_name: Sales Amount SStdev-Order Retail445-Prev
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount SStdev-Order Retail445-Prev
+    label: 'Sales Amount SStdev-Order Retail445-Prev '
+    description: Order Reporting Hierarchy Previous Period Sales
+    expression: "CASE WHEN ISEMPTY([Measures].[salesamountsstdev1]) \nTHEN NULL\n\
+      ELSE\n([Order Date Dimension].[Order Retail445].CurrentMember.PrevMember, [Measures].[salesamountsstdev1])\n\
+      END\n                                "
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 905153982
+  - unique_name: Sales Amount SStdev-Order Retail445-PrevPeriodGrowth
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount SStdev-Order Retail445-PrevPeriodGrowth
+    label: Sales Amount SStdev-Order Retail445-PrevPeriodGrowth
+    description: Order Retail 445 Growth since previous period.
+    expression: "CASE WHEN ISEMPTY([Measures].[Sales Amount SStdev-Order Retail445-Prev])\
+      \ OR ISEMPTY([Measures].[salesamountsstdev1])\nTHEN NULL \nELSE \n([Order Date\
+      \ Dimension].[Order Retail445].CurrentMember, [Measures].[salesamountsstdev1])\
+      \ - [Measures].[Sales Amount SStdev-Order Retail445-Prev]\nEND"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 981618934
+  - unique_name: Sales Amount SStdev-Order Retail445-PrevPeriodGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount SStdev-Order Retail445-PrevPeriodGrowthPct
+    label: Sales Amount SStdev-Order Retail445-PrevPeriodGrowthPct
+    description: Order Retail445 Previous Period Growth Percent
+    expression: |-
+      CASE WHEN ISEMPTY([Measures].[Sales Amount SStdev-Order Retail445-Prev]) THEN NULL
+      ELSE
+      (([Order Date Dimension].[Order Retail445].CurrentMember, [Measures].[salesamountsstdev1]) - [Measures].[Sales Amount SStdev-Order Retail445-Prev]) / [Measures].[Sales Amount SStdev-Order Retail445-Prev]
+      END
+    folder: Time Relative
+    format: percent
+    orig_uuid: 1412493377
+  - unique_name: Sales Amount SStdev-Order Retail445-PrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount SStdev-Order Retail445-PrevYear
+    label: Sales Amount SStdev-Order Retail445-PrevYear
+    description: Order Sales Amount Prev Year (Retail445)
+    expression: "CASE WHEN ISEMPTY([Measures].[salesamountsstdev1]) THEN \nNULL \n\
+      ELSE (ParallelPeriod([Order Date Dimension].[Order Retail445].[Order ReportIng_Year],\
+      \ 1, [Order Date Dimension].[Order Retail445].CurrentMember), [Measures].[salesamountsstdev1])\
+      \ END"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 897464799
+  - unique_name: Sales Amount SStdev-Order Retail445-PrevYearGrowth
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount SStdev-Order Retail445-PrevYearGrowth
+    label: Sales Amount SStdev-Order Retail445-PrevYearGrowth
+    description: Parallel Period Sales Growth  Since the Previous Year
+    expression: "CASE WHEN ISEMPTY([Measures].[Sales Amount SStdev-Order Retail445-PrevYear])\
+      \ or ISEMPTY(([Order Date Dimension].[Order Retail445].CurrentMember, [Measures].[salesamountsstdev1]))\
+      \ THEN\nNULL \nELSE \n([Order Date Dimension].[Order Retail445].CurrentMember,\
+      \ [Measures].[salesamountsstdev1]) - [Measures].[Sales Amount SStdev-Order Retail445-PrevYear]\n\
+      END\n                                "
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 984429434
+  - unique_name: Sales Amount SStdev-Order Retail445-PrevYearGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount SStdev-Order Retail445-PrevYearGrowthPct
+    label: Sales Amount SStdev-Order Retail445-PrevYearGrowthPct
+    description: Order Retail445 Sales Amount Year-over-year growth as percent
+    expression: "CASE WHEN ISEMPTY([Measures].[Sales Amount SStdev-Order Retail445-PrevYear])\
+      \ THEN NULL \nELSE [Measures].[Sales Amount SStdev-Order Retail445-PrevYearGrowth]\
+      \ / [Measures].[Sales Amount SStdev-Order Retail445-PrevYear] \nEND"
+    folder: Time Relative
+    format: percent
+    orig_uuid: 759247043
+  - unique_name: Sales Amount SStdev-Order Retail445-YTD
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount SStdev-Order Retail445-YTD
+    label: Sales Amount SStdev-Order Retail445-YTD
+    description: Sales Amount Year-to-date Order Retail445
+    expression: "CASE WHEN ISEMPTY([Measures].[salesamountsstdev1]) THEN NULL \nELSE\
+      \ \nAvg(PeriodsToDate([Order Date Dimension].[Order Retail445].[Order ReportIng_Year],\
+      \ [Order Date Dimension].[Order Retail445].CurrentMember), [Measures].[salesamountsstdev1])\
+      \ \nEND "
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 1549198974
+  - unique_name: Sales Amount SStdev-Order Retail445-YTDPrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount SStdev-Order Retail445-YTDPrevYear
+    label: Sales Amount SStdev-Order Retail445-YTDPrevYear
+    description: 'Previous Year''s Year-to-date Sum of Sales '
+    expression: "Avg(\nPeriodsToDate([Order Date Dimension].[Order Retail445].[Order\
+      \ ReportIng_Year], ParallelPeriod([Order Date Dimension].[Order Retail445].[Order\
+      \ ReportIng_Year], 1, [Order Date Dimension].[Order Retail445].CurrentMember)),\
+      \ \n[Measures].[salesamountsstdev1])\n                                "
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 1195079282
+  - unique_name: Sales Amount-Order CustomPP445-PrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount-Order CustomPP445-PrevYear
+    label: Sales Amount-Order CustomPP445-PrevYear
+    description: "Previous Period Sales with a custom lookback key.  Use with [Order\
+      \ CustomPP445]"
+    expression: "CASE WHEN ISEMPTY([Measures].[salesamount1]) THEN \nNULL\nELSE (ParallelPeriod([Order\
+      \ Date Dimension].[Order CustomPP445].[Order customyear], 1, [Order Date Dimension].[Order\
+      \ CustomPP445].CurrentMember), [Measures].[salesamount1]) END"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 953180938
+  - unique_name: Sales Amount-Order CustomPP445-PrevYearGrowth
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount-Order CustomPP445-PrevYearGrowth
+    label: Sales Amount-Order CustomPP445-PrevYearGrowth
+    description: "Growth over Previous Period Sales with a custom lookback key.  Use\
+      \ with [Order CustomPP445]"
+    expression: "CASE WHEN ISEMPTY([Measures].[Sales Amount-Order CustomPP445-PrevYear])\
+      \ or ISEMPTY(([Order Date Dimension].[Order CustomPP445].CurrentMember, [Measures].[salesamount1]))\
+      \ THEN\nNULL \nELSE \n([Order Date Dimension].[Order CustomPP445].CurrentMember,\
+      \ [Measures].[salesamount1]) - [Measures].[Sales Amount-Order CustomPP445-PrevYear]\n\
+      END"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 1162750321
+  - unique_name: Sales Amount-Order CustomPP445-PrevYearGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount-Order CustomPP445-PrevYearGrowthPct
+    label: Sales Amount-Order CustomPP445-PrevYearGrowthPct
+    description: "Percent growth over Previous Period Sales with a custom lookback\
+      \ key.  Use with [Order CustomPP445]"
+    expression: "CASE WHEN ISEMPTY([Measures].[Sales Amount-Order CustomPP445-PrevYear])\
+      \ THEN NULL \nELSE [Measures].[Sales Amount-Order CustomPP445-PrevYearGrowth]\
+      \ / [Measures].[Sales Amount-Order CustomPP445-PrevYear] \nEND"
+    folder: Time Relative
+    format: percent
+    orig_uuid: 1851578376
+  - unique_name: Sales Amount-Order Retail445-30PrdMvAvg
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount-Order Retail445-30PrdMvAvg
+    label: Sales Amount-Order Retail445-30PrdMvAvg
+    description: '30 Period Moving Average of Sales Amount.  Meant to execute at Day
+      Level  of '
+    expression: "Avg([Order Date Dimension].[Order Retail445].CurrentMember.Lag(29):[Order\
+      \ Date Dimension].[Order Retail445].CurrentMember, [Measures].[salesamount1])"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 951496688
+  - unique_name: Sales Amount-Order Retail445-30PrdMvAvgPrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount-Order Retail445-30PrdMvAvgPrevYear
+    label: Sales Amount-Order Retail445-30PrdMvAvgPrevYear
+    description: "Prev Year's 30 Period Moving  Average of Sales. Use on the [Order\
+      \ Retail445] Dimension"
+    expression: "Avg(ParallelPeriod([Order Date Dimension].[Order Retail445].[Order\
+      \ ReportIng_Year], 1, [Order Date Dimension].[Order Retail445].CurrentMember).Lag(29):\
+      \ \nParallelPeriod([Order Date Dimension].[Order Retail445].[Order ReportIng_Year],\
+      \ 1, [Order Date Dimension].[Order Retail445].CurrentMember), [Measures].[salesamount1]\n\
+      )"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 1304084192
+  - unique_name: Sales Amount-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+    label: Sales Amount-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+    description: Sales 30 Period Moving Avg  vs Prev Year as Percentage
+    expression: "CASE WHEN ISEMPTY([Measures].[Sales Amount-Order Retail445-30PrdMvAvgPrevYear])\
+      \ OR ISEMPTY([Measures].[Sales Amount-Order Retail445-30PrdMvAvg]) THEN \nNULL\
+      \ \nELSE \n([Measures].[Sales Amount-Order Retail445-30PrdMvAvg] - [Measures].[Sales\
+      \ Amount-Order Retail445-30PrdMvAvgPrevYear])  / [Measures].[Sales Amount-Order\
+      \ Retail445-30PrdMvAvgPrevYear]\nEND"
+    folder: Time Relative
+    format: percent
+    orig_uuid: 1265386270
+  - unique_name: Sales Amount-Order Retail445-30PrdMvLowerBand
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount-Order Retail445-30PrdMvLowerBand
+    label: Sales Amount-Order Retail445-30PrdMvLowerBand
+    description: "Sales 30 Day Moving Average - 1 Stdev, use on [Order Retail445]"
+    expression: "[Measures].[Sales Amount-Order Retail445-30PrdMvAvg] - [Measures].[Sales\
+      \ Amount-Order Retail445-30PrdMvStdev]"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 295881260
+  - unique_name: Sales Amount-Order Retail445-30PrdMvStdev
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount-Order Retail445-30PrdMvStdev
+    label: Sales Amount-Order Retail445-30PrdMvStdev
+    description: "30 Period Standard Deviation Use at Day Level of [Order Retail445]"
+    expression: "Stdev([Order Date Dimension].[Order Retail445].CurrentMember.Lag(29):[Order\
+      \ Date Dimension].[Order Retail445].CurrentMember, [Measures].[salesamount1])"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 1680269198
+  - unique_name: Sales Amount-Order Retail445-30PrdMvUpperBand
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount-Order Retail445-30PrdMvUpperBand
+    label: Sales Amount-Order Retail445-30PrdMvUpperBand
+    description: "Sales 30 Day Moving Average + 1 Standard Deviation use on [Order\
+      \ Retail445]"
+    expression: "[Measures].[Sales Amount-Order Retail445-30PrdMvAvg] + [Measures].[Sales\
+      \ Amount-Order Retail445-30PrdMvStdev]"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 1033102549
+  - unique_name: Sales Amount-Order Retail445-Next
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount-Order Retail445-Next
+    label: Sales Amount-Order Retail445-Next
+    description: Next Period's  Sales Amount on Order Retail445
+    expression: "CASE WHEN ISEMPTY([Measures].[salesamount1]) \nTHEN NULL\nELSE\n\
+      ([Order Date Dimension].[Order Retail445].CurrentMember.NextMember, [Measures].[salesamount1])\n\
+      END\n                                "
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 569948287
+  - unique_name: Sales Amount-Order Retail445-Prev
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount-Order Retail445-Prev
+    label: 'Sales Amount-Order Retail445-Prev '
+    description: Order Reporting Hierarchy Previous Period Sales
+    expression: "CASE WHEN ISEMPTY([Measures].[salesamount1]) \nTHEN NULL\nELSE\n\
+      ([Order Date Dimension].[Order Retail445].CurrentMember.PrevMember, [Measures].[salesamount1])\n\
+      END\n                                "
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 1075135
+  - unique_name: Sales Amount-Order Retail445-PrevPeriodGrowth
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount-Order Retail445-PrevPeriodGrowth
+    label: Sales Amount-Order Retail445-PrevPeriodGrowth
+    description: Order Retail 445 Growth since previous period.
+    expression: "CASE WHEN ISEMPTY([Measures].[Sales Amount-Order Retail445-Prev])\
+      \ OR ISEMPTY([Measures].[salesamount1])\nTHEN NULL \nELSE \n([Order Date Dimension].[Order\
+      \ Retail445].CurrentMember, [Measures].[salesamount1]) - [Measures].[Sales Amount-Order\
+      \ Retail445-Prev]\nEND"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 365670137
+  - unique_name: Sales Amount-Order Retail445-PrevPeriodGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount-Order Retail445-PrevPeriodGrowthPct
+    label: Sales Amount-Order Retail445-PrevPeriodGrowthPct
+    description: Order Retail445 Previous Period Growth Percent
+    expression: |-
+      CASE WHEN ISEMPTY([Measures].[Sales Amount-Order Retail445-Prev]) THEN NULL
+      ELSE
+      (([Order Date Dimension].[Order Retail445].CurrentMember, [Measures].[salesamount1]) - [Measures].[Sales Amount-Order Retail445-Prev]) / [Measures].[Sales Amount-Order Retail445-Prev]
+      END
+    folder: Time Relative
+    format: percent
+    orig_uuid: 217829538
+  - unique_name: Sales Amount-Order Retail445-PrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount-Order Retail445-PrevYear
+    label: Sales Amount-Order Retail445-PrevYear
+    description: Order Sales Amount Prev Year (Retail445)
+    expression: "CASE WHEN ISEMPTY([Measures].[salesamount1]) THEN \nNULL \nELSE (ParallelPeriod([Order\
+      \ Date Dimension].[Order Retail445].[Order ReportIng_Year], 1, [Order Date Dimension].[Order\
+      \ Retail445].CurrentMember), [Measures].[salesamount1]) END"
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 895559900
+  - unique_name: Sales Amount-Order Retail445-PrevYearGrowth
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount-Order Retail445-PrevYearGrowth
+    label: Sales Amount-Order Retail445-PrevYearGrowth
+    description: Parallel Period Sales Growth  Since the Previous Year
+    expression: "CASE WHEN ISEMPTY([Measures].[Sales Amount-Order Retail445-PrevYear])\
+      \ or ISEMPTY(([Order Date Dimension].[Order Retail445].CurrentMember, [Measures].[salesamount1]))\
+      \ THEN\nNULL \nELSE \n([Order Date Dimension].[Order Retail445].CurrentMember,\
+      \ [Measures].[salesamount1]) - [Measures].[Sales Amount-Order Retail445-PrevYear]\n\
+      END\n                                "
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 643025347
+  - unique_name: Sales Amount-Order Retail445-PrevYearGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount-Order Retail445-PrevYearGrowthPct
+    label: Sales Amount-Order Retail445-PrevYearGrowthPct
+    description: Order Retail445 Sales Amount Year-over-year growth as percent
+    expression: "CASE WHEN ISEMPTY([Measures].[Sales Amount-Order Retail445-PrevYear])\
+      \ THEN NULL \nELSE [Measures].[Sales Amount-Order Retail445-PrevYearGrowth]\
+      \ / [Measures].[Sales Amount-Order Retail445-PrevYear] \nEND"
+    folder: Time Relative
+    format: percent
+    orig_uuid: 1621176730
+  - unique_name: Sales Amount-Order Retail445-YTD
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount-Order Retail445-YTD
+    label: Sales Amount-Order Retail445-YTD
+    description: Sales Amount Year-to-date Order Retail445
+    expression: "CASE WHEN ISEMPTY([Measures].[salesamount1]) THEN NULL \nELSE \n\
+      Aggregate(PeriodsToDate([Order Date Dimension].[Order Retail445].[Order ReportIng_Year],\
+      \ [Order Date Dimension].[Order Retail445].CurrentMember), [Measures].[salesamount1])\
+      \ \nEND "
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 281149541
+  - unique_name: Sales Amount-Order Retail445-YTDPrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Sales Amount-Order Retail445-YTDPrevYear
+    label: Sales Amount-Order Retail445-YTDPrevYear
+    description: 'Previous Year''s Year-to-date Sum of Sales '
+    expression: "Aggregate(\nPeriodsToDate([Order Date Dimension].[Order Retail445].[Order\
+      \ ReportIng_Year], ParallelPeriod([Order Date Dimension].[Order Retail445].[Order\
+      \ ReportIng_Year], 1, [Order Date Dimension].[Order Retail445].CurrentMember)),\
+      \ \n[Measures].[salesamount1])\n                                "
+    folder: Time Relative
+    format: "$#,##0.00"
+    orig_uuid: 280808021
+  - unique_name: SoldProductNDC-Order CustomPP445-PrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: SoldProductNDC-Order CustomPP445-PrevYear
+    label: SoldProductNDC-Order CustomPP445-PrevYear
+    description: "Previous Period Sales with a custom lookback key.  Use with [Order\
+      \ CustomPP445]"
+    expression: "CASE WHEN ISEMPTY([Measures].[soldproductNDC1]) THEN \nNULL\nELSE\
+      \ (ParallelPeriod([Order Date Dimension].[Order CustomPP445].[Order customyear],\
+      \ 1, [Order Date Dimension].[Order CustomPP445].CurrentMember), [Measures].[soldproductNDC1])\
+      \ END"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 1578487420
+  - unique_name: SoldProductNDC-Order CustomPP445-PrevYearGrowth
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: SoldProductNDC-Order CustomPP445-PrevYearGrowth
+    label: SoldProductNDC-Order CustomPP445-PrevYearGrowth
+    description: "Growth over Previous Period Sales with a custom lookback key.  Use\
+      \ with [Order CustomPP445]"
+    expression: "CASE WHEN ISEMPTY([Measures].[SoldProductNDC-Order CustomPP445-PrevYear])\
+      \ or ISEMPTY(([Order Date Dimension].[Order CustomPP445].CurrentMember, [Measures].[soldproductNDC1]))\
+      \ THEN\nNULL \nELSE \n([Order Date Dimension].[Order CustomPP445].CurrentMember,\
+      \ [Measures].[soldproductNDC1]) - [Measures].[SoldProductNDC-Order CustomPP445-PrevYear]\n\
+      END"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 822981739
+  - unique_name: SoldProductNDC-Order CustomPP445-PrevYearGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: SoldProductNDC-Order CustomPP445-PrevYearGrowthPct
+    label: SoldProductNDC-Order CustomPP445-PrevYearGrowthPct
+    description: "Percent growth over Previous Period Sales with a custom lookback\
+      \ key.  Use with [Order CustomPP445]"
+    expression: "CASE WHEN ISEMPTY([Measures].[SoldProductNDC-Order CustomPP445-PrevYear])\
+      \ THEN NULL \nELSE [Measures].[SoldProductNDC-Order CustomPP445-PrevYearGrowth]\
+      \ / [Measures].[SoldProductNDC-Order CustomPP445-PrevYear] \nEND"
+    folder: Time Relative
+    format: percent
+    orig_uuid: 659488066
+  - unique_name: SoldProductNDC-Order Retail445-30PrdMvAvg
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: SoldProductNDC-Order Retail445-30PrdMvAvg
+    label: SoldProductNDC-Order Retail445-30PrdMvAvg
+    description: '30 Period Moving Average of Sales Amount.  Meant to execute at Day
+      Level  of '
+    expression: "Avg([Order Date Dimension].[Order Retail445].CurrentMember.Lag(29):[Order\
+      \ Date Dimension].[Order Retail445].CurrentMember, [Measures].[soldproductNDC1])"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 1580171670
+  - unique_name: SoldProductNDC-Order Retail445-30PrdMvAvgPrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: SoldProductNDC-Order Retail445-30PrdMvAvgPrevYear
+    label: SoldProductNDC-Order Retail445-30PrdMvAvgPrevYear
+    description: "Prev Year's 30 Period Moving  Average of Sales. Use on the [Order\
+      \ Retail445] Dimension"
+    expression: "Avg(ParallelPeriod([Order Date Dimension].[Order Retail445].[Order\
+      \ ReportIng_Year], 1, [Order Date Dimension].[Order Retail445].CurrentMember).Lag(29):\
+      \ \nParallelPeriod([Order Date Dimension].[Order Retail445].[Order ReportIng_Year],\
+      \ 1, [Order Date Dimension].[Order Retail445].CurrentMember), [Measures].[soldproductNDC1]\n\
+      )"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 1203991386
+  - unique_name: SoldProductNDC-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: SoldProductNDC-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+    label: SoldProductNDC-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+    description: Sales 30 Period Moving Avg  vs Prev Year as Percentage
+    expression: "([Measures].[SoldProductNDC-Order Retail445-30PrdMvAvg] - [Measures].[SoldProductNDC-Order\
+      \ Retail445-30PrdMvAvgPrevYear])  / [Measures].[SoldProductNDC-Order Retail445-30PrdMvAvgPrevYear]"
+    folder: Time Relative
+    format: percent
+    orig_uuid: 1844088408
+  - unique_name: SoldProductNDC-Order Retail445-30PrdMvLowerBand
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: SoldProductNDC-Order Retail445-30PrdMvLowerBand
+    label: SoldProductNDC-Order Retail445-30PrdMvLowerBand
+    description: "Sales 30 Day Moving Average - 1 Stdev, use on [Order Retail445]"
+    expression: "[Measures].[SoldProductNDC-Order Retail445-30PrdMvAvg] - [Measures].[SoldProductNDC-Order\
+      \ Retail445-30PrdMvStdev]"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 635649842
+  - unique_name: SoldProductNDC-Order Retail445-30PrdMvStdev
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: SoldProductNDC-Order Retail445-30PrdMvStdev
+    label: SoldProductNDC-Order Retail445-30PrdMvStdev
+    description: "30 Period Standard Deviation Use at Day Level of [Order Retail445]"
+    expression: "Stdev([Order Date Dimension].[Order Retail445].CurrentMember.Lag(29):[Order\
+      \ Date Dimension].[Order Retail445].CurrentMember, [Measures].[soldproductNDC1])"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 632895596
+  - unique_name: SoldProductNDC-Order Retail445-30PrdMvUpperBand
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: SoldProductNDC-Order Retail445-30PrdMvUpperBand
+    label: SoldProductNDC-Order Retail445-30PrdMvUpperBand
+    description: "Sales 30 Day Moving Average + 1 Standard Deviation use on [Order\
+      \ Retail445]"
+    expression: "[Measures].[SoldProductNDC-Order Retail445-30PrdMvAvg] + [Measures].[SoldProductNDC-Order\
+      \ Retail445-30PrdMvStdev]"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 693333967
+  - unique_name: SoldProductNDC-Order Retail445-Next
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: SoldProductNDC-Order Retail445-Next
+    label: SoldProductNDC-Order Retail445-Next
+    description: Next Period's  Sales Amount on Order Retail445
+    expression: "CASE WHEN ISEMPTY([Measures].[soldproductNDC1]) \nTHEN NULL\nELSE\n\
+      ([Order Date Dimension].[Order Retail445].CurrentMember.NextMember, [Measures].[soldproductNDC1])\n\
+      END\n                                "
+    folder: Time Relative
+    format: general number
+    orig_uuid: 1673172359
+  - unique_name: SoldProductNDC-Order Retail445-Prev
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: SoldProductNDC-Order Retail445-Prev
+    label: 'SoldProductNDC-Order Retail445-Prev '
+    description: Order Reporting Hierarchy Previous Period Sales
+    expression: "CASE WHEN ISEMPTY([Measures].[soldproductNDC1]) \nTHEN NULL\nELSE\n\
+      ([Order Date Dimension].[Order Retail445].CurrentMember.PrevMember, [Measures].[soldproductNDC1])\n\
+      END\n                                "
+    folder: Time Relative
+    format: general number
+    orig_uuid: 2052921785
+  - unique_name: SoldProductNDC-Order Retail445-PrevPeriodGrowth
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: SoldProductNDC-Order Retail445-PrevPeriodGrowth
+    label: SoldProductNDC-Order Retail445-PrevPeriodGrowth
+    description: Order Retail 445 Growth since previous period.
+    expression: "CASE WHEN ISEMPTY([Measures].[SoldProductNDC-Order Retail445-Prev])\
+      \ OR ISEMPTY([Measures].[soldproductNDC1])\nTHEN NULL \nELSE \n([Order Date\
+      \ Dimension].[Order Retail445].CurrentMember, [Measures].[soldproductNDC1])\
+      \ - [Measures].[SoldProductNDC-Order Retail445-Prev]\nEND"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 705438719
+  - unique_name: SoldProductNDC-Order Retail445-PrevPeriodGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: SoldProductNDC-Order Retail445-PrevPeriodGrowthPct
+    label: SoldProductNDC-Order Retail445-PrevPeriodGrowthPct
+    description: Order Retail445 Previous Period Growth Percent
+    expression: |-
+      CASE WHEN ISEMPTY([Measures].[SoldProductNDC-Order Retail445-Prev]) THEN NULL
+      ELSE
+      (([Order Date Dimension].[Order Retail445].CurrentMember, [Measures].[soldproductNDC1]) - [Measures].[SoldProductNDC-Order Retail445-Prev]) / [Measures].[SoldProductNDC-Order Retail445-Prev]
+      END
+    folder: Time Relative
+    format: percent
+    orig_uuid: 1409919848
+  - unique_name: SoldProductNDC-Order Retail445-PrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: SoldProductNDC-Order Retail445-PrevYear
+    label: SoldProductNDC-Order Retail445-PrevYear
+    description: Order Sales Amount Prev Year (Retail445)
+    expression: "CASE WHEN ISEMPTY([Measures].[soldproductNDC1]) THEN \nNULL \nELSE\
+      \ (ParallelPeriod([Order Date Dimension].[Order Retail445].[Order ReportIng_Year],\
+      \ 1, [Order Date Dimension].[Order Retail445].CurrentMember), [Measures].[soldproductNDC1])\
+      \ END"
+    folder: Time Relative
+    format: general number
+    orig_uuid: 1974488534
+  - unique_name: SoldProductNDC-Order Retail445-PrevYearGrowth
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: SoldProductNDC-Order Retail445-PrevYearGrowth
+    label: SoldProductNDC-Order Retail445-PrevYearGrowth
+    description: Parallel Period Sales Growth  Since the Previous Year
+    expression: "CASE WHEN ISEMPTY([Measures].[SoldProductNDC-Order Retail445-PrevYear])\
+      \ or ISEMPTY(([Order Date Dimension].[Order Retail445].CurrentMember, [Measures].[soldproductNDC1]))\
+      \ THEN\nNULL \nELSE \n([Order Date Dimension].[Order Retail445].CurrentMember,\
+      \ [Measures].[soldproductNDC1]) - [Measures].[SoldProductNDC-Order Retail445-PrevYear]\n\
+      END\n                                "
+    folder: Time Relative
+    format: general number
+    orig_uuid: 1198666947
+  - unique_name: SoldProductNDC-Order Retail445-PrevYearGrowthPct
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: SoldProductNDC-Order Retail445-PrevYearGrowthPct
+    label: SoldProductNDC-Order Retail445-PrevYearGrowthPct
+    description: Order Retail445 Sales Amount Year-over-year growth as percent
+    expression: "CASE WHEN ISEMPTY([Measures].[SoldProductNDC-Order Retail445-PrevYear])\
+      \ THEN NULL \nELSE [Measures].[SoldProductNDC-Order Retail445-PrevYearGrowth]\
+      \ / [Measures].[SoldProductNDC-Order Retail445-PrevYear] \nEND"
+    folder: Time Relative
+    format: percent
+    orig_uuid: 730899116
+  - unique_name: SoldProductNDC-Order Retail445-YTD
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: SoldProductNDC-Order Retail445-YTD
+    label: SoldProductNDC-Order Retail445-YTD
+    description: Sales Amount Year-to-date Order Retail445
+    expression: "CASE WHEN ISEMPTY([Measures].[soldproductNDC1]) THEN NULL \nELSE\
+      \ \nSum(PeriodsToDate([Order Date Dimension].[Order Retail445].[Order ReportIng_Year],\
+      \ [Order Date Dimension].[Order Retail445].CurrentMember), [Measures].[soldproductNDC1])\
+      \ \nEND "
+    folder: Time Relative
+    format: general number
+    orig_uuid: 762980139
+  - unique_name: SoldProductNDC-Order Retail445-YTDPrevYear
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: SoldProductNDC-Order Retail445-YTDPrevYear
+    label: SoldProductNDC-Order Retail445-YTDPrevYear
+    description: 'Previous Year''s Year-to-date Sum of Sales '
+    expression: "Sum(\nPeriodsToDate([Order Date Dimension].[Order Retail445].[Order\
+      \ ReportIng_Year], ParallelPeriod([Order Date Dimension].[Order Retail445].[Order\
+      \ ReportIng_Year], 1, [Order Date Dimension].[Order Retail445].CurrentMember)),\
+      \ \n[Measures].[soldproductNDC1])\n                                "
+    folder: Time Relative
+    format: general number
+    orig_uuid: 891499749
+  - unique_name: T1
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: T1
+    label: T1
+    expression: "CASE \n    WHEN ISEMPTY([Measures].[customercountestimate1]) \n \
+      \   THEN NULL\n    ELSE \n        SUM(\n            [Order Date Dimension].[Order\
+      \ Retail445].CurrentMember.Parent.Children, \n            [Measures].[customercountestimate1]\n\
+      \        )\nEND"
+    mdx_aggregate_function: SUM
+    orig_uuid: 1607654759
+  - unique_name: T2
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: T2
+    label: T2
+    expression: "    SUM(\n        DESCENDANTS(\n            [Order Date Dimension].[Order\
+      \ Retail445].CurrentMember, \n            [Order Date Dimension].[Order Retail445].[Order\
+      \ ReportIng_Quarter], \n            SELF\n        ), \n        [Measures].[customercountestimate1]\n\
+      \    )"
+    mdx_aggregate_function: MAX
+    orig_uuid: 1690240184
+  - unique_name: Total
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: Total
+    label: Total
+    expression: "([Order Date Dimension].[Order Retail445].[All],[Measures].[customercountestimate1])"
+    mdx_aggregate_function: SUM
+    orig_uuid: 1631687166
+  - unique_name: X
+    object_type: metric_calc
+    models:
+      - Internet Sales Cube
+    unique_id: X
+    label: X
+    expression: "([Order Date Dimension].[Order Day_Date].CurrentMember,[Measures].[salesamount1])"
+    orig_uuid: 186039882
+connections:
+  - unique_name: Postgres14.connection
+    label: Postgres14
+    object_type: connection
+    as_connection: Postgres14
+    unique_id: Postgres14.connection.connection
+    database: <YOUR DATABASE>
+    schema: SalesInsights
+allQN:
+  - Average Customer Count per Order
+  - Average Est Customer Count per Order
+  - Average Last Product Unit Count per Order
+  - Average Max Tax Count per Order
+  - Average Sales Amount SD Count per Order
+  - Average Sales per Order
+  - Average Sold Product per Order
+  - calculatedtax1
+  - Color Dimension
+  - Current
+  - Customer Count-Order CustomPP445-PrevYear
+  - Customer Count-Order CustomPP445-PrevYearGrowth
+  - Customer Count-Order CustomPP445-PrevYearGrowthPct
+  - Customer Count-Order Retail445-30PrdMvAvg
+  - Customer Count-Order Retail445-30PrdMvAvgPrevYear
+  - Customer Count-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+  - Customer Count-Order Retail445-30PrdMvLowerBand
+  - Customer Count-Order Retail445-30PrdMvStdev
+  - Customer Count-Order Retail445-30PrdMvUpperBand
+  - Customer Count-Order Retail445-Next
+  - Customer Count-Order Retail445-Prev
+  - Customer Count-Order Retail445-PrevPeriodGrowth
+  - Customer Count-Order Retail445-PrevPeriodGrowthPct
+  - Customer Count-Order Retail445-PrevYear
+  - Customer Count-Order Retail445-PrevYearGrowth
+  - Customer Count-Order Retail445-PrevYearGrowthPct
+  - Customer Count-Order Retail445-YTD
+  - Customer Count-Order Retail445-YTDPrevYear
+  - Customer Dimension
+  - customercount1
+  - customercountestimate1
+  - Date Dimension
+  - DateCustom.dataset
+  - dim_geo_city.dataset
+  - dim_geo_country.dataset
+  - dim_geo_postalcode.dataset
+  - dim_geo_state.dataset
+  - dimcustomer.dataset
+  - dimgender.dataset
+  - dimorder.dataset
+  - dimproduct.dataset
+  - Estimated Customer Count-Order CustomPP445-PrevYear
+  - Estimated Customer Count-Order CustomPP445-PrevYearGrowth
+  - Estimated Customer Count-Order CustomPP445-PrevYearGrowthPct
+  - Estimated Customer Count-Order Retail445-30PrdMvAvg
+  - Estimated Customer Count-Order Retail445-30PrdMvAvgPrevYear
+  - Estimated Customer Count-Order Retail445-30PrdMvAvgPrevYearGro
+  - Estimated Customer Count-Order Retail445-30PrdMvLowerBand
+  - Estimated Customer Count-Order Retail445-30PrdMvStdev
+  - Estimated Customer Count-Order Retail445-30PrdMvUpperBand
+  - Estimated Customer Count-Order Retail445-Next
+  - Estimated Customer Count-Order Retail445-Prev
+  - Estimated Customer Count-Order Retail445-PrevPeriodGrowth
+  - Estimated Customer Count-Order Retail445-PrevPeriodGrowthPct
+  - Estimated Customer Count-Order Retail445-PrevYear
+  - Estimated Customer Count-Order Retail445-PrevYearGrowth
+  - Estimated Customer Count-Order Retail445-PrevYearGrowthPct
+  - Estimated Customer Count-Order Retail445-YTD
+  - Estimated Customer Count-Order Retail445-YTDPrevYear
+  - factinternetsales.dataset
+  - Gender Dimension
+  - Geography Dimension
+  - Internet Sales Cube
+  - Last Product Unit Price-Order CustomPP445-PrevYear
+  - Last Product Unit Price-Order CustomPP445-PrevYearGrowth
+  - Last Product Unit Price-Order CustomPP445-PrevYearGrowthPct
+  - Last Product Unit Price-Order Retail445-30PrdMvAvg
+  - Last Product Unit Price-Order Retail445-30PrdMvAvgPrevYear
+  - Last Product Unit Price-Order Retail445-30PrdMvAvgPrevYearGrow
+  - Last Product Unit Price-Order Retail445-30PrdMvLowerBand
+  - Last Product Unit Price-Order Retail445-30PrdMvStdev
+  - Last Product Unit Price-Order Retail445-30PrdMvUpperBand
+  - Last Product Unit Price-Order Retail445-Next
+  - Last Product Unit Price-Order Retail445-Prev
+  - Last Product Unit Price-Order Retail445-PrevPeriodGrowth
+  - Last Product Unit Price-Order Retail445-PrevPeriodGrowthPct
+  - Last Product Unit Price-Order Retail445-PrevYear
+  - Last Product Unit Price-Order Retail445-PrevYearGrowth
+  - Last Product Unit Price-Order Retail445-PrevYearGrowthPct
+  - Last Product Unit Price-Order Retail445-YTD
+  - Last Product Unit Price-Order Retail445-YTDPrevYear
+  - lastproductunitprice
+  - Max Tax Amount-Order CustomPP445-PrevYear
+  - Max Tax Amount-Order CustomPP445-PrevYearGrowth
+  - Max Tax Amount-Order CustomPP445-PrevYearGrowthPct
+  - Max Tax Amount-Order Retail445-30PrdMvAvg
+  - Max Tax Amount-Order Retail445-30PrdMvAvgPrevYear
+  - Max Tax Amount-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+  - Max Tax Amount-Order Retail445-30PrdMvLowerBand
+  - Max Tax Amount-Order Retail445-30PrdMvStdev
+  - Max Tax Amount-Order Retail445-30PrdMvUpperBand
+  - Max Tax Amount-Order Retail445-Next
+  - Max Tax Amount-Order Retail445-Prev
+  - Max Tax Amount-Order Retail445-PrevPeriodGrowth
+  - Max Tax Amount-Order Retail445-PrevPeriodGrowthPct
+  - Max Tax Amount-Order Retail445-PrevYear
+  - Max Tax Amount-Order Retail445-PrevYearGrowth
+  - Max Tax Amount-Order Retail445-PrevYearGrowthPct
+  - Max Tax Amount-Order Retail445-YTD
+  - Max Tax Amount-Order Retail445-YTDPrevYear
+  - maxOrderDate
+  - maxtaxamount1
+  - MinOrderDate
+  - Order Dimension
+  - orderquantity1
+  - Product Dimension
+  - Retail445 Last Year
+  - Retail445 Year to Date
+  - Sales Amount SStdev-Order CustomPP445-PrevYear
+  - Sales Amount SStdev-Order CustomPP445-PrevYearGrowth
+  - Sales Amount SStdev-Order CustomPP445-PrevYearGrowthPct
+  - Sales Amount SStdev-Order Retail445-30PrdMvAvg
+  - Sales Amount SStdev-Order Retail445-30PrdMvAvgPrevYear
+  - Sales Amount SStdev-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+  - Sales Amount SStdev-Order Retail445-30PrdMvLowerBand
+  - Sales Amount SStdev-Order Retail445-30PrdMvStdev
+  - Sales Amount SStdev-Order Retail445-30PrdMvUpperBand
+  - Sales Amount SStdev-Order Retail445-Next
+  - Sales Amount SStdev-Order Retail445-Prev
+  - Sales Amount SStdev-Order Retail445-PrevPeriodGrowth
+  - Sales Amount SStdev-Order Retail445-PrevPeriodGrowthPct
+  - Sales Amount SStdev-Order Retail445-PrevYear
+  - Sales Amount SStdev-Order Retail445-PrevYearGrowth
+  - Sales Amount SStdev-Order Retail445-PrevYearGrowthPct
+  - Sales Amount SStdev-Order Retail445-YTD
+  - Sales Amount SStdev-Order Retail445-YTDPrevYear
+  - Sales Amount-Order CustomPP445-PrevYear
+  - Sales Amount-Order CustomPP445-PrevYearGrowth
+  - Sales Amount-Order CustomPP445-PrevYearGrowthPct
+  - Sales Amount-Order Retail445-30PrdMvAvg
+  - Sales Amount-Order Retail445-30PrdMvAvgPrevYear
+  - Sales Amount-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+  - Sales Amount-Order Retail445-30PrdMvLowerBand
+  - Sales Amount-Order Retail445-30PrdMvStdev
+  - Sales Amount-Order Retail445-30PrdMvUpperBand
+  - Sales Amount-Order Retail445-Next
+  - Sales Amount-Order Retail445-Prev
+  - Sales Amount-Order Retail445-PrevPeriodGrowth
+  - Sales Amount-Order Retail445-PrevPeriodGrowthPct
+  - Sales Amount-Order Retail445-PrevYear
+  - Sales Amount-Order Retail445-PrevYearGrowth
+  - Sales Amount-Order Retail445-PrevYearGrowthPct
+  - Sales Amount-Order Retail445-YTD
+  - Sales Amount-Order Retail445-YTDPrevYear
+  - salesamount1
+  - salesamountAvg1
+  - salesamountsstdev1
+  - Size Dimension
+  - SoldProductNDC-Order CustomPP445-PrevYear
+  - SoldProductNDC-Order CustomPP445-PrevYearGrowth
+  - SoldProductNDC-Order CustomPP445-PrevYearGrowthPct
+  - SoldProductNDC-Order Retail445-30PrdMvAvg
+  - SoldProductNDC-Order Retail445-30PrdMvAvgPrevYear
+  - SoldProductNDC-Order Retail445-30PrdMvAvgPrevYearGrowthPct
+  - SoldProductNDC-Order Retail445-30PrdMvLowerBand
+  - SoldProductNDC-Order Retail445-30PrdMvStdev
+  - SoldProductNDC-Order Retail445-30PrdMvUpperBand
+  - SoldProductNDC-Order Retail445-Next
+  - SoldProductNDC-Order Retail445-Prev
+  - SoldProductNDC-Order Retail445-PrevPeriodGrowth
+  - SoldProductNDC-Order Retail445-PrevPeriodGrowthPct
+  - SoldProductNDC-Order Retail445-PrevYear
+  - SoldProductNDC-Order Retail445-PrevYearGrowth
+  - SoldProductNDC-Order Retail445-PrevYearGrowthPct
+  - SoldProductNDC-Order Retail445-YTD
+  - SoldProductNDC-Order Retail445-YTDPrevYear
+  - soldproductNDC1
+  - Style Dimension
+  - T1
+  - T2
+  - Total
+  - Weight
+  - X

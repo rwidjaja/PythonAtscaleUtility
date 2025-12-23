@@ -1,8 +1,10 @@
 # [file name]: git_data_manager.py
-# [file content begin]
+
 import threading
+import queue
 import tkinter as tk
 from common import append_log
+
 
 class GitDataManager:
     def __init__(self, config, log_ref_container, right_listbox, migration_ops):
@@ -10,54 +12,89 @@ class GitDataManager:
         self.log_ref_container = log_ref_container
         self.right_listbox = right_listbox
         self.migration_ops = migration_ops
-        self._selected_repo_names = set()  # Track selected repos by name
+
+        self._selected_repo_names = set()   # Track selected repos by name
+        self._ui_queue = queue.Queue()      # Thread-safe UI communication queue
+        self._polling_started = False
 
     def load_git_repositories(self):
         """Load only repositories that contain catalog.yml (non-blocking)."""
+
+        # --- UI updates MUST happen on main thread ---
+        self.right_listbox.delete(0, tk.END)
+        append_log(
+            self.log_ref_container[0],
+            "Filtering repositories for catalog.yml..."
+        )
+
+        # Start UI queue polling once
+        if not self._polling_started:
+            self._polling_started = True
+            self.right_listbox.after(100, self._process_ui_queue)
+
+        def worker():
+            """Background thread: NO Tkinter calls allowed here"""
+            try:
+                git_ops = getattr(self.migration_ops, "git_ops", None)
+
+                if git_ops is None:
+                    try:
+                        from api.git_operations import GitOperations
+                    except Exception:
+                        from api.git import GitOperations
+
+                    cfg = getattr(
+                        self.migration_ops,
+                        "config",
+                        getattr(self, "config", {})
+                    )
+                    git_ops = GitOperations(cfg)
+
+                matched = git_ops.get_repos_with_catalog(
+                    use_threads=True,
+                    max_workers=8
+                )
+
+                # Send success result to main thread
+                self._ui_queue.put(("success", matched))
+
+            except Exception as e:
+                # Send error to main thread
+                self._ui_queue.put(("error", str(e)))
+
+        # Start background worker
+        threading.Thread(target=worker, daemon=True).start()
+
+    def _process_ui_queue(self):
+        """Process queued UI updates on the main Tk thread"""
         try:
-            # Clear UI and show temporary status
-            self.right_listbox.delete(0, tk.END)
-            append_log(self.log_ref_container[0], "Filtering repositories for catalog.yml...")
+            while True:
+                msg_type, payload = self._ui_queue.get_nowait()
 
-            def worker():
-                try:
-                    # Prefer an existing GitOperations instance on migration_ops if present
-                    git_ops = getattr(self.migration_ops, "git_ops", None)
+                if msg_type == "success":
+                    self.right_listbox.delete(0, tk.END)
 
-                    # Fallback: import and create GitOperations if migration_ops doesn't expose one
-                    if git_ops is None:
-                        try:
-                            from api.git_operations import GitOperations
-                        except Exception:
-                            # try alternate module path if needed
-                            from api.git import GitOperations
-                        cfg = getattr(self.migration_ops, "config", getattr(self, "config", {}))
-                        git_ops = GitOperations(cfg)
+                    for repo in payload:
+                        self.right_listbox.insert(tk.END, repo)
 
-                    # This performs the catalog.yml checks (concurrent by default)
-                    matched = git_ops.get_repos_with_catalog(use_threads=True, max_workers=8)
+                    append_log(
+                        self.log_ref_container[0],
+                        f"Loaded {len(payload)} Git repositories containing catalog.yml"
+                    )
 
-                    # Update UI on main thread
-                    def on_main_thread():
-                        self.right_listbox.delete(0, tk.END)
-                        for repo in matched:
-                            self.right_listbox.insert(tk.END, repo)
-                        append_log(self.log_ref_container[0], f"Loaded {len(matched)} Git repositories containing catalog.yml")
-                        self._restore_selection()
+                    self._restore_selection()
 
-                    # schedule UI update
-                    self.right_listbox.after(0, on_main_thread)
+                elif msg_type == "error":
+                    append_log(
+                        self.log_ref_container[0],
+                        f"Error filtering repositories: {payload}"
+                    )
 
-                except Exception as e:
-                    # Ensure any errors are reported on the main thread
-                    self.right_listbox.after(0, lambda: append_log(self.log_ref_container[0], f"Error filtering repositories: {e}"))
+        except queue.Empty:
+            pass
 
-            # Start background worker
-            t = threading.Thread(target=worker, daemon=True)
-            t.start()
-
-        except Exception as e:
-            append_log(self.log_ref_container[0], f"Error starting repository load: {e}")
+        # Continue polling
+        self.right_listbox.after(100, self._process_ui_queue)
 
     def refresh_git_repositories(self):
         """Refresh the Git repositories list"""
@@ -68,7 +105,7 @@ class GitDataManager:
         """Save current selection state"""
         selected_indices = self.right_listbox.curselection()
         self._selected_repo_names.clear()
-        
+
         for index in selected_indices:
             repo_name = self.right_listbox.get(index)
             self._selected_repo_names.add(repo_name)
@@ -77,7 +114,7 @@ class GitDataManager:
         """Restore selection after refresh"""
         if not self._selected_repo_names:
             return
-            
+
         for index in range(self.right_listbox.size()):
             repo_name = self.right_listbox.get(index)
             if repo_name in self._selected_repo_names:
@@ -87,4 +124,3 @@ class GitDataManager:
         """Get list of selected repository names"""
         selected_indices = self.right_listbox.curselection()
         return [self.right_listbox.get(i) for i in selected_indices]
-# [file content end]

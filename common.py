@@ -1,7 +1,8 @@
-# common.py
+# common.py (add these functions)
 import os, json, requests, urllib3
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, messagebox
+from typing import List, Dict, Any, Optional
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -10,23 +11,24 @@ CONFIG_PATH = os.path.join(os.path.dirname(__file__), "config.json")
 
 # --- UI helpers ---
 def append_log(text_widget, message):
+    """Append message to log widget"""
     text_widget.insert("end", message + "\n")
     if int(text_widget.index("end-1c").split(".")[0]) > MAX_LOG_LINES:
         text_widget.delete("1.0", "2.0")
     text_widget.see("end")
 
 def get_instance_type():
-    """Return the instance_type from config.json (installer or container)."""
+    """Return the instance_type from config.json"""
     config = load_config()
     return config.get("instance_type", "installer")
 
 def get_credentials():
-    """Return username and password from config.json."""
+    """Return username and password from config.json"""
     config = load_config()
     return config["username"], config["password"]
 
-
 def make_tab_with_log(notebook, title, content_builder, log_ref_container):
+    """Create a tab with content area and log area"""
     frame = ttk.Frame(notebook, padding=12)
     notebook.add(frame, text=title)
 
@@ -59,6 +61,7 @@ def make_tab_with_log(notebook, title, content_builder, log_ref_container):
 
 # --- Config + JWT helpers ---
 def load_config():
+    """Load configuration from config.json"""
     with open(CONFIG_PATH, "r", encoding="utf-8") as f:
         return json.load(f)
 
@@ -75,12 +78,12 @@ def get_jwt(force_refresh=False):
 
     config = load_config()
     host = config["host"]
-    org = config["organization"]
     username = config["username"]
     password = config["password"]
 
     if config.get("instance_type") == "installer":
         # Installer flow
+        org = config["organization"]
         url = f"https://{host}:10500/{org}/auth"
         resp = requests.get(url, auth=(username, password), verify=False, timeout=15)
         resp.raise_for_status()
@@ -104,3 +107,24 @@ def get_jwt(force_refresh=False):
         raise ValueError(f"Unknown instance_type: {config.get('instance_type')}")
 
     return _jwt_cache
+
+def clear_jwt_cache():
+    """Clear the cached JWT token"""
+    global _jwt_cache
+    _jwt_cache = None
+
+def show_error(message):
+    """Show error message box"""
+    messagebox.showerror("Error", message)
+
+def show_info(message):
+    """Show info message box"""
+    messagebox.showinfo("Information", message)
+
+def show_warning(message):
+    """Show warning message box"""
+    messagebox.showwarning("Warning", message)
+
+def confirm_dialog(title, message):
+    """Show confirmation dialog"""
+    return messagebox.askyesno(title, message)
