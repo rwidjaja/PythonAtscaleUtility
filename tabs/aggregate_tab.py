@@ -2,7 +2,6 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
 import threading
-import tkinter.simpledialog as sd
 from typing import Dict, List
 
 from common import append_log, confirm_dialog
@@ -72,7 +71,7 @@ class AggregateTab:
         row1_buttons = [
             ("Rebuild Cube", self.rebuild_cube),
             ("List Aggregates", self.list_aggregates),
-            ("Activate", self.activate_selected),
+            ("Unblock", self.unblock_selected),
         ]
         
         for i, (text, command) in enumerate(row1_buttons):
@@ -81,7 +80,7 @@ class AggregateTab:
         
         # Second row of buttons
         row2_buttons = [
-            ("Deactivate", self.deactivate_selected),
+            ("Block", self.block_selected),
             ("Report", self.generate_report),
             ("History", self.show_build_history),
         ]
@@ -225,6 +224,11 @@ class AggregateTab:
                 rows = stats.get("number_of_rows", 0)
                 build_time = stats.get("build_duration", 0)
                 
+                # Check if aggregate is blocked
+                is_blocked = agg.get("blocked", False)
+                if is_blocked and status == "invalid":
+                    status = "BLOCKED"
+                
                 # Format build time
                 build_time_str = f"{build_time}ms"
                 if build_time > 1000:
@@ -243,7 +247,12 @@ class AggregateTab:
             # Update GUI in main thread
             self._safe_gui_update(lambda: self._update_aggregates_tree(tree_data))
             
-            self.log(f"✓ Loaded {len(aggregates_data)} aggregates")
+            # Count blocked aggregates
+            blocked_count = sum(1 for agg in aggregates_data if agg.get("blocked", False))
+            if blocked_count > 0:
+                self.log(f"✓ Loaded {len(aggregates_data)} aggregates ({blocked_count} blocked)")
+            else:
+                self.log(f"✓ Loaded {len(aggregates_data)} aggregates")
             
         except Exception as e:
             self.log(f"✗ Error listing aggregates: {e}")
@@ -255,57 +264,172 @@ class AggregateTab:
         self.details_text.delete(1.0, tk.END)
         self.details_text.insert(tk.END, f"Found {len(tree_data)} aggregates for {self.selected_cube['cube_name']}")
     
-    def activate_selected(self):
-        """Activate selected aggregates"""
+    def unblock_selected(self):
+        """Unblock selected aggregates"""
         selected = self.aggregates_tree.get_selected_aggregates()
         if not selected:
-            messagebox.showwarning("No Selection", "Please select aggregates to activate.")
+            messagebox.showwarning("No Selection", "Please select aggregates to unblock.")
             return
         
-        if confirm_dialog("Confirm Activation", f"Activate {len(selected)} aggregates?"):
-            thread = threading.Thread(target=self._activate_thread, args=(selected,), daemon=True)
+        # Check if aggregates have instance IDs
+        aggregates_without_instances = []
+        for agg in selected:
+            full_data = agg.get("full_data", {})
+            latest_instance = full_data.get("latest_instance", {})
+            if not latest_instance.get("id"):
+                aggregates_without_instances.append(agg.get("name", "Unknown"))
+        
+        if aggregates_without_instances:
+            messagebox.showwarning(
+                "Cannot Unblock", 
+                f"The following aggregates don't have instance IDs and cannot be unblocked:\n" +
+                "\n".join(aggregates_without_instances)
+            )
+            return
+        
+        if confirm_dialog("Confirm Unblock", f"Unblock {len(selected)} aggregates?"):
+            thread = threading.Thread(target=self._unblock_thread, args=(selected,), daemon=True)
             thread.start()
     
-    def _activate_thread(self, selected):
-        """Thread function for activation"""
+# tabs/aggregate_tab.py (only showing the _unblock_thread method - rest is the same)
+
+    def _unblock_thread(self, selected):
+        """Thread function for unblocking - now makes TWO API calls per aggregate"""
         try:
-            aggregate_ids = [agg["id"] for agg in selected]
-            results = self.operations.activate_aggregates(aggregate_ids)
+            results = self.operations.unblock_aggregates(selected)
             
-            success_count = sum(1 for r in results if r["status"] == "success")
-            self.log(f"✓ Activated {success_count}/{len(selected)} aggregates")
+            # Categorize results
+            success_updated = []
+            success_completed = []
+            success_already = []
+            errors = []
+            
+            for result in results:
+                status = result.get("status")
+                if status == "success":
+                    if result.get("already_unblocked"):
+                        success_already.append(result)
+                    elif result.get("updated"):
+                        success_updated.append(result)
+                    else:
+                        success_completed.append(result)
+                elif status == "error":
+                    errors.append(result)
+            
+            # Report results
+            if success_updated:
+                self.log(f"✓ Successfully unblocked {len(success_updated)} aggregates (updated)")
+                for result in success_updated:
+                    agg_name = result.get("name", result.get("definition_id", "Unknown"))
+                    self.log(f"  ✓ {agg_name}: {result.get('message', 'Unblocked')}")
+            
+            if success_completed:
+                self.log(f"✓ Completed unblock for {len(success_completed)} aggregates (confirmed)")
+                for result in success_completed:
+                    agg_name = result.get("name", result.get("definition_id", "Unknown"))
+                    self.log(f"  ✓ {agg_name}: {result.get('message', 'Unblock completed')}")
+            
+            if success_already:
+                self.log(f"✓ {len(success_already)} aggregates were already unblocked")
+                for result in success_already:
+                    agg_name = result.get("name", result.get("definition_id", "Unknown"))
+                    self.log(f"  ✓ {agg_name}: {result.get('message', 'Already active')}")
+            
+            if errors:
+                self.log(f"✗ Failed to unblock {len(errors)} aggregates")
+                for result in errors:
+                    agg_name = result.get("name", result.get("definition_id", "Unknown"))
+                    error_msg = result.get("error", "Unknown error")
+                    self.log(f"  ✗ {agg_name}: {error_msg}")
             
             # Refresh the list to show updated status
             self.list_aggregates()
             
         except Exception as e:
-            self.log(f"✗ Error activating aggregates: {e}")
+            self.log(f"✗ Error unblocking aggregates: {e}")
     
-    def deactivate_selected(self):
-        """Deactivate selected aggregates"""
+    def block_selected(self):
+        """Block selected aggregates"""
         selected = self.aggregates_tree.get_selected_aggregates()
         if not selected:
-            messagebox.showwarning("No Selection", "Please select aggregates to deactivate.")
+            messagebox.showwarning("No Selection", "Please select aggregates to block.")
             return
         
-        if confirm_dialog("Confirm Deactivation", f"Deactivate {len(selected)} aggregates?"):
-            thread = threading.Thread(target=self._deactivate_thread, args=(selected,), daemon=True)
+        # Check if aggregates have instance IDs
+        aggregates_without_instances = []
+        for agg in selected:
+            full_data = agg.get("full_data", {})
+            latest_instance = full_data.get("latest_instance", {})
+            if not latest_instance.get("id"):
+                aggregates_without_instances.append(agg.get("name", "Unknown"))
+        
+        if aggregates_without_instances:
+            messagebox.showwarning(
+                "Cannot Block", 
+                f"The following aggregates don't have instance IDs and cannot be blocked:\n" +
+                "\n".join(aggregates_without_instances)
+            )
+            return
+        
+        if confirm_dialog("Confirm Block", f"Block {len(selected)} aggregates?\nThis will prevent queries from using these aggregates."):
+            thread = threading.Thread(target=self._block_thread, args=(selected,), daemon=True)
             thread.start()
     
-    def _deactivate_thread(self, selected):
-        """Thread function for deactivation"""
+    def _block_thread(self, selected):
+        """Thread function for blocking"""
         try:
-            aggregate_ids = [agg["id"] for agg in selected]
-            results = self.operations.deactivate_aggregates(aggregate_ids)
+            results = self.operations.block_aggregates(selected)
             
-            success_count = sum(1 for r in results if r["status"] == "success")
-            self.log(f"✓ Deactivated {success_count}/{len(selected)} aggregates")
+            # Categorize results
+            success_blocked = []
+            success_already = []
+            warnings = []
+            errors = []
+            
+            for result in results:
+                status = result.get("status")
+                if status == "success":
+                    if result.get("deleted"):
+                        success_blocked.append(result)
+                    else:
+                        success_already.append(result)
+                elif status == "warning":
+                    warnings.append(result)
+                elif status == "error":
+                    errors.append(result)
+            
+            # Report results
+            if success_blocked:
+                self.log(f"✓ Successfully blocked {len(success_blocked)} aggregates")
+                for result in success_blocked:
+                    agg_name = result.get("name", result.get("definition_id", "Unknown"))
+                    self.log(f"  ✓ {agg_name}: {result.get('message', 'Blocked')}")
+            
+            if success_already:
+                self.log(f"✓ {len(success_already)} aggregates were already blocked")
+                for result in success_already:
+                    agg_name = result.get("name", result.get("definition_id", "Unknown"))
+                    self.log(f"  ✓ {agg_name}: {result.get('message', 'Already blocked')}")
+            
+            if warnings:
+                self.log(f"⚠ {len(warnings)} aggregates had warnings")
+                for result in warnings:
+                    agg_name = result.get("name", result.get("definition_id", "Unknown"))
+                    warning_msg = result.get("message", "Unknown warning")
+                    self.log(f"  ⚠ {agg_name}: {warning_msg}")
+            
+            if errors:
+                self.log(f"✗ Failed to block {len(errors)} aggregates")
+                for result in errors:
+                    agg_name = result.get("name", result.get("definition_id", "Unknown"))
+                    error_msg = result.get("error", "Unknown error")
+                    self.log(f"  ✗ {agg_name}: {error_msg}")
             
             # Refresh the list to show updated status
             self.list_aggregates()
             
         except Exception as e:
-            self.log(f"✗ Error deactivating aggregates: {e}")
+            self.log(f"✗ Error blocking aggregates: {e}")
     
     def generate_report(self):
         """Generate aggregate report"""
@@ -324,7 +448,7 @@ class AggregateTab:
         # Create dialog window
         dialog = tk.Toplevel(self.parent)
         dialog.title("Select Report Type")
-        dialog.geometry("300x300")
+        dialog.geometry("300x280")
         dialog.transient(self.parent)
         dialog.grab_set()
         
